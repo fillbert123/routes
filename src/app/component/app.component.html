@@ -1,0 +1,18 @@
+<main class="main">
+  <div *ngIf="corridorList">
+    <div 
+      *ngFor="let corridor of corridorList"
+      class="corridorList"
+    >
+      <div 
+        [ngStyle]="{ 'background-color': getCorridorColor(corridor.corridorColor) }"
+        class="corridorList__icon"
+      >
+        <p>{{ corridor.corridorIcon }}</p>
+      </div>
+      <p>{{ corridor.corridorName }}</p>
+    </div>
+  </div>
+</main>
+
+<router-outlet />

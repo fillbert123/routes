@@ -10,6 +10,14 @@ export class FirebaseService {
   addBusStop(id: string, data: any) {
     return this.firestore.collection('busStop').doc(id).set(data);
   }
+
+  addBusStopDetail(id: string, data: any) {
+    return this.firestore.collection('busStopDetail').doc(id).set(data);
+  }
+
+  addCorridor(id: string, data: any) {
+    return this.firestore.collection('corridor').doc(id).set(data);
+  }
   
   getBusStopList() {
     return this.firestore.collection('busStop').snapshotChanges();
