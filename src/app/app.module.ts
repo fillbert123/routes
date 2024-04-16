@@ -8,6 +8,9 @@ import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { KeysPipe } from './pipe/keys.pipe';
+import { CorridorListComponent } from './component/corridor-list/corridor-list.component';
+import { CorridorIconComponent } from './component/corridor-icon/corridor-icon.component';
+import { BottomsheetComponent } from './component/bottomsheet/bottomsheet.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC4815XN4YxsnwapctCLIMgSyPOicU2_Y8",
@@ -21,7 +24,10 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    KeysPipe
+    KeysPipe,
+    CorridorListComponent,
+    CorridorIconComponent,
+    BottomsheetComponent
   ],
   imports: [
     BrowserModule,
