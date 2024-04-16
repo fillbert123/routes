@@ -1,21 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../service/firebase.service';
+import { DocumentChange, DocumentData } from '@angular/fire/firestore';
+import { combineLatest } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: [
+    '../../styles.scss',
+    './app.component.scss'
+  ]
 })
 export class AppComponent {
   title = 'reykjavik';
   items: any[] = [];
   busStop: any;
   corridorList: any[] = [];
+  busStopDetailList: any[] = [];
+  busStopList: any[] = [];
 
   constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit(): void {
     this.getCorridorList();
+    // this.getBusStopDetailList();
+    // this.getBusStopList();
     // this.getItemsFromFirebase();
     // this.getItemFromFirebase();
     // this.pushItemToFirebase();
@@ -24,18 +34,101 @@ export class AppComponent {
     // this.addStopDetailToFirebase();
   }
 
-  getCorridorList() {
+  async getCorridorList() {
     this.firebaseService.getCorridorList().subscribe((data) => {
       this.corridorList = data.map((corridor: any) => {
         return {
           id: corridor.payload.doc.id, ...(corridor.payload.doc.data() as object)
-        };
-      });
-    });
+        }
+      })
+    })
   }
 
-  getCorridorColor(color: string) {
-    return `var(--${color})`
+  getBusStopDetailList() {
+    this.firebaseService.getBusStopDetailList().subscribe((data) => {
+      this.busStopDetailList = data.map((busStopDetail: any) => {
+        return {
+          id: busStopDetail.payload.doc.id, ...(busStopDetail.payload.doc.data() as object)
+        }
+      })
+    })
+  }
+
+  getBusStopList() {
+    this.firebaseService.getBusStopList().subscribe((data) => {
+      this.busStopList = data.map((busStop: any) => {
+        return {
+          id: busStop.payload.doc.id, ...(busStop.payload.doc.data() as object)
+        }
+      })
+    })
+  }
+  
+  pushItemToFirebase() {
+    // const id = 'STP015';
+    // const data = {
+    //   busStopName: 'Ddslfjdlks'
+    // }
+    
+    // const bsId = [
+    //   'STP001', 'STP002', 'STP003', 'STP004', 'STP005', 'STP006', 'STP007', 'STP008', 'STP009', 'STP010', 'STP011', 'STP012', 'STP013', 'STP014', 'STP015', 'STP016', 'STP017', 'STP018', 'STP019', 'STP020', 'STP021', 'STP022', 'STP023', 'STP024', 'STP025', 'STP026', 'STP027', 'STP028', 'STP029', 'STP030', 'STP031', 'STP032', 'STP033', 'STP034', 'STP035', 'STP036', 'STP037', 'STP038', 'STP039', 'STP040', 'STP041', 'STP042', 'STP043', 'STP044', 'STP045', 'STP046', 'STP047', 'STP048', 'STP049', 'STP050', 'STP051', 'STP052', 'STP053', 'STP054', 'STP055', 'STP056', 'STP057', 'STP058', 'STP059', 'STP060', 'STP061', 'STP062', 'STP063', 'STP064', 'STP065', 'STP066', 'STP067', 'STP068', 'STP069', 'STP070', 'STP071', 'STP072', 'STP073', 'STP074', 'STP075', 'STP076', 'STP077', 'STP078', 'STP079', 'STP080', 'STP081', 'STP082', 'STP083', 'STP084', 'STP085', 'STP086', 'STP087', 'STP088', 'STP089', 'STP090', 'STP091', 'STP092', 'STP093', 'STP094', 'STP095', 'STP096', 'STP097', 'STP098', 'STP099', 'STP100', 'STP101', 'STP102', 'STP103', 'STP104', 'STP105', 'STP106', 'STP107', 'STP108', 'STP109', 'STP110', 'STP111', 'STP112', 'STP113', 'STP114', 'STP115', 'STP116', 'STP117', 'STP118', 'STP119', 'STP120', 'STP121', 'STP122', 'STP123', 'STP124', 'STP125', 'STP126', 'STP127', 'STP128', 'STP129', 'STP130', 'STP131', 'STP132', 'STP133', 'STP134', 'STP135', 'STP136', 'STP137', 'STP138', 'STP139', 'STP140', 'STP141', 'STP142', 'STP143', 'STP144', 'STP145', 'STP146', 'STP147', 'STP148', 'STP149', 'STP150', 'STP151', 'STP152', 'STP153', 'STP154', 'STP155', 'STP156', 'STP157', 'STP158', 'STP159', 'STP160', 'STP161', 'STP162', 'STP163', 'STP164', 'STP165', 'STP166', 'STP167', 'STP168', 'STP169', 'STP170', 'STP171', 'STP172', 'STP173', 'STP174', 'STP175', 'STP176', 'STP177', 'STP178', 'STP179', 'STP180', 'STP181', 'STP182', 'STP183', 'STP184', 'STP185', 'STP186', 'STP187', 'STP188', 'STP189', 'STP190', 'STP191', 'STP192', 'STP193', 'STP194', 'STP195', 'STP196', 'STP197', 'STP198', 'STP199', 'STP200', 'STP201', 'STP202', 'STP203', 'STP204', 'STP205', 'STP206', 'STP207', 'STP208', 'STP209', 'STP210', 'STP211', 'STP212', 'STP213', 'STP214', 'STP215', 'STP216', 'STP217', 'STP218', 'STP219', 'STP220', 'STP221', 'STP222', 'STP223', 'STP224', 'STP225', 'STP226', 'STP227', 'STP228', 'STP229'
+    // ];
+    // const bsData = [
+    //   {busStopName: 'Blok M'}, {busStopName: 'Kejaksaan Agung'}, {busStopName: 'Masjid Agung'}, {busStopName: 'Bundaran Senayan'}, {busStopName: 'Gelora Bung Karno'}, {busStopName: 'Polda'}, {busStopName: 'Bendungan Hilir'}, {busStopName: 'Karet'}, {busStopName: 'Dukuh Atas'}, {busStopName: 'Tosari'}, {busStopName: 'Bundaran HI'}, {busStopName: 'MH Thamrin'}, {busStopName: 'Kebon Sirih'}, {busStopName: 'Monumen Nasional'}, {busStopName: 'Harmoni'}, {busStopName: 'Sawah Besar'}, {busStopName: 'Mangga Besar'}, {busStopName: 'Taman Sari'}, {busStopName: 'Glodok'}, {busStopName: 'Kota'}, {busStopName: 'Kali Besar'}, {busStopName: 'Museum Sejarah Jakarta'}, {busStopName: 'Pulo Gadung'}, {busStopName: 'Bermis'}, {busStopName: 'Pulo Mas'}, {busStopName: 'Perintis Kemerdekaan'}, {busStopName: 'Pedongkelan'}, {busStopName: 'Cempaka Mas'}, {busStopName: 'Sumur Batu'}, {busStopName: 'Cempaka Baru'}, {busStopName: 'Pasar Cempaka Putih'}, {busStopName: 'Rawa Selatan'}, {busStopName: 'Galur'}, {busStopName: 'Pasar Senen'}, {busStopName: 'Senen Raya'}, {busStopName: 'RSPAD'}, {busStopName: 'Pejambon'}, {busStopName: 'Gambir'}, {busStopName: 'Istiqlal'}, {busStopName: 'Juanda'}, {busStopName: 'Pecenongan'}, {busStopName: 'Balai Kota'}, {busStopName: 'Gambir 2'}, {busStopName: 'Kwitang'}, {busStopName: 'Petojo'}, {busStopName: 'Roxy'}, {busStopName: 'Grogol'}, {busStopName: 'Jelambar'}, {busStopName: 'Damai'}, {busStopName: 'Taman Kota'}, {busStopName: 'Jembatan Gantung'}, {busStopName: 'Pulo Nangka'}, {busStopName: 'Jembatan Baru'}, {busStopName: 'Rawa Buaya'}, {busStopName: 'Sumur Bor'}, {busStopName: 'Pesakih'}, {busStopName: 'Kalideres'}, {busStopName: 'Grogol Reformasi'}, {busStopName: 'Tanjung Duren'}, {busStopName: 'Kota Bambu'}, {busStopName: 'Kemanggisan'}, {busStopName: 'Petamburan'}, {busStopName: 'Senayan'}, {busStopName: 'Pasar Pulo Gadung'}, {busStopName: 'Pemuda Merdeka'}, {busStopName: 'Layur'}, {busStopName: 'Pemuda Rawamangun'}, {busStopName: 'Velodrome'}, {busStopName: 'Kayu Jati'}, {busStopName: 'Rawamangun'}, {busStopName: 'Simpang Pramuka'}, {busStopName: 'Pramuka Sari'}, {busStopName: 'Utan Kayu'}, {busStopName: 'Pasar Genjing'}, {busStopName: 'Flyover Pramuka'}, {busStopName: 'Manggarai'}, {busStopName: 'Pasar Rumput'}, {busStopName: 'Halimun'}, {busStopName: 'Galunggung'}, {busStopName: 'Flyover Kuningan'}, {busStopName: 'Setiabudi'}, {busStopName: 'Kuningan Madya'}, {busStopName: 'Karet Kuningan'}, {busStopName: 'Rasuna Said'}, {busStopName: 'Kuningan'}, {busStopName: 'Patra Kuningan'}, {busStopName: 'Ancol'}, {busStopName: 'Pademangan'}, {busStopName: 'Gunung Sahari'}, {busStopName: 'Jembatan Merah'}, {busStopName: 'Pasar Baru Timur'}, {busStopName: 'Lapangan Banteng'}, {busStopName: 'Senen Sentral'}, {busStopName: 'Pal Putih'}, {busStopName: 'Kramat Sentiong'}, {busStopName: 'Salemba'}, {busStopName: 'Paseban'}, {busStopName: 'Matraman'}, {busStopName: 'Tegalan'}, {busStopName: 'Kesatrian'}, {busStopName: 'Matraman Baru'}, {busStopName: 'Bali Mester'}, {busStopName: 'Jatinegara'}, {busStopName: 'Kampung Melayu'}, {busStopName: 'Bidara Cina'}, {busStopName: 'Gelanggang Remaja'}, {busStopName: 'Cawang Baru'}, {busStopName: 'Cawang'}, {busStopName: 'Cawang Sentral'}, {busStopName: 'Cawang Cililitan'}, {busStopName: 'PGC'}, {busStopName: 'Cililitan'}, {busStopName: 'Ragunan'}, {busStopName: 'Simpang Ragunan'}, {busStopName: 'Jati Barat'}, {busStopName: 'Jati Padang'}, {busStopName: 'Pejaten'}, {busStopName: 'Buncit Indah'}, {busStopName: 'Warung Jati'}, {busStopName: 'Warung Buncit'}, {busStopName: 'Duren Tiga'}, {busStopName: 'Mampang Prapatan'}, {busStopName: 'Underpass Kuningan'}, {busStopName: 'Denpasar'}, {busStopName: 'Widya Chandra'}, {busStopName: 'Semanggi'}, {busStopName: 'Tegal Mampang'}, {busStopName: 'Rawa Barat'}, {busStopName: 'Pasar Santa'}, {busStopName: 'Kampung Rambutan'}, {busStopName: 'Tanah Merdeka'}, {busStopName: 'Flyover Raya Bogor'}, {busStopName: 'Trikora'}, {busStopName: 'Pasar Induk'}, {busStopName: 'Kramat Jati'}, {busStopName: 'Utan Kayu Rawamangun'}, {busStopName: 'Pemuda Pramuka'}, {busStopName: 'Kayu Putih Rawasari'}, {busStopName: 'Pulo Mas Bypass'}, {busStopName: 'Cempaka Putih'}, {busStopName: 'Pasar Baru'}, {busStopName: 'Lebak Bulus'}, {busStopName: 'Pondok Pinang'}, {busStopName: 'Underpass Lebak Bulus'}, {busStopName: 'Pondok Indah'}, {busStopName: 'Tanah Kusir'}, {busStopName: 'Bungur'}, {busStopName: 'Kebayoran'}, {busStopName: 'Simprug'}, {busStopName: 'Permata Hijau'}, {busStopName: 'Arteri'}, {busStopName: 'Pos Pengumben'}, {busStopName: 'Kelapa Dua Sasak'}, {busStopName: 'Kebon Jeruk'}, {busStopName: 'Duri Kepa'}, {busStopName: 'Kedoya Panjang'}, {busStopName: 'Kedoya'}, {busStopName: 'Tomang Raya'}, {busStopName: 'Tarakan'}, {busStopName: 'Pinang Ranti'}, {busStopName: 'Makasar'}, {busStopName: 'Ciliwung'}, {busStopName: 'Cikoko'}, {busStopName: 'Tebet Eco Park'}, {busStopName: 'Pancoran Tugu'}, {busStopName: 'Pancoran'}, {busStopName: 'Tegal Parang'}, {busStopName: 'Simpang Kuningan'}, {busStopName: 'Kali Grogol'}, {busStopName: 'Jembatan Besi'}, {busStopName: 'Jembatan Dua'}, {busStopName: 'Jembatan Tiga'}, {busStopName: 'Penjaringan'}, {busStopName: 'Pluit'}, {busStopName: 'Tanjung Priok'}, {busStopName: 'Mambo'}, {busStopName: 'Koja'}, {busStopName: 'Walikota Jakarta Utara'}, {busStopName: 'Plumpang'}, {busStopName: 'Sunter Kelapa Gading'}, {busStopName: 'Sunter Boulevard Barat'}, {busStopName: 'Kodamar'}, {busStopName: 'Simpang Cempaka'}, {busStopName: 'Pisangan'}, {busStopName: 'Flyover Jatinegara'}, {busStopName: 'Pedati Prumpung'}, {busStopName: 'Kebon Nanas'}, {busStopName: 'Halim'}, {busStopName: 'Simpang Cawang'}, {busStopName: 'Stasiun Jatinegara'}, {busStopName: 'Pasar Enjo'}, {busStopName: 'Flyover Cipinang'}, {busStopName: 'Cipinang'}, {busStopName: 'Stasiun Klender'}, {busStopName: 'Klender'}, {busStopName: 'Kampung Sumur'}, {busStopName: 'Buaran'}, {busStopName: 'Simpang Buaran'}, {busStopName: 'Flyover Pondok Kopi'}, {busStopName: 'Penggilingan'}, {busStopName: 'Walikota Jakarta Timur'}, {busStopName: 'Pulo Gebang'}, {busStopName: 'Sunter Karya'}, {busStopName: 'Sunter Utara'}, {busStopName: 'Danau Sunter'}, {busStopName: 'Danau Agung'}, {busStopName: 'Landasan Pacu'}, {busStopName: 'Mangga Dua'}, {busStopName: 'Mangga Dua Raya'}, {busStopName: 'Bandengan'}, {busStopName: 'Pluit Selatan'}, {busStopName: 'Pakin'}, {busStopName: 'Gedong Panjang'}, {busStopName: 'Ciledug'}, {busStopName: 'Puri Beta 2'}, {busStopName: 'Puri Beta 1'}, {busStopName: 'Pertukangan Utara'}, {busStopName: 'JORR'}, {busStopName: 'Swadarma'}, {busStopName: 'Cipulir'}, {busStopName: 'Seskoal'}, {busStopName: 'Kebayoran Lama'}, {busStopName: 'Velbak'}, {busStopName: 'Mayestik'}, {busStopName: 'CSW'}, {busStopName: 'Tanah Tinggi'}, {busStopName: 'Kemayoran'}, {busStopName: 'Jembatan Item'}, {busStopName: 'Jakarta International Stadium'}
+    // ];
+    // bsId.map((bsId, index) => {
+    //   console.log(bsId);
+    //   console.log(bsData);
+    //   this.firebaseService.addBusStop(bsId, bsData[index])
+    //     .then(() => {
+    //       console.log(bsId + ' added to firebase');
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     })
+    // })
+
+    const bsdId = 
+    ['SDT593', 'SDT594', 'SDT595', 'SDT596', 'SDT597', 'SDT598', 'SDT599', 'SDT600', 'SDT601'];
+    const bsdData = 
+    [{busStopId :'Senen Raya', busStopDirection :'terminus', busStopCode :'14-02', corridorId :'Koridor 14', busStopIsRapid :false, busStopNextUp :'Pasar Senen', busStopNextLow :null}, {busStopId :'Pasar Senen', busStopDirection :'bidirectional', busStopCode :'14-01', corridorId :'Koridor 14', busStopIsRapid :false, busStopNextUp :'Tanah Tinggi', busStopNextLow :'Senen Raya'}, {busStopId :'Tanah Tinggi', busStopDirection :'bidirectional', busStopCode :'14-03', corridorId :'Koridor 14', busStopIsRapid :false, busStopNextUp :'Kemayoran', busStopNextLow :'Pasar Senen'}, {busStopId :'Kemayoran', busStopDirection :'bidirectional', busStopCode :'14-04', corridorId :'Koridor 14', busStopIsRapid :false, busStopNextUp :'Landasan Pacu', busStopNextLow :'Tanah Tinggi'}, {busStopId :'Landasan Pacu', busStopDirection :'low', busStopCode :'14-05', corridorId :'Koridor 14', busStopIsRapid :false, busStopNextUp :'Danau Agung', busStopNextLow :null}, {busStopId :'Danau Agung', busStopDirection :'bidirectional', busStopCode :'14-06', corridorId :'Koridor 14', busStopIsRapid :false, busStopNextUp :'Danau Sunter', busStopNextLow :'Kemayoran'}, {busStopId :'Danau Sunter', busStopDirection :'bidirectional', busStopCode :'14-07', corridorId :'Koridor 14', busStopIsRapid :false, busStopNextUp :'Jembatan Item', busStopNextLow :'Danau Agung'}, {busStopId :'Jembatan Item', busStopDirection :'bidirectional', busStopCode :'14-08', corridorId :'Koridor 14', busStopIsRapid :false, busStopNextUp :'Jakarta International Stadium', busStopNextLow :'Danau Sunter'}, {busStopId :'Jakarta International Stadium', busStopDirection :'terminus', busStopCode :'14-09', corridorId :'Koridor 14', busStopIsRapid :false, busStopNextUp :null, busStopNextLow :'Jembatan Item'}];
+    
+    bsdId.map((bsdId, index) => {
+      console.log(bsdId);
+      console.log(bsdData[index]);
+      this.firebaseService.addBusStopDetail(bsdId, bsdData[index])
+        .then(() => {
+          console.log(bsdId + ' added to firebase');
+        })
+        .catch((error) => {
+          alert(error);
+        }
+      )
+    })
+
+//     const codId = ['COR001', 'COR002', 'COR003', 'COR004', 'COR005', 'COR006', 'COR007', 'COR008', 'COR009', 'COR010', 'COR011', 'COR012', 'COR013', 'COR014', 'COR015', 'COR016', 'COR017', 'COR018', 'COR019', 'COR020', 'COR021', 'COR022', 'COR023', 'COR024', 'COR025', 'COR026', 'COR027', 'COR028', 'COR029', 'COR030'];
+//     const corData = [
+// {corridorName: 'Koridor 1', corridorTerminusLower: 'Blok M', corridorTerminusUpper: 'Kota', corridorType: 'Main', corridorIcon: '1', corridorColor: 'red'},{corridorName: 'Koridor 2', corridorTerminusLower: 'Pulo Gadung', corridorTerminusUpper: 'Monumen Nasional', corridorType: 'Main', corridorIcon: '2', corridorColor: 'blue'},{corridorName: 'Koridor 2A', corridorTerminusLower: 'Pulo Gadung', corridorTerminusUpper: 'Rawa Buaya', corridorType: 'Extension', corridorIcon: 'A', corridorColor: 'blue'},{corridorName: 'Koridor 3', corridorTerminusLower: 'Kalideres', corridorTerminusUpper: 'Monumen Nasional', corridorType: 'Main', corridorIcon: '3', corridorColor: 'yellow'},{corridorName: 'Koridor 3F', corridorTerminusLower: 'Kalideres', corridorTerminusUpper: 'Gelora Bung Karno', corridorType: 'Extension', corridorIcon: 'F', corridorColor: 'yellow'},{corridorName: 'Koridor 4', corridorTerminusLower: 'Pulo Gadung', corridorTerminusUpper: 'Galunggung', corridorType: 'Main', corridorIcon: '4', corridorColor: 'purple'},{corridorName: 'Koridor 4D', corridorTerminusLower: 'Pulo Gadung', corridorTerminusUpper: 'Patra Kuningan', corridorType: 'Extension', corridorIcon: 'D', corridorColor: 'purple'},{corridorName: 'Koridor 5', corridorTerminusLower: 'Ancol', corridorTerminusUpper: 'Kampung Melayu', corridorType: 'Main', corridorIcon: '5', corridorColor: 'brown'},{corridorName: 'Koridor 5C', corridorTerminusLower: 'Juanda', corridorTerminusUpper: 'Cililitan', corridorType: 'Extension', corridorIcon: 'C', corridorColor: 'brown'},{corridorName: 'Koridor 5D', corridorTerminusLower: 'Ancol', corridorTerminusUpper: 'Cililitan', corridorType: 'Extension', corridorIcon: 'D', corridorColor: 'brown'},{corridorName: 'Koridor 6', corridorTerminusLower: 'Ragunan', corridorTerminusUpper: 'Galunggung', corridorType: 'Main', corridorIcon: '6', corridorColor: 'green'},{corridorName: 'Koridor 6A', corridorTerminusLower: 'Ragunan', corridorTerminusUpper: 'Balai Kota', corridorType: 'Extension', corridorIcon: 'A', corridorColor: 'green'},{corridorName: 'Koridor 6B', corridorTerminusLower: 'Ragunan', corridorTerminusUpper: 'Balai Kota', corridorType: 'Extension', corridorIcon: 'B', corridorColor: 'green'},{corridorName: 'Koridor 6V', corridorTerminusLower: 'Ragunan', corridorTerminusUpper: 'Gelora Bung Karno', corridorType: 'Extension', corridorIcon: 'V', corridorColor: 'green'},{corridorName: 'Koridor 7', corridorTerminusLower: 'Kampung Rambutan', corridorTerminusUpper: 'Kampung Melayu', corridorType: 'Main', corridorIcon: '7', corridorColor: 'magenta'},{corridorName: 'Koridor 7F', corridorTerminusLower: 'Kampung Rambutan', corridorTerminusUpper: 'Juanda', corridorType: 'Extension', corridorIcon: 'F', corridorColor: 'magenta'},{corridorName: 'Koridor 8', corridorTerminusLower: 'Lebak Bulus', corridorTerminusUpper: 'Pasar Baru', corridorType: 'Main', corridorIcon: '8', corridorColor: 'pink'},{corridorName: 'Koridor 9', corridorTerminusLower: 'Pinang Ranti', corridorTerminusUpper: 'Pluit', corridorType: 'Main', corridorIcon: '9', corridorColor: 'cyan'},{corridorName: 'Koridor 9A', corridorTerminusLower: 'Cililitan', corridorTerminusUpper: 'Kali Grogol', corridorType: 'Extension', corridorIcon: 'A', corridorColor: 'cyan'},{corridorName: 'Koridor 9C', corridorTerminusLower: 'Pinang Ranti', corridorTerminusUpper: 'Bundaran Senayan', corridorType: 'Extension', corridorIcon: 'C', corridorColor: 'cyan'},{corridorName: 'Koridor 10', corridorTerminusLower: 'Tanjung Priok', corridorTerminusUpper: 'PGC', corridorType: 'Main', corridorIcon: '10', corridorColor: 'grey'},{corridorName: 'Koridor 10D', corridorTerminusLower: 'Tanjung Priok', corridorTerminusUpper: 'Kampung Rambutan', corridorType: 'Extension', corridorIcon: 'D', corridorColor: 'grey'},{corridorName: 'Koridor 10H', corridorTerminusLower: 'Tanjung Priok', corridorTerminusUpper: 'Bundaran Senayan', corridorType: 'Extension', corridorIcon: 'H', corridorColor: 'grey'},{corridorName: 'Koridor 11', corridorTerminusLower: 'Kampung Melayu', corridorTerminusUpper: 'Pulo Gebang', corridorType: 'Main', corridorIcon: '11', corridorColor: 'teal'},{corridorName: 'Koridor 12', corridorTerminusLower: 'Tanjung Priok', corridorTerminusUpper: 'Penjaringan', corridorType: 'Main', corridorIcon: '12', corridorColor: 'cobalt'},{corridorName: 'Koridor 13', corridorTerminusLower: 'Ciledug', corridorTerminusUpper: 'Tegal Mampang', corridorType: 'Main', corridorIcon: '13', corridorColor: 'orange'},{corridorName: 'Koridor 13C', corridorTerminusLower: 'Puri Beta 2', corridorTerminusUpper: 'Dukuh Atas', corridorType: 'Extension', corridorIcon: 'C', corridorColor: 'orange'},{corridorName: 'Koridor 13D', corridorTerminusLower: 'Puri Beta 2', corridorTerminusUpper: 'Ragunan', corridorType: 'Extension', corridorIcon: 'D', corridorColor: 'orange'},{corridorName: 'Koridor L13E', corridorTerminusLower: 'Senen Raya', corridorTerminusUpper: 'Flyover Kuningan', corridorType: 'Rapid', corridorIcon: 'LE', corridorColor: 'orange'},{corridorName: 'Koridor 14', corridorTerminusLower: 'Senen Raya', corridorTerminusUpper: 'Jakarta International Stadium', corridorType: 'Main', corridorIcon: '14', corridorColor: 'midnight'}
+//     ];
+//     codId.map((corId, index) => {
+//       console.log(corId);
+//       console.log(corData[index]);
+//       this.firebaseService.addCorridor(corId, corData[index])
+//         .then(() => {
+//           console.log(corId + ' added to firebase');
+//         })
+//         .catch((error) => {
+//           console.log(error);
+//         })
+//     })
+
+    // this.firebaseService.addBusStop(id, data)
+    //   .then(() => {
+    //     alert('added');
+    //   })
+    //   .catch((error) => {
+    //     alert(error);
+    //   })
   }
 
   addStopDetailToFirebase() {
@@ -104,64 +197,6 @@ export class AppComponent {
         };
       });
     });
-  }
-
-  pushItemToFirebase() {
-    // const id = 'STP015';
-    // const data = {
-    //   busStopName: 'Ddslfjdlks'
-    // }
-    const corridorId = ['COR002', 'COR003', 'COR004', 'COR005', 'COR006', 'COR007', 'COR008', 'COR009', 'COR010', 'COR011', 'COR012', 'COR013', 'COR014', 'COR015', 'COR016', 'COR017', 'COR018', 'COR019', 'COR020', 'COR021', 'COR022', 'COR023', 'COR024', 'COR025', 'COR026', 'COR027', 'COR028', 'COR029', 'COR030'];
-    const corridorData = [
-      {corridorName: 'Koridor 2', corridorTerminusLower: 'SDT023', corridorTerminusUpper: 'SDT042', corridorType: 'CTY01'},
-      {corridorName: 'Koridor 2A', corridorTerminusLower: 'SDT046', corridorTerminusUpper: 'SDT071', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 3', corridorTerminusLower: 'SDT072', corridorTerminusUpper: 'SDT085', corridorType: 'CTY01'},
-      {corridorName: 'Koridor 3F', corridorTerminusLower: 'SDT086', corridorTerminusUpper: 'SDT102', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 4', corridorTerminusLower: 'SDT103', corridorTerminusUpper: 'SDT119', corridorType: 'CTY01'},
-      {corridorName: 'Koridor 4D', corridorTerminusLower: 'SDT120', corridorTerminusUpper: 'SDT141', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 5', corridorTerminusLower: 'SDT142', corridorTerminusUpper: 'SDT160', corridorType: 'CTY01'},
-      {corridorName: 'Koridor 5C', corridorTerminusLower: 'SDT161', corridorTerminusUpper: 'SDT187', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 5D', corridorTerminusLower: 'SDT188', corridorTerminusUpper: 'SDT214', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 6', corridorTerminusLower: 'SDT215', corridorTerminusUpper: 'SDT234', corridorType: 'CTY01'},
-      {corridorName: 'Koridor 6A', corridorTerminusLower: 'SDT235', corridorTerminusUpper: 'SDT256', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 6B', corridorTerminusLower: 'SDT257', corridorTerminusUpper: 'SDT276', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 6V', corridorTerminusLower: 'SDT277', corridorTerminusUpper: 'SDT293', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 7', corridorTerminusLower: 'SDT294', corridorTerminusUpper: 'SDT308', corridorType: 'CTY01'},
-      {corridorName: 'Koridor 7F', corridorTerminusLower: 'SDT309', corridorTerminusUpper: 'SDT331', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 8', corridorTerminusLower: 'SDT332', corridorTerminusUpper: 'SDT357', corridorType: 'CTY01'},
-      {corridorName: 'Koridor 9', corridorTerminusLower: 'SDT358', corridorTerminusUpper: 'SDT383', corridorType: 'CTY01'},
-      {corridorName: 'Koridor 9A', corridorTerminusLower: 'SDT384', corridorTerminusUpper: 'SDT405', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 9C', corridorTerminusLower: 'SDT406', corridorTerminusUpper: 'SDT421', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 10', corridorTerminusLower: 'SDT422', corridorTerminusUpper: 'SDT444', corridorType: 'CTY01'},
-      {corridorName: 'Koridor 10D', corridorTerminusLower: 'SDT445', corridorTerminusUpper: 'SDT463', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 10H', corridorTerminusLower: 'SDT464', corridorTerminusUpper: 'SDT480', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 11', corridorTerminusLower: 'SDT481', corridorTerminusUpper: 'SDT496', corridorType: 'CTY01'},
-      {corridorName: 'Koridor 12', corridorTerminusLower: 'SDT497', corridorTerminusUpper: 'SDT519', corridorType: 'CTY01'},
-      {corridorName: 'Koridor 13', corridorTerminusLower: 'SDT520', corridorTerminusUpper: 'SDT534', corridorType: 'CTY01'},
-      {corridorName: 'Koridor 13C', corridorTerminusLower: 'SDT535', corridorTerminusUpper: 'SDT555', corridorType: 'CTY02'},
-      {corridorName: 'Koridor 13D', corridorTerminusLower: 'SDT556', corridorTerminusUpper: 'SDT579', corridorType: 'CTY02'},
-      {corridorName: 'Koridor L13E', corridorTerminusLower: 'SDT580', corridorTerminusUpper: 'SDT594', corridorType: 'CTY03'},
-      {corridorName: 'Koridor 14', corridorTerminusLower: 'SDT595', corridorTerminusUpper: 'SDT603', corridorType: 'CTY01'}
-    ];
-    corridorId.map((corid, index) => {
-      console.log(corid);
-      console.log(corridorData[index]);
-      this.firebaseService.addCorridor(corid, corridorData[index])
-        .then(() => {
-          console.log(corid + ' added to firebase');
-        })
-        .catch((error) => {
-          alert(error);
-        }
-      )
-    })
-    // this.firebaseService.addBusStop(id, data)
-    //   .then(() => {
-    //     alert('added');
-    //   })
-    //   .catch((error) => {
-    //     alert(error);
-    //   })
   }
 
   updateItemOnFirebase() {

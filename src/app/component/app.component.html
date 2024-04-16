@@ -1,6 +1,6 @@
 <main class="main">
   <div *ngIf="corridorList">
-    <div 
+    <!-- <div 
       *ngFor="let corridor of corridorList"
       class="corridorList"
     >
@@ -11,7 +11,8 @@
         <p>{{ corridor.corridorIcon }}</p>
       </div>
       <p>{{ corridor.corridorName }}</p>
-    </div>
+    </div> -->
+    <app-bottomsheet [corridorList]="corridorList" [busStopDetailList]="busStopDetailList"/>
   </div>
 </main>
 
