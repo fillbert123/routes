@@ -30,6 +30,10 @@ export class FirebaseService {
   getBusStop(id: string) {
     return this.firestore.collection('busStop').doc(id).get();
   }
+
+  getBusStopDetailList() {
+    return this.firestore.collection('busStopDetail').snapshotChanges();
+  }
   
   updateBusStop(id: string, data: any) {
     return this.firestore.collection('busStop').doc(id).update(data);
