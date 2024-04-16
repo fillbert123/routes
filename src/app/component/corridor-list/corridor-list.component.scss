@@ -1,0 +1,27 @@
+.corridor-list {
+  margin-block-start: 8px;
+  width: calc(100% - 40px);
+  height: 500px;
+  overflow-x: auto;
+  padding-inline: 20px;
+  border-radius: 16px;
+  background-color: var(--bg80);
+  &__content {
+    padding-block: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(105, 105, 105, 0.2095);
+    }
+    &__text {
+      & > * {
+        margin-block: 0;
+        margin-inline-start: 8px;
+      }
+      &__name {
+        color: var(--tx94);
+      }
+    }
+  }
+}
