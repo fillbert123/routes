@@ -1,17 +1,23 @@
 <div class="corridor-list">
   <div 
     *ngFor="let corridor of corridorList" 
+    (click)="test(corridor.corridorName)"
     class="corridor-list__content"
   >
-    <app-corridor-icon
-      [corridorColor]="corridor.corridorColor"
-      [corridorIcon]="corridor.corridorIcon"
-    />
-    <div class="corridor-list__content__text">
-      <p class="corridor-list__content__text__name m10">{{ corridor.corridorName }}</p>
-      <p class="corridor-list__content__text__direction b16">
-        {{ corridor.corridorTerminusLower }} - {{ corridor.corridorTerminusUpper }}
-      </p>
+    <div class="corridor-list__content__info">
+      <app-corridor-icon
+        [corridorColor]="corridor.corridorColor"
+        [corridorIcon]="corridor.corridorIcon"
+      />
+      <div class="corridor-list__content__info__text">
+        <p class="corridor-list__content__info__text__name m10">{{ corridor.corridorName }}</p>
+        <p class="corridor-list__content__info__text__direction b16">
+          {{ corridor.corridorTerminusLower }} - {{ corridor.corridorTerminusUpper }}
+        </p>
+      </div>
+    </div>
+    <div class="corridor-list__content__chevron">
+      <img src="../../../assets/icons/chevron.forward.svg" alt="">
     </div>
   </div>
 </div>
