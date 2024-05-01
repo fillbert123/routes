@@ -1,7 +1,7 @@
 <div class="corridor-list">
   <div 
     *ngFor="let corridor of corridorList" 
-    (click)="test(corridor.corridorName)"
+    (click)="emitCorridorClick(corridor)"
     class="corridor-list__content"
   >
     <div class="corridor-list__content__info">

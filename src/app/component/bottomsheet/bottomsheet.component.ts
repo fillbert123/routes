@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { getCorridorBusStopList } from '../../service/firebase.service';
 
 @Component({
   selector: 'app-bottomsheet',
@@ -7,5 +8,12 @@ import { Component, Input } from '@angular/core';
 })
 export class BottomsheetComponent {
   @Input() corridorList: any;
-  @Input() busStopDetailList: any;
+  selectedCorridor: any;
+
+  async selectCorridor(selectedCorridor: any) {
+    this.selectedCorridor = selectedCorridor;
+    let corridorBusStopList = await getCorridorBusStopList(this.selectedCorridor.corridorName);
+    console.log('corridorBusStopList', corridorBusStopList);
+    console.log('selectedCorridor', this.selectedCorridor);
+  }
 }

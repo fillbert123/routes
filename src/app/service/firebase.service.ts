@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { collection, query, where, getDocs } from 'firebase/firestore'
+import { database } from '../firebase-config';
 
 @Injectable({
   providedIn: 'root'
@@ -46,4 +48,14 @@ export class FirebaseService {
   deleteBusStop(id: string) {
     return this.firestore.collection('busStop').doc(id).delete();
   }
+}
+
+export async function getCorridorBusStopList(corridorId: string) {
+  const getCorridorBusStopListQuery = query(collection(database, 'busStopDetail'), where('corridorId', '==', corridorId));
+  const querySnapshot = await getDocs(getCorridorBusStopListQuery);
+  const returnData: any = []
+  querySnapshot.forEach((doc) => {
+    returnData.push(doc.data());
+  })
+  return returnData;
 }
