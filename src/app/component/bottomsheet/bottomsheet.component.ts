@@ -9,9 +9,11 @@ import { getCorridorBusStopList } from '../../service/firebase.service';
 export class BottomsheetComponent {
   @Input() corridorList: any;
   selectedCorridor: any;
+  bottomSheetTitle: any = 'Koridor Transjakarta'
 
   async selectCorridor(selectedCorridor: any) {
     this.selectedCorridor = selectedCorridor;
+    this.bottomSheetTitle = selectedCorridor.corridorName;
     let corridorBusStopList = await getCorridorBusStopList(this.selectedCorridor.corridorName);
     console.log('corridorBusStopList', corridorBusStopList);
     console.log('selectedCorridor', this.selectedCorridor);
