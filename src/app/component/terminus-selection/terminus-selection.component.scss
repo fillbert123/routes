@@ -1,0 +1,23 @@
+.terminus {
+  padding: 4px;
+  border-radius: 16px;
+  background-color: var(--bg80);
+  display: flex;
+  justify-content: space-between;
+  &__upper, &__lower {
+    width: calc((100% / 2) - 2px);
+    padding-block: 4px;
+    border: 0 solid;
+    border-radius: 12px;
+    background-color: var(--bg80);
+    & > p {
+      margin-block: 0;
+    }
+    &__descriptive {
+      color: var(--tx85);
+    }
+    &__destination {
+      color: var(--white);
+    }
+  }
+}
