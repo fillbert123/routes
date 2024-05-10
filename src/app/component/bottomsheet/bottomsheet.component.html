@@ -1,11 +1,27 @@
 <div class="bottomsheet">
   <div class="bottomsheet__header">
-    <div class="bottomsheet__header__icon"></div>
+    <div
+      *ngIf="selectedCorridor"
+      class="bottomsheet__header__icon"
+    >
+      <app-corridor-icon
+        [corridorColor]="selectedCorridor.corridorColor"
+        [corridorIcon]="selectedCorridor.corridorIcon"
+      />
+    </div>
     <h1 class="bottomsheet__header__title b24 m0">{{bottomSheetTitle}}</h1>
+  </div>
+  <div
+    *ngIf="selectedCorridor"
+    class="bottomsheet__terminus"
+  >
+    <app-terminus-selection
+      [terminusLower]="selectedCorridor.corridorTerminusLower"
+      [terminusUpper]="selectedCorridor.corridorTerminusUpper"
+    />
   </div>
   <app-corridor-list 
     [corridorList]="corridorList" 
     (clickedCorridorName)="selectCorridor($event)"
   />
-  <app-terminus-selection />
 </div>

@@ -4,4 +4,12 @@
   border: 1px solid var(--st30);
   border-radius: 32px;
   background-color: var(--bg80);
+  &__header {
+    &__icon {
+      margin-block-end: 8px;
+    }
+  }
+  &__terminus {
+    margin-block-start: 8px;
+  }
 }

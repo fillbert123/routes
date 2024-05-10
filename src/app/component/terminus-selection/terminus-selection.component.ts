@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-terminus-selection',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './terminus-selection.component.scss'
 })
 export class TerminusSelectionComponent {
-
+  @Input() terminusLower: any;
+  @Input() terminusUpper: any;
 }
