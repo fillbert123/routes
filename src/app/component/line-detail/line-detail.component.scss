@@ -1,0 +1,52 @@
+.line-detail {
+  margin-block-start: 8px;
+  width: calc(100% - 40px);
+  max-height: 360px;
+  overflow-x: auto;
+  padding: 20px 20px 0 20px;
+  border-radius: 16px;
+  background-color: var(--bg80);
+  &__stop {
+    height: 44px;
+    display: flex;
+    align-items: flex-start;
+    &__icon {
+      position: relative;
+      &__point {
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 16px;
+        border: 2px solid var(--white);
+      }
+      &__line {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 6px;
+        width: 8px;
+        height: 44px;
+        &--first {
+          position: absolute;
+          top: 8px;
+          left: 6px;
+          width: 8px;
+          height: 36px;
+        }
+        &--last {
+          position: absolute;
+          top: 0;
+          left: 6px;
+          width: 8px;
+          height: 8px;
+        }
+      }
+    }
+    &__name {
+      margin-inline-start: 30px;
+    }
+  }
+}
