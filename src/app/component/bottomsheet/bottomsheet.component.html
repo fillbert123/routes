@@ -1,27 +1,46 @@
 <div class="bottomsheet">
-  <div class="bottomsheet__header">
+  <app-button 
+    *ngIf="isShowBackButton()"
+    class="bottomsheet__button"
+    (backClicked)="goBack()"
+  />
+  <div class="bottomsheet__content">
+    <div class="bottomsheet__content__header">
+      <div
+        *ngIf="selectedCorridor && isShowLineDetail()"
+        class="bottomsheet__content__header__icon"
+      >
+        <app-corridor-icon
+          [corridorColor]="selectedCorridor.corridorColor"
+          [corridorIcon]="selectedCorridor.corridorIcon"
+        />
+      </div>
+      <h1 class="bottomsheet__content__header__title b24 m0">{{bottomSheetTitle}}</h1>
+    </div>
     <div
-      *ngIf="selectedCorridor"
-      class="bottomsheet__header__icon"
+      *ngIf="selectedCorridor && isShowLineDetail()"
+      class="bottomsheet__content__terminus"
     >
-      <app-corridor-icon
-        [corridorColor]="selectedCorridor.corridorColor"
-        [corridorIcon]="selectedCorridor.corridorIcon"
+      <app-terminus-selection
+        [terminusLower]="selectedCorridor.corridorTerminusLower"
+        [terminusUpper]="selectedCorridor.corridorTerminusUpper"
+        (clickedDirection)="selectDirection($event)"
       />
     </div>
-    <h1 class="bottomsheet__header__title b24 m0">{{bottomSheetTitle}}</h1>
+    <div *ngIf="isShowCorridorList()">
+      <app-corridor-list 
+        [corridorList]="corridorList" 
+        (clickedCorridorName)="selectCorridor($event)"
+      />
+    </div>
+    <div *ngIf="isShowLineDetail()">
+      <app-line-detail 
+        [corridorColor]="selectedCorridor.corridorColor"
+        [selectedCorridor]="selectedCorridor"
+        [selectedDirection]="selectedDirection"
+        [terminusLower]="selectedCorridor.corridorTerminusLower"
+        [terminusUpper]="selectedCorridor.corridorTerminusUpper"
+      />
+    </div>
   </div>
-  <div
-    *ngIf="selectedCorridor"
-    class="bottomsheet__terminus"
-  >
-    <app-terminus-selection
-      [terminusLower]="selectedCorridor.corridorTerminusLower"
-      [terminusUpper]="selectedCorridor.corridorTerminusUpper"
-    />
-  </div>
-  <app-corridor-list 
-    [corridorList]="corridorList" 
-    (clickedCorridorName)="selectCorridor($event)"
-  />
 </div>

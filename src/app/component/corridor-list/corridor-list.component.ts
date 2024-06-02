@@ -15,12 +15,6 @@ export class CorridorListComponent {
   @Input() busStopDetailList: any;
   @Output() clickedCorridorName = new EventEmitter<any>();
 
-  // async test(corridorName: any) {
-  //   console.log(corridorName);
-  //   const data = await getCorridorBusStopList(corridorName);
-  //   console.log(data);
-  // }
-
   emitCorridorClick(selectedCorridor: any) {
     this.clickedCorridorName.emit(selectedCorridor);
   }

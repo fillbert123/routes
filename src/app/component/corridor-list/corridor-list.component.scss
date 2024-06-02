@@ -10,20 +10,14 @@
     padding-block: 16px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    &__info {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      &__text {
-        & > * {
-          margin-block: 0;
-          margin-inline-start: 8px;
-        }
-        &__name {
-          color: var(--tx94);
-        }
+    &__text {
+      &>* {
+        margin-block: 0;
+        margin-inline-start: 8px;
+      }
+      &__name {
+        color: var(--tx94);
       }
     }
     &:not(:last-child) {

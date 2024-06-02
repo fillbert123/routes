@@ -13,6 +13,8 @@ import { CorridorIconComponent } from './component/corridor-icon/corridor-icon.c
 import { BottomsheetComponent } from './component/bottomsheet/bottomsheet.component';
 import { firebaseConfig } from './firebase-config';
 import { TerminusSelectionComponent } from './component/terminus-selection/terminus-selection.component';
+import { LineDetailComponent } from './component/line-detail/line-detail.component';
+import { ButtonComponent } from './component/button/button.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { TerminusSelectionComponent } from './component/terminus-selection/termi
     CorridorListComponent,
     CorridorIconComponent,
     BottomsheetComponent,
-    TerminusSelectionComponent
+    TerminusSelectionComponent,
+    LineDetailComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

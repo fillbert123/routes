@@ -29,7 +29,9 @@ main {
   margin: 0;
   box-sizing: inherit;
   position: relative;
-  background-color: var(--darkgrey);
+  // background-color: var(--darkgrey);
+  background-image: url(../../assets/map.png);
+  background-size: cover;
 }
 
 .content {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FirebaseService } from '../service/firebase.service';
 import { DocumentChange, DocumentData } from '@angular/fire/firestore';
 import { combineLatest } from 'rxjs';

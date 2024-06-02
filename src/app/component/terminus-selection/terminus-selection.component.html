@@ -1,9 +1,17 @@
 <div class="terminus">
-  <button class="terminus__lower">
+  <button 
+    (click)="emitDirectionClick('lower')"
+    [ngStyle]="{ 'background-color': (selectedDirection == 'lower' ? 'var(--colC8)' : 'transparent') }"
+    class="terminus__lower"
+  >
     <p class="terminus__lower__descriptive b12">Tujuan</p>
     <p class="terminus__lower__destination b16">{{terminusLower}}</p>
   </button>
-  <button class="terminus__upper">
+  <button 
+    (click)="emitDirectionClick('upper')"
+    [ngStyle]="{ 'background-color': (selectedDirection == 'upper' ? 'var(--colC8)' : 'transparent') }"
+    class="terminus__upper"
+  >
     <p class="terminus__upper__descriptive b12">Tujuan</p>
     <p class="terminus__upper__destination b16">{{terminusUpper}}</p>
   </button>

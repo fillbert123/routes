@@ -9,13 +9,52 @@ import { getCorridorBusStopList } from '../../service/firebase.service';
 export class BottomsheetComponent {
   @Input() corridorList: any;
   selectedCorridor: any;
-  bottomSheetTitle: any = 'Koridor Transjakarta'
+  selectedDirection: any;
+  bottomSheetTitle: any = 'Koridor Transjakarta';
+  currentState: string = 'main';
 
   async selectCorridor(selectedCorridor: any) {
     this.selectedCorridor = selectedCorridor;
     this.bottomSheetTitle = selectedCorridor.corridorName;
     let corridorBusStopList = await getCorridorBusStopList(this.selectedCorridor.corridorName);
+    this.currentState = 'corridorDetail';
+    this.selectedDirection = 'upper';
     console.log('corridorBusStopList', corridorBusStopList);
     console.log('selectedCorridor', this.selectedCorridor);
+  }
+
+  selectDirection(selectedDirection: any) {
+    this.selectedDirection = selectedDirection;
+    console.log('selectedDirection', this.selectedDirection);
+  }
+
+  isShowCorridorList() {
+    if(this.currentState === 'main') {
+      return true;
+    }
+    return false;
+  }
+
+  isShowLineDetail() {
+    if(this.currentState === 'corridorDetail') {
+      return true;
+    }
+    return false;
+  }
+
+  isShowBackButton() {
+    if(this.currentState === 'main') {
+      return false;
+    }
+    return true;
+  }
+
+  goBack() {
+    switch(this.currentState) {
+      case 'corridorDetail': 
+        this.currentState = 'main';
+        this.bottomSheetTitle = 'Koridor Transjakarta';
+        break;
+    }
   }
 }
