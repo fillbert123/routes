@@ -40,6 +40,10 @@ export class FirebaseService {
   getBusStopDetailList() {
     return this.firestore.collection('busStopDetail').snapshotChanges();
   }
+
+  getBusStopDetail(id: string) {
+    return this.firestore.collection('busStolDetail').doc(id).get();
+  }
   
   updateBusStop(id: string, data: any) {
     return this.firestore.collection('busStop').doc(id).update(data);
@@ -53,6 +57,16 @@ export class FirebaseService {
 export async function getCorridorBusStopList(corridorId: string) {
   const getCorridorBusStopListQuery = query(collection(database, 'busStopDetail'), where('corridorId', '==', corridorId));
   const querySnapshot = await getDocs(getCorridorBusStopListQuery);
+  const returnData: any = []
+  querySnapshot.forEach((doc) => {
+    returnData.push(doc.data());
+  })
+  return returnData;
+}
+
+export async function getBusStopDetail(busStopName: string) {
+  const getBusStopDetailQuery = query(collection(database, 'busStopDetail'), where('busStopId', '==', busStopName));
+  const querySnapshot = await getDocs(getBusStopDetailQuery);
   const returnData: any = []
   querySnapshot.forEach((doc) => {
     returnData.push(doc.data());

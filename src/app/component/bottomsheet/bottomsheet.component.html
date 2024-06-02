@@ -7,13 +7,26 @@
   <div class="bottomsheet__content">
     <div class="bottomsheet__content__header">
       <div
-        *ngIf="selectedCorridor && isShowLineDetail()"
+        *ngIf="isShowCorridorIcon() && this.currentState === 'corridorDetail'"
         class="bottomsheet__content__header__icon"
       >
         <app-corridor-icon
           [corridorColor]="selectedCorridor.corridorColor"
           [corridorIcon]="selectedCorridor.corridorIcon"
         />
+      </div>
+      <div
+        *ngIf="isShowCorridorIcon() && this.currentState === 'busStopDetail'"
+        class="bottomsheet__content__header__icon"
+      >
+        <div
+          *ngFor="let icon of selectedBusStopDetail"
+        >
+          <app-corridor-icon
+            [corridorColor]="icon.corridorColor"
+            [corridorIcon]="icon.corridorIcon"
+          />
+        </div>
       </div>
       <h1 class="bottomsheet__content__header__title b24 m0">{{bottomSheetTitle}}</h1>
     </div>
@@ -41,6 +54,7 @@
         [selectedCorridorBusStopList]="selectedCorridorBusStopList"
         [terminusLower]="selectedCorridor.corridorTerminusLower"
         [terminusUpper]="selectedCorridor.corridorTerminusUpper"
+        (clickedBusStop)="selectBusStopDetail($event)"
       />
     </div>
   </div>

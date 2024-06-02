@@ -1,6 +1,7 @@
 <div class="line-detail">
   <div
     *ngFor="let stopName of presentedList; first as isFirst; last as isLast" 
+    (click)="getBusStopDetail(stopName)"
     class="line-detail__stop"
   >
     <div class="line-detail__stop__icon">

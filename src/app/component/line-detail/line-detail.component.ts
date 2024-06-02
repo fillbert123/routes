@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { getCorridorBusStopList } from '../../service/firebase.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { getBusStopDetail } from '../../service/firebase.service';
 
 @Component({
   selector: 'app-line-detail',
@@ -13,10 +13,12 @@ export class LineDetailComponent {
   @Input() selectedCorridorBusStopList: any;
   @Input() terminusLower: any;
   @Input() terminusUpper: any;
+  @Output() clickedBusStop = new EventEmitter<any>();
 
   presentedList: any;
   upperBound: any;
   lowerBound: any;
+  busStopDetail: any;
 
   ngOnChanges() {
     this.selectedCorridorBusStopList;
@@ -48,6 +50,12 @@ export class LineDetailComponent {
       currentStop = selectedCorridorBusStopList.find((stop: any) => stop.busStopId == currentStop.busStopNextLow);
     }
     return lowerBoundList;
+  }
+
+  async getBusStopDetail(stopName: string) {
+    this.busStopDetail = await getBusStopDetail(stopName);
+    console.log('busStopDetail', this.busStopDetail);
+    this.clickedBusStop.emit(this.busStopDetail);
   }
 
   getCorridorColor(color: string) {

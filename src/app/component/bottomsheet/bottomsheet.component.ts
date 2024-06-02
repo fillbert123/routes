@@ -13,6 +13,7 @@ export class BottomsheetComponent {
   bottomSheetTitle: any = 'Koridor Transjakarta';
   currentState: string = 'main';
   selectedCorridorBusStopList: any;
+  selectedBusStopDetail: any;
 
   async selectCorridor(selectedCorridor: any) {
     this.selectedCorridor = selectedCorridor;
@@ -27,6 +28,13 @@ export class BottomsheetComponent {
   selectDirection(selectedDirection: any) {
     this.selectedDirection = selectedDirection;
     console.log('selectedDirection', this.selectedDirection);
+  }
+
+  selectBusStopDetail(selectedBusStopDetail: any) {
+    this.selectedBusStopDetail = selectedBusStopDetail;
+    this.bottomSheetTitle = selectedBusStopDetail[0].busStopId;
+    this.currentState = 'busStopDetail';
+    console.log('selected bus stop detail', this.selectedBusStopDetail);
   }
 
   isShowCorridorList() {
@@ -49,6 +57,13 @@ export class BottomsheetComponent {
     }
     return true;
   }
+  
+  isShowCorridorIcon() {
+    if((this.selectedCorridor && this.isShowLineDetail()) || (this.selectedBusStopDetail && this.currentState === 'busStopDetail')) {
+      return true;
+    }
+    return false;
+  }
 
   goBack() {
     switch(this.currentState) {
@@ -56,6 +71,9 @@ export class BottomsheetComponent {
         this.currentState = 'main';
         this.bottomSheetTitle = 'Koridor Transjakarta';
         break;
+      case 'busStopDetail':
+        this.currentState = 'main';
+        this.bottomSheetTitle = 'Koridor Transjakarta';
     }
   }
 }

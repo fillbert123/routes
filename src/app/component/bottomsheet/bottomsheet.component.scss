@@ -9,6 +9,11 @@
     &__header {
       &__icon {
         margin-block-end: 8px;
+        display: flex;
+        flex-direction: row;
+        & > * {
+          margin-inline-end: 4px;
+        }
       }
     }
     &__terminus {
