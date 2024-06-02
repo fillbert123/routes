@@ -10,47 +10,42 @@ export class LineDetailComponent {
   @Input() corridorColor: any;
   @Input() selectedCorridor: any;
   @Input() selectedDirection: any;
+  @Input() selectedCorridorBusStopList: any;
   @Input() terminusLower: any;
   @Input() terminusUpper: any;
 
-  selectedCorridorData: any;
   presentedList: any;
   upperBound: any;
   lowerBound: any;
 
-  async ngOnChanges() {
-    this.selectedCorridorData = await this.getSelectedCorridorData(this.selectedCorridor.corridorName);
-    console.log(this.selectedCorridorData);
+  ngOnChanges() {
+    this.selectedCorridorBusStopList;
+    console.log(this.selectedCorridorBusStopList);
     console.log(this.selectedDirection);
-    console.log('Selected corridor', this.selectedCorridorData)
-    this.upperBound = this.upperBoundLine(this.selectedCorridorData, this.terminusLower);
+    console.log('Selected corridor', this.selectedCorridorBusStopList)
+    this.upperBound = this.upperBoundLine(this.selectedCorridorBusStopList, this.terminusLower);
     console.log('Upper bound', this.upperBound);
-    this.lowerBound = this.lowerBoundLine(this.selectedCorridorData, this.terminusUpper);
+    this.lowerBound = this.lowerBoundLine(this.selectedCorridorBusStopList, this.terminusUpper);
     console.log('Lower bound', this.lowerBound);
     this.presentedList = (this.selectedDirection == 'lower') ? this.lowerBound : this.upperBound;
   }
 
-  async getSelectedCorridorData(corridorName: any) {
-    const selectedCorridorData = await getCorridorBusStopList(corridorName);
-    return selectedCorridorData;
-  }
-
-  upperBoundLine(selectedCorridorData: any, terminusLower: any) {
+  upperBoundLine(selectedCorridorBusStopList: any, terminusLower: any) {
     const upperBoundList = [];
-    let currentStop = selectedCorridorData.find((stop: any) => stop.busStopId == terminusLower);
+    let currentStop = selectedCorridorBusStopList.find((stop: any) => stop.busStopId == terminusLower);
     while(currentStop) {
       upperBoundList.push(currentStop.busStopId);
-      currentStop = selectedCorridorData.find((stop: any) => stop.busStopId == currentStop.busStopNextUp);
+      currentStop = selectedCorridorBusStopList.find((stop: any) => stop.busStopId == currentStop.busStopNextUp);
     }
     return upperBoundList;
   }
 
-  lowerBoundLine(selectedCorridorData: any, terminusUpper: any) {
+  lowerBoundLine(selectedCorridorBusStopList: any, terminusUpper: any) {
     const lowerBoundList = [];
-    let currentStop = selectedCorridorData.find((stop: any) => stop.busStopId == terminusUpper);
+    let currentStop = selectedCorridorBusStopList.find((stop: any) => stop.busStopId == terminusUpper);
     while(currentStop) {
       lowerBoundList.push(currentStop.busStopId);
-      currentStop = selectedCorridorData.find((stop: any) => stop.busStopId == currentStop.busStopNextLow);
+      currentStop = selectedCorridorBusStopList.find((stop: any) => stop.busStopId == currentStop.busStopNextLow);
     }
     return lowerBoundList;
   }

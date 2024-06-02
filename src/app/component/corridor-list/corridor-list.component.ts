@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { getCorridorBusStopList } from '../../service/firebase.service';
 
 @Component({
   selector: 'app-corridor-list',

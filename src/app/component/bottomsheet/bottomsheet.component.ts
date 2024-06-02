@@ -12,14 +12,15 @@ export class BottomsheetComponent {
   selectedDirection: any;
   bottomSheetTitle: any = 'Koridor Transjakarta';
   currentState: string = 'main';
+  selectedCorridorBusStopList: any;
 
   async selectCorridor(selectedCorridor: any) {
     this.selectedCorridor = selectedCorridor;
     this.bottomSheetTitle = selectedCorridor.corridorName;
-    let corridorBusStopList = await getCorridorBusStopList(this.selectedCorridor.corridorName);
+    this.selectedCorridorBusStopList = await getCorridorBusStopList(this.selectedCorridor.corridorName);
     this.currentState = 'corridorDetail';
     this.selectedDirection = 'upper';
-    console.log('corridorBusStopList', corridorBusStopList);
+    console.log('corridorBusStopList', this.selectedCorridorBusStopList);
     console.log('selectedCorridor', this.selectedCorridor);
   }
 
