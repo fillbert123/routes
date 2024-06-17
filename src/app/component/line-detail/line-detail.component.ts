@@ -52,10 +52,11 @@ export class LineDetailComponent {
     return lowerBoundList;
   }
 
-  async getBusStopDetail(stopName: string) {
-    this.busStopDetail = await getBusStopDetail(stopName);
-    console.log('busStopDetail', this.busStopDetail);
-    this.clickedBusStop.emit(this.busStopDetail);
+  getBusStopDetail(stopName: string) {
+    // console.log('stop name', stopName);
+    // this.busStopDetail = await getBusStopDetail(stopName);
+    // console.log('busStopDetail', this.busStopDetail);
+    this.clickedBusStop.emit(stopName);
   }
 
   getCorridorColor(color: string) {

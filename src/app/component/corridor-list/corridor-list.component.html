@@ -1,18 +1,60 @@
 <div class="corridor-list">
   <div 
-    *ngFor="let corridor of corridorList" 
-    (click)="emitCorridorClick(corridor)"
-    class="corridor-list__content"
+    *ngFor="let corridor of corridorList; last as isLast" 
   >
-    <app-corridor-icon
-      [corridorColor]="corridor.corridorColor"
-      [corridorIcon]="corridor.corridorIcon"
-    />
-    <div class="corridor-list__content__text">
-      <p class="corridor-list__content__text__name m10">{{ corridor.corridorName }}</p>
-      <p class="corridor-list__content__text__direction b16">
-        {{ corridor.corridorTerminusLower }} - {{ corridor.corridorTerminusUpper }}
-      </p>
+    <div 
+      class="corridor-list__content"
+      (click)="emitCorridorClick(corridor)"
+    >
+      <app-corridor-icon
+        [corridorColor]="corridor.corridorColor"
+        [corridorIcon]="corridor.corridorIcon"
+      />
+      <div class="corridor-list__content__text">
+        <p class="corridor-list__content__text__name m10">{{ corridor.corridorName }}</p>
+        <p class="corridor-list__content__text__direction b16">
+          {{ corridor.corridorTerminusLower }} - {{ corridor.corridorTerminusUpper }}
+        </p>
+      </div>
+    </div>
+    <hr *ngIf="!isLast" class="corridor-list__content__divider">
+  </div>
+  <div *ngFor="let corridor of busStopCorridorList; last as isLast">
+    <div *ngIf="corridor.busStopNextLow">
+      <div
+        (click)="emitCorridorClick(corridor)"
+        class="corridor-list__content"
+      >
+        <app-corridor-icon
+          [corridorColor]="corridor.corridorColor"
+          [corridorIcon]="corridor.corridorIcon"
+        />
+        <div class="corridor-list__content__text">
+          <p class="corridor-list__content__text__name m10">{{ corridor.corridorId }}</p>
+          <p class="corridor-list__content__text__direction b16">
+            {{ corridor.corridorTerminusLower }}
+          </p>
+        </div>
+      </div>
+      <hr *ngIf="!isLast || (isLast && corridor.busStopNextUp)" class="corridor-list__content__divider">
+    </div>
+    <div *ngIf="corridor.busStopNextUp">
+      <div
+        (click)="emitCorridorClick(corridor)"
+        class="corridor-list__content"
+      >
+        <app-corridor-icon
+          [corridorColor]="corridor.corridorColor"
+          [corridorIcon]="corridor.corridorIcon"
+        />
+        <div class="corridor-list__content__text">
+          <p class="corridor-list__content__text__name m10">{{ corridor.corridorId }}</p>
+          <p class="corridor-list__content__text__direction b16">
+            {{ corridor.corridorTerminusUpper }}
+          </p>
+        </div>
+      </div>
+      <hr *ngIf="!isLast" class="corridor-list__content__divider">
     </div>
   </div>
 </div>

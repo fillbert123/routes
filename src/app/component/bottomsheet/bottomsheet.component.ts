@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { getCorridorBusStopList } from '../../service/firebase.service';
+import { Component } from '@angular/core';
+import { getCorridorBusStopList, getCorridorList, getBusStopDetail } from '../../service/firebase.service';
 
 @Component({
   selector: 'app-bottomsheet',
@@ -7,34 +7,25 @@ import { getCorridorBusStopList } from '../../service/firebase.service';
   styleUrl: './bottomsheet.component.scss'
 })
 export class BottomsheetComponent {
-  @Input() corridorList: any;
+  corridorList: any;
   selectedCorridor: any;
   selectedDirection: any;
-  bottomSheetTitle: any = 'Koridor Transjakarta';
+  bottomSheetTitle: any;
   currentState: string = 'main';
   selectedCorridorBusStopList: any;
   selectedBusStopDetail: any;
+  selectedBusStopCorridorList: any;
+  selectedCorridorBusStopTrack: any;
 
-  async selectCorridor(selectedCorridor: any) {
-    this.selectedCorridor = selectedCorridor;
-    this.bottomSheetTitle = selectedCorridor.corridorName;
-    this.selectedCorridorBusStopList = await getCorridorBusStopList(this.selectedCorridor.corridorName);
-    this.currentState = 'corridorDetail';
-    this.selectedDirection = 'upper';
-    console.log('corridorBusStopList', this.selectedCorridorBusStopList);
-    console.log('selectedCorridor', this.selectedCorridor);
+  ngOnInit() {
+    this.getCorridorList();
+    this.bottomSheetTitle = 'Koridor Transjakarta';
+    this.currentState = 'main';
   }
 
   selectDirection(selectedDirection: any) {
     this.selectedDirection = selectedDirection;
     console.log('selectedDirection', this.selectedDirection);
-  }
-
-  selectBusStopDetail(selectedBusStopDetail: any) {
-    this.selectedBusStopDetail = selectedBusStopDetail;
-    this.bottomSheetTitle = selectedBusStopDetail[0].busStopId;
-    this.currentState = 'busStopDetail';
-    console.log('selected bus stop detail', this.selectedBusStopDetail);
   }
 
   isShowCorridorList() {
@@ -65,6 +56,70 @@ export class BottomsheetComponent {
     return false;
   }
 
+  isShowTerminusSelection() {
+    if(this.selectedCorridor && this.isShowLineDetail()) {
+      return true;
+    }
+    return false;
+  }
+
+  isShowSelectedBusStopCorridorList() {
+    if(this.currentState === 'busStopDetail') {
+      return true;
+    }
+    return false;
+  }
+
+  goNext(nextState: string, nextData: any) {
+    this.currentState = nextState;
+    switch(nextState) {
+      case 'corridorDetail':
+        this.selectedCorridor = nextData;
+        console.log('selectedCorridor', this.selectedCorridor);
+        this.bottomSheetTitle = nextData.corridorName;
+        this.setSelectedCorridorBusStopList();
+        this.selectedDirection = 'upper';
+        break;
+      case 'busStopDetail':
+        this.selectedBusStopDetail = nextData;
+        this.bottomSheetTitle = nextData;
+        this.getBusStopDetail();
+        break;
+      case 'busStopCorridorDetail':
+        this.selectedCorridorBusStopTrack = nextData;
+        console.log('selectedCorridorBusStopTrack', this.selectedCorridorBusStopTrack);
+        this.setSelectedCorridorBusStopTrackList()
+        break;
+    }
+  }
+
+  async getCorridorList() {
+    this.corridorList = await getCorridorList();
+  }
+
+  async setSelectedCorridorBusStopList() {
+    this.selectedCorridorBusStopList = await getCorridorBusStopList(this.selectedCorridor.corridorName);
+  }
+
+  async getBusStopDetail() {
+    this.selectedBusStopCorridorList = await getBusStopDetail(this.selectedBusStopDetail);
+    this.appendCorridorDetail();
+  }
+
+  async setSelectedCorridorBusStopTrackList() {
+
+  }
+
+  appendCorridorDetail() {
+    this.selectedBusStopCorridorList.forEach((corridor: any) => {
+      var searchResultCorridor = this.corridorList.find((searchCorridor: any) => {
+        return corridor.corridorId === searchCorridor.corridorName
+      })
+      corridor.corridorTerminusLower = searchResultCorridor.corridorTerminusLower;
+      corridor.corridorTerminusUpper = searchResultCorridor.corridorTerminusUpper;
+    })
+  }
+
   goBack() {
     switch(this.currentState) {
       case 'corridorDetail': 
@@ -74,6 +129,11 @@ export class BottomsheetComponent {
       case 'busStopDetail':
         this.currentState = 'main';
         this.bottomSheetTitle = 'Koridor Transjakarta';
+        break;
+      case 'busStopCorridorDetail':
+        this.currentState = 'main';
+        this.bottomSheetTitle = 'Koridor Transjakarta';
+        break;
     }
   }
 }

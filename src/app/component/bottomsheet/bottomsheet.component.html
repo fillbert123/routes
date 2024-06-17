@@ -20,7 +20,7 @@
         class="bottomsheet__content__header__icon"
       >
         <div
-          *ngFor="let icon of selectedBusStopDetail"
+          *ngFor="let icon of selectedBusStopCorridorList"
         >
           <app-corridor-icon
             [corridorColor]="icon.corridorColor"
@@ -31,7 +31,7 @@
       <h1 class="bottomsheet__content__header__title b24 m0">{{bottomSheetTitle}}</h1>
     </div>
     <div
-      *ngIf="selectedCorridor && isShowLineDetail()"
+      *ngIf="isShowTerminusSelection()"
       class="bottomsheet__content__terminus"
     >
       <app-terminus-selection
@@ -43,7 +43,13 @@
     <div *ngIf="isShowCorridorList()">
       <app-corridor-list 
         [corridorList]="corridorList" 
-        (clickedCorridorName)="selectCorridor($event)"
+        (clickedCorridorName)="goNext('corridorDetail', $event)"
+      />
+    </div>
+    <div *ngIf="isShowSelectedBusStopCorridorList()">
+      <app-corridor-list
+        [busStopCorridorList]="selectedBusStopCorridorList"
+        (clickedCorridorName)="goNext('busStopCorridorDetail', $event)"
       />
     </div>
     <div *ngIf="isShowLineDetail()">
@@ -54,7 +60,7 @@
         [selectedCorridorBusStopList]="selectedCorridorBusStopList"
         [terminusLower]="selectedCorridor.corridorTerminusLower"
         [terminusUpper]="selectedCorridor.corridorTerminusUpper"
-        (clickedBusStop)="selectBusStopDetail($event)"
+        (clickedBusStop)="goNext('busStopDetail', $event)"
       />
     </div>
   </div>

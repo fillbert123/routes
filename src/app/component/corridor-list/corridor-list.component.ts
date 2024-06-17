@@ -11,8 +11,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export class CorridorListComponent {
   @Input() corridorList: any;
+  @Input() busStopCorridorList: any;
   @Input() busStopDetailList: any;
   @Output() clickedCorridorName = new EventEmitter<any>();
+
+  ngOnInit() {
+    console.log('corridorList', this.corridorList)
+    console.log('busStopCorridorList', this.busStopCorridorList);
+  }
 
   emitCorridorClick(selectedCorridor: any) {
     this.clickedCorridorName.emit(selectedCorridor);

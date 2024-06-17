@@ -73,3 +73,13 @@ export async function getBusStopDetail(busStopName: string) {
   })
   return returnData;
 }
+
+export async function getCorridorList() {
+  const getCorridorListQuery = query(collection(database, 'corridor'));
+  const querySnapshot = await getDocs(getCorridorListQuery);
+  const returnData: any = []
+  querySnapshot.forEach((doc) => {
+    returnData.push(doc.data());
+  })
+  return returnData;
+}
