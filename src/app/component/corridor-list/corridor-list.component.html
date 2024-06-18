@@ -1,10 +1,10 @@
 <div class="corridor-list">
   <div 
-    *ngFor="let corridor of corridorList; last as isLast" 
+    *ngFor="let corridor of corList; last as isLast" 
   >
     <div 
       class="corridor-list__content"
-      (click)="emitCorridorClick(corridor)"
+      (click)="emitCorClick(corridor)"
     >
       <app-corridor-icon
         [corridorColor]="corridor.corridorColor"
@@ -19,10 +19,10 @@
     </div>
     <hr *ngIf="!isLast" class="corridor-list__content__divider">
   </div>
-  <div *ngFor="let corridor of busStopCorridorList; last as isLast">
+  <div *ngFor="let corridor of busCorList; last as isLast">
     <div *ngIf="corridor.busStopNextLow">
       <div
-        (click)="emitCorridorClick(corridor)"
+        (click)="emitBusCorClick(corridor, 'lower')"
         class="corridor-list__content"
       >
         <app-corridor-icon
@@ -40,7 +40,7 @@
     </div>
     <div *ngIf="corridor.busStopNextUp">
       <div
-        (click)="emitCorridorClick(corridor)"
+        (click)="emitBusCorClick(corridor, 'upper')"
         class="corridor-list__content"
       >
         <app-corridor-icon

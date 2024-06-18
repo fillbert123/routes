@@ -8,11 +8,16 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class TerminusSelectionComponent {
   @Input() terminusLower: any;
   @Input() terminusUpper: any;
+  @Input() selTrkDir: any;
   @Output() clickedDirection = new EventEmitter<any>();
-  selectedDirection: any = 'upper';
+  direction: any;
+
+  ngOnInit() {
+    this.direction = (this.selTrkDir) ? this.selTrkDir : 'upper';
+  }
 
   emitDirectionClick(direction: any) {
-    this.selectedDirection = direction;
+    this.direction = direction;
     console.log(direction);
     this.clickedDirection.emit(direction);
   }

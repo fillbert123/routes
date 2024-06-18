@@ -7,36 +7,50 @@ import { getCorridorBusStopList, getCorridorList, getBusStopDetail } from '../..
   styleUrl: './bottomsheet.component.scss'
 })
 export class BottomsheetComponent {
-  corridorList: any;
-  selectedCorridor: any;
-  selectedDirection: any;
   bottomSheetTitle: any;
   currentState: string = 'main';
-  selectedCorridorBusStopList: any;
-  selectedBusStopDetail: any;
-  selectedBusStopCorridorList: any;
-  selectedCorridorBusStopTrack: any;
+
+  corList: any;
+  corBusList: any;
+  selCor: any;
+  selCorDir: any;
+  busCorList: any;
+  selBus: any;
+  trkBusList: any;
+  selTrk: any;
+  selTrkDir: any;
 
   ngOnInit() {
-    this.getCorridorList();
+    this.getCorList();
     this.bottomSheetTitle = 'Koridor Transjakarta';
     this.currentState = 'main';
   }
 
-  selectDirection(selectedDirection: any) {
-    this.selectedDirection = selectedDirection;
-    console.log('selectedDirection', this.selectedDirection);
+  selectDirection(selDir: any) {
+    if(this.currentState === 'corDetail') {
+      this.selCorDir = selDir;
+    }
+    else if(this.currentState === 'trkDetail') {
+      this.selTrkDir = selDir;
+    }
   }
 
-  isShowCorridorList() {
+  isShowCorList() {
     if(this.currentState === 'main') {
       return true;
     }
     return false;
   }
 
-  isShowLineDetail() {
-    if(this.currentState === 'corridorDetail') {
+  isShowBusList() {
+    if(this.currentState === 'corDetail') {
+      return true;
+    }
+    return false;
+  }
+
+  isShowTrkList() {
+    if(this.currentState === 'trkDetail') {
       return true;
     }
     return false;
@@ -49,22 +63,22 @@ export class BottomsheetComponent {
     return true;
   }
   
-  isShowCorridorIcon() {
-    if((this.selectedCorridor && this.isShowLineDetail()) || (this.selectedBusStopDetail && this.currentState === 'busStopDetail')) {
+  isShowCorIcon() {
+    if((this.selCor && this.isShowBusList()) || (this.selBus && this.currentState === 'busDetail') || (this.selTrk && this.currentState === 'trkDetail')) {
       return true;
     }
     return false;
   }
 
   isShowTerminusSelection() {
-    if(this.selectedCorridor && this.isShowLineDetail()) {
+    if((this.selCor && this.isShowBusList()) || (this.selTrk && this.isShowTrkList())) {
       return true;
     }
     return false;
   }
 
-  isShowSelectedBusStopCorridorList() {
-    if(this.currentState === 'busStopDetail') {
+  isShowBusCorList() {
+    if(this.currentState === 'busDetail') {
       return true;
     }
     return false;
@@ -73,46 +87,45 @@ export class BottomsheetComponent {
   goNext(nextState: string, nextData: any) {
     this.currentState = nextState;
     switch(nextState) {
-      case 'corridorDetail':
-        this.selectedCorridor = nextData;
-        console.log('selectedCorridor', this.selectedCorridor);
+      case 'corDetail':
+        this.selCor = nextData;
         this.bottomSheetTitle = nextData.corridorName;
-        this.setSelectedCorridorBusStopList();
-        this.selectedDirection = 'upper';
+        this.getCorBusList();
+        this.selCorDir = 'upper';
         break;
-      case 'busStopDetail':
-        this.selectedBusStopDetail = nextData;
+      case 'busDetail':
+        this.selBus = nextData;
         this.bottomSheetTitle = nextData;
-        this.getBusStopDetail();
+        this.getBusCorList();
         break;
-      case 'busStopCorridorDetail':
-        this.selectedCorridorBusStopTrack = nextData;
-        console.log('selectedCorridorBusStopTrack', this.selectedCorridorBusStopTrack);
-        this.setSelectedCorridorBusStopTrackList()
+      case 'trkDetail':
+        this.selTrk = nextData.selCor;
+        this.selTrkDir = nextData.selDir;
+        this.getTrkBusList()
         break;
     }
   }
 
-  async getCorridorList() {
-    this.corridorList = await getCorridorList();
+  async getCorList() {
+    this.corList = await getCorridorList();
   }
 
-  async setSelectedCorridorBusStopList() {
-    this.selectedCorridorBusStopList = await getCorridorBusStopList(this.selectedCorridor.corridorName);
+  async getCorBusList() {
+    this.corBusList = await getCorridorBusStopList(this.selCor.corridorName);
   }
 
-  async getBusStopDetail() {
-    this.selectedBusStopCorridorList = await getBusStopDetail(this.selectedBusStopDetail);
-    this.appendCorridorDetail();
+  async getBusCorList() {
+    this.busCorList = await getBusStopDetail(this.selBus);
+    this.appendCorDetail();
   }
 
-  async setSelectedCorridorBusStopTrackList() {
-
+  async getTrkBusList() {
+    this.trkBusList = await getCorridorBusStopList(this.selTrk.corridorId)
   }
 
-  appendCorridorDetail() {
-    this.selectedBusStopCorridorList.forEach((corridor: any) => {
-      var searchResultCorridor = this.corridorList.find((searchCorridor: any) => {
+  appendCorDetail() {
+    this.busCorList.forEach((corridor: any) => {
+      var searchResultCorridor = this.corList.find((searchCorridor: any) => {
         return corridor.corridorId === searchCorridor.corridorName
       })
       corridor.corridorTerminusLower = searchResultCorridor.corridorTerminusLower;
@@ -121,19 +134,9 @@ export class BottomsheetComponent {
   }
 
   goBack() {
-    switch(this.currentState) {
-      case 'corridorDetail': 
-        this.currentState = 'main';
-        this.bottomSheetTitle = 'Koridor Transjakarta';
-        break;
-      case 'busStopDetail':
-        this.currentState = 'main';
-        this.bottomSheetTitle = 'Koridor Transjakarta';
-        break;
-      case 'busStopCorridorDetail':
-        this.currentState = 'main';
-        this.bottomSheetTitle = 'Koridor Transjakarta';
-        break;
-    }
+    this.currentState = 'main';
+    this.bottomSheetTitle = 'Koridor Transjakarta';
+    this.selCorDir = null;
+    this.selTrkDir = null;
   }
 }

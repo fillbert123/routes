@@ -7,20 +7,20 @@
   <div class="bottomsheet__content">
     <div class="bottomsheet__content__header">
       <div
-        *ngIf="isShowCorridorIcon() && this.currentState === 'corridorDetail'"
+        *ngIf="isShowCorIcon() && this.currentState === 'corDetail'"
         class="bottomsheet__content__header__icon"
       >
         <app-corridor-icon
-          [corridorColor]="selectedCorridor.corridorColor"
-          [corridorIcon]="selectedCorridor.corridorIcon"
+          [corridorColor]="selCor.corridorColor"
+          [corridorIcon]="selCor.corridorIcon"
         />
       </div>
       <div
-        *ngIf="isShowCorridorIcon() && this.currentState === 'busStopDetail'"
+        *ngIf="isShowCorIcon() && this.currentState === 'trkDetail'"
         class="bottomsheet__content__header__icon"
       >
         <div
-          *ngFor="let icon of selectedBusStopCorridorList"
+          *ngFor="let icon of busCorList"
         >
           <app-corridor-icon
             [corridorColor]="icon.corridorColor"
@@ -35,32 +35,44 @@
       class="bottomsheet__content__terminus"
     >
       <app-terminus-selection
-        [terminusLower]="selectedCorridor.corridorTerminusLower"
-        [terminusUpper]="selectedCorridor.corridorTerminusUpper"
+        [terminusLower]="selCor.corridorTerminusLower"
+        [terminusUpper]="selCor.corridorTerminusUpper"
+        [selTrkDir]="selTrkDir"
         (clickedDirection)="selectDirection($event)"
       />
     </div>
-    <div *ngIf="isShowCorridorList()">
+    <div *ngIf="isShowCorList()">
       <app-corridor-list 
-        [corridorList]="corridorList" 
-        (clickedCorridorName)="goNext('corridorDetail', $event)"
+        [corList]="corList" 
+        (clickedCor)="goNext('corDetail', $event)"
       />
     </div>
-    <div *ngIf="isShowSelectedBusStopCorridorList()">
+    <div *ngIf="isShowBusCorList()">
       <app-corridor-list
-        [busStopCorridorList]="selectedBusStopCorridorList"
-        (clickedCorridorName)="goNext('busStopCorridorDetail', $event)"
+        [busCorList]="busCorList"
+        (clickedBusCor)="goNext('trkDetail', $event)"
       />
     </div>
-    <div *ngIf="isShowLineDetail()">
+    <div *ngIf="isShowBusList()">
       <app-line-detail 
-        [corridorColor]="selectedCorridor.corridorColor"
-        [selectedCorridor]="selectedCorridor"
-        [selectedDirection]="selectedDirection"
-        [selectedCorridorBusStopList]="selectedCorridorBusStopList"
-        [terminusLower]="selectedCorridor.corridorTerminusLower"
-        [terminusUpper]="selectedCorridor.corridorTerminusUpper"
-        (clickedBusStop)="goNext('busStopDetail', $event)"
+        [corridorColor]="selCor.corridorColor"
+        [selCor]="selCor"
+        [selCorDir]="selCorDir"
+        [corBusList]="corBusList"
+        [terminusLower]="selCor.corridorTerminusLower"
+        [terminusUpper]="selCor.corridorTerminusUpper"
+        (clickedBusStop)="goNext('busDetail', $event)"
+      />
+    </div>
+    <div *ngIf="isShowTrkList()">
+      <app-line-detail 
+        [corridorColor]="selTrk.corridorColor"
+        [selTrk]="selTrk"
+        [selTrkDir]="selTrkDir"
+        [trkBusList]="trkBusList"
+        [terminusLower]="selTrk.corridorTerminusLower"
+        [terminusUpper]="selTrk.corridorTerminusUpper"
+        (clickedBusStop)="goNext('busDetail', $event)"
       />
     </div>
   </div>

@@ -10,17 +10,16 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 
 export class CorridorListComponent {
-  @Input() corridorList: any;
-  @Input() busStopCorridorList: any;
-  @Input() busStopDetailList: any;
-  @Output() clickedCorridorName = new EventEmitter<any>();
+  @Input() corList: any;
+  @Input() busCorList: any;
+  @Output() clickedCor = new EventEmitter<any>();
+  @Output() clickedBusCor = new EventEmitter<{selCor: any, selDir: any}>();
 
-  ngOnInit() {
-    console.log('corridorList', this.corridorList)
-    console.log('busStopCorridorList', this.busStopCorridorList);
+  emitCorClick(selCor: any) {
+    this.clickedCor.emit(selCor);
   }
 
-  emitCorridorClick(selectedCorridor: any) {
-    this.clickedCorridorName.emit(selectedCorridor);
+  emitBusCorClick(selCor: any, selDir: any) {
+    this.clickedBusCor.emit({selCor, selDir});
   }
 }
