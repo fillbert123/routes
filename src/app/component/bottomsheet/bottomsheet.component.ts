@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getCorridorBusStopList, getCorridorList, getBusStopDetail } from '../../service/firebase.service';
+import { FirebaseService } from '../../service/firebase.service';
 
 @Component({
   selector: 'app-bottomsheet',
@@ -19,6 +19,10 @@ export class BottomsheetComponent {
   trkBusList: any;
   selTrk: any;
   selTrkDir: any;
+
+  isLoading: boolean = false;
+
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
     this.getCorList();
@@ -106,21 +110,49 @@ export class BottomsheetComponent {
     }
   }
 
-  async getCorList() {
-    this.corList = await getCorridorList();
+  async getCorList(): Promise<void> {
+    this.isLoading = true;
+    try {
+      this.corList = await this.firebaseService.getCorridorList();
+    } catch(error) {
+      console.error(error);
+    } finally {
+      this.isLoading = false;
+    }
   }
 
-  async getCorBusList() {
-    this.corBusList = await getCorridorBusStopList(this.selCor.corridorName);
+  async getCorBusList(): Promise<void> {
+    this.isLoading = true;
+    try {
+      this.corBusList = await this.firebaseService.getCorridorBusStopList(this.selCor.corridorName);
+    } catch(error) {
+      console.error(error);
+    } finally {
+      this.isLoading = false;
+    }
   }
 
-  async getBusCorList() {
-    this.busCorList = await getBusStopDetail(this.selBus);
-    this.appendCorDetail();
+  async getBusCorList(): Promise<void> {
+    this.isLoading = true;
+    try {
+      this.busCorList = await this.firebaseService.getBusStopDetail(this.selBus);
+    } catch(error) {
+      console.error(error);
+    } finally {
+      this.appendCorDetail();
+      this.isLoading = false;
+    }
   }
 
-  async getTrkBusList() {
-    this.trkBusList = await getCorridorBusStopList(this.selTrk.corridorId)
+  async getTrkBusList(): Promise<void> {
+    this.isLoading = true;
+    try {
+      this.trkBusList = await this.firebaseService.getCorridorBusStopList(this.selTrk.corridorId);
+    } catch(error) {
+      console.error(error);
+    } finally {
+      this.isLoading = false;
+    }
   }
 
   appendCorDetail() {

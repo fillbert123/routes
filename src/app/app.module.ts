@@ -15,6 +15,7 @@ import { firebaseConfig } from './firebase-config';
 import { TerminusSelectionComponent } from './component/terminus-selection/terminus-selection.component';
 import { LineDetailComponent } from './component/line-detail/line-detail.component';
 import { ButtonComponent } from './component/button/button.component';
+import { LoadingComponent } from './component/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ButtonComponent } from './component/button/button.component';
     BottomsheetComponent,
     TerminusSelectionComponent,
     LineDetailComponent,
-    ButtonComponent
+    ButtonComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

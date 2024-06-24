@@ -41,19 +41,22 @@
         (clickedDirection)="selectDirection($event)"
       />
     </div>
-    <div *ngIf="isShowCorList()">
+    <div *ngIf="isLoading">
+      <app-loading/>
+    </div>
+    <div *ngIf="!isLoading && isShowCorList()">
       <app-corridor-list 
         [corList]="corList" 
         (clickedCor)="goNext('corDetail', $event)"
       />
     </div>
-    <div *ngIf="isShowBusCorList()">
+    <div *ngIf="!isLoading && isShowBusCorList()">
       <app-corridor-list
         [busCorList]="busCorList"
         (clickedBusCor)="goNext('trkDetail', $event)"
       />
     </div>
-    <div *ngIf="isShowBusList()">
+    <div *ngIf="!isLoading && isShowBusList()">
       <app-line-detail 
         [corridorColor]="selCor.corridorColor"
         [selCor]="selCor"
@@ -64,7 +67,7 @@
         (clickedBusStop)="goNext('busDetail', $event)"
       />
     </div>
-    <div *ngIf="isShowTrkList()">
+    <div *ngIf="!isLoading && isShowTrkList()">
       <app-line-detail 
         [corridorColor]="selTrk.corridorColor"
         [selTrk]="selTrk"
