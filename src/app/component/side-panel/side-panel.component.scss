@@ -1,0 +1,35 @@
+.side-panel {
+  &__cluster {
+    display: flex;
+    flex-direction: row;
+  }
+  &__content {
+    width: 384px;
+    height: calc(100vh - 52px);
+    padding: 12px;
+    border: 1px solid var(--st30);
+    border-radius: 12px 0 12px 12px;
+    background-color: var(--bg80);
+    backdrop-filter: blur(8px);
+    &__lists {
+      width: 100%;
+      height: calc(100% - 54px);
+      margin: 12px 0;
+      border-radius: 12px;
+      overflow: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+  &__resize {
+    padding: 8px;
+    height: 50px;
+    border-radius: 0 12px 12px 0;
+    background-color: var(--st30);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}

@@ -16,7 +16,7 @@
         />
       </div>
       <div
-        *ngIf="isShowCorIcon() && this.currentState === 'trkDetail'"
+        *ngIf="isShowCorIcon() && (this.currentState === 'trkDetail' || this.currentState === 'busDetail')"
         class="bottomsheet__content__header__icon"
       >
         <div

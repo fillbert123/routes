@@ -1,0 +1,37 @@
+.list-item {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  &:hover {
+    border-radius: 8px;
+    background-color: var(--colC8);
+    cursor: pointer;
+  }
+  &__icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    border: none;
+    border-radius: 16px;
+  }
+  &__info {
+    margin: 0 0 0 12px;
+    &__name {
+      margin: 0;
+    }
+    &__track {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      &__terminus {
+        margin: 0;
+      }
+      &__via {
+        margin: 0 0 0 6px;
+      }
+    }
+  }
+}

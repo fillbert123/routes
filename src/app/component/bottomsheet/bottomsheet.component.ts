@@ -26,8 +26,14 @@ export class BottomsheetComponent {
 
   ngOnInit() {
     this.getCorList();
-    this.bottomSheetTitle = 'Koridor Transjakarta';
+    this.bottomSheetTitle = 'Jakarta';
     this.currentState = 'main';
+  }
+
+  isInStandaloneMode() {
+    const isStandalone = (navigator as any).standalone === true;
+    const isStandaloneDisplayMode = window.matchMedia('(display-mode: standalone)').matches;
+    return isStandalone || isStandaloneDisplayMode;
   }
 
   selectDirection(selDir: any) {
@@ -167,7 +173,7 @@ export class BottomsheetComponent {
 
   goBack() {
     this.currentState = 'main';
-    this.bottomSheetTitle = 'Koridor Transjakarta';
+    this.bottomSheetTitle = 'Jakarta';
     this.selCorDir = null;
     this.selTrkDir = null;
   }

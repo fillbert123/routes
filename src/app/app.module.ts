@@ -16,6 +16,12 @@ import { TerminusSelectionComponent } from './component/terminus-selection/termi
 import { LineDetailComponent } from './component/line-detail/line-detail.component';
 import { ButtonComponent } from './component/button/button.component';
 import { LoadingComponent } from './component/loading/loading.component';
+import { SvgPlaygroundComponent } from './svg-playground/svg-playground.component';
+import { SystemMapComponent } from './component/system-map/system-map.component';
+import { SidePanelComponent } from './component/side-panel/side-panel.component';
+import { ListComponent } from './component/list/list.component';
+import { ListItemComponent } from './component/list-item/list-item.component';
+import { CommandBarComponent } from './component/command-bar/command-bar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +33,13 @@ import { LoadingComponent } from './component/loading/loading.component';
     TerminusSelectionComponent,
     LineDetailComponent,
     ButtonComponent,
-    LoadingComponent
+    LoadingComponent,
+    SvgPlaygroundComponent,
+    SystemMapComponent,
+    SidePanelComponent,
+    ListComponent,
+    ListItemComponent,
+    CommandBarComponent
   ],
   imports: [
     BrowserModule,

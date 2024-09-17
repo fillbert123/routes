@@ -1,0 +1,26 @@
+.command-bar {
+  padding: 4px 8px;
+  height: calc(100% - 28px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 12px;
+  background-color: var(--bg80);
+  &__button {
+    height: 34px;
+    width: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  &__search {
+    padding: 8px;
+    width: calc(100% - 96px);
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+  }
+}

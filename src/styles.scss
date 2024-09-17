@@ -1,18 +1,45 @@
 :host {
-  --red: #F2162E;
-  --blue: #3A75E8;
+  // brt
+  --red: #F21635;
+  --blue: #2678F4;
   --yellow: #F9BD14;
-  --purple: #863AE8;
-  --brown: #B24624;
+  --purple: #A22AC6;
+  --brown: #AC4415;
   --green: #32B737;
-  --magenta: #E83AA2;
+  --magenta: #F134B0;
   --pink: #F2A3F9;
   --cyan: #3AC8E8;
-  --grey: #646464;
+  --sand: #B49F56;
   --teal: #43B190;
-  --cobalt: #27758E;
+  --ocean: #27758E;
   --orange: #EB702A;
-  --midnight: #546C91;
+  --slate: #546C91;
+
+  // deprecated brt
+  // --grey: #B49F56;
+  // --cobalt: #27758E;
+  // --midnight: #546C91;
+
+  // mrt
+  --coral: #CE5466;
+
+  // lrt
+  --peach: #E6A682;
+  --midnight: #1D498B;
+  --moss: #195B1B;
+
+  // krl
+  --fuchsia: #CC2472;
+  --cosmic: #2C29E7;
+  --desert: #9B5756;
+  --forest: #64860E;
+  --lavender: #945ECA;
+  --ice: #6F9EE4;
+
+  // hsr
+  --lime: #8AD846;
+
+  // misc
   --white: #FFFFFF;
   --darkgrey: #202020;
   --tx54: #7B7B7B;
@@ -59,4 +86,28 @@ body {
 .m10 {
   font-size: 10px;
   font-weight: 700;
+}
+
+.list-title {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--tx85);
+}
+
+.list-name {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--tx85);
+}
+
+.list-direction, .list-icon, .command-search {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.list-via {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--white);
 }

@@ -1,0 +1,400 @@
+[
+  {
+    "corridorType": "MRT",
+    "corridorName": "North-South Line",
+    "corridorIcon": "M",
+    "corridorColor": "coral",
+    "corridorLowerBound": "Lebak Bulus",
+    "corridorUpperBound": "Bundaran HI",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "LRT",
+    "corridorName": "Bekasi Line",
+    "corridorIcon": "E",
+    "corridorColor": "moss",
+    "corridorLowerBound": "Dukuh Atas",
+    "corridorUpperBound": "Jati Mulya",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "LRT",
+    "corridorName": "Cibubur Line",
+    "corridorIcon": "I",
+    "corridorColor": "midnight",
+    "corridorLowerBound": "Dukuh Atas",
+    "corridorUpperBound": "Harjamukti",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "LRT",
+    "corridorName": "South Line",
+    "corridorIcon": "S",
+    "corridorColor": "peach",
+    "corridorLowerBound": "Pegangsaan Dua",
+    "corridorUpperBound": "Velodrome",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 1",
+    "corridorIcon": "1",
+    "corridorColor": "red",
+    "corridorLowerBound": "Blok M",
+    "corridorUpperBound": "Kota",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 2",
+    "corridorIcon": "2",
+    "corridorColor": "blue",
+    "corridorLowerBound": "Pulo Gadung",
+    "corridorUpperBound": "Monumen Nasional",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 2A",
+    "corridorIcon": "A",
+    "corridorColor": "blue",
+    "corridorLowerBound": "Pulo Gadung",
+    "corridorUpperBound": "Rawa Buaya",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 3",
+    "corridorIcon": "3",
+    "corridorColor": "yellow",
+    "corridorLowerBound": "Kalideres",
+    "corridorUpperBound": "Monumen Nasional",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 3F",
+    "corridorIcon": "F",
+    "corridorColor": "yellow",
+    "corridorLowerBound": "Kalideres",
+    "corridorUpperBound": "Gelora Bung Karno",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 3H",
+    "corridorIcon": "H",
+    "corridorColor": "yellow",
+    "corridorLowerBound": "Jelambar",
+    "corridorUpperBound": "Kota",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 4",
+    "corridorIcon": "4",
+    "corridorColor": "purple",
+    "corridorLowerBound": "Pulo Gadung",
+    "corridorUpperBound": "Galunggung",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 4D",
+    "corridorIcon": "D",
+    "corridorColor": "purple",
+    "corridorLowerBound": "Pulo Gadung",
+    "corridorUpperBound": "Patra Kuningan",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 5",
+    "corridorIcon": "5",
+    "corridorColor": "brown",
+    "corridorLowerBound": "Ancol",
+    "corridorUpperBound": "Kp. Melayu",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 5C",
+    "corridorIcon": "C",
+    "corridorColor": "brown",
+    "corridorLowerBound": "Juanda",
+    "corridorUpperBound": "Cililitan",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 5D",
+    "corridorIcon": "D",
+    "corridorColor": "brown",
+    "corridorLowerBound": "Ancol",
+    "corridorUpperBound": "Cililitan",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 6",
+    "corridorIcon": "6",
+    "corridorColor": "green",
+    "corridorLowerBound": "Ragunan",
+    "corridorUpperBound": "Galunggung",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 6A",
+    "corridorIcon": "A",
+    "corridorColor": "green",
+    "corridorLowerBound": "Ragunan",
+    "corridorUpperBound": "Balai Kota",
+    "corridorVia": "Kuningan",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 6B",
+    "corridorIcon": "B",
+    "corridorColor": "green",
+    "corridorLowerBound": "Ragunan",
+    "corridorUpperBound": "Balai Kota",
+    "corridorVia": "Semanggi",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 6V",
+    "corridorIcon": "V",
+    "corridorColor": "green",
+    "corridorLowerBound": "Ragunan",
+    "corridorUpperBound": "Gelora Bung Karno",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 7",
+    "corridorIcon": "7",
+    "corridorColor": "magenta",
+    "corridorLowerBound": "Kp. Rambutan",
+    "corridorUpperBound": "Kp. Melayu",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 7F",
+    "corridorIcon": "F",
+    "corridorColor": "magenta",
+    "corridorLowerBound": "Kp. Rambutan",
+    "corridorUpperBound": "Juanda",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 8",
+    "corridorIcon": "8",
+    "corridorColor": "pink",
+    "corridorLowerBound": "Lebak Bulus",
+    "corridorUpperBound": "Pasar Baru",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 9",
+    "corridorIcon": "9",
+    "corridorColor": "cyan",
+    "corridorLowerBound": "Pinang Ranti",
+    "corridorUpperBound": "Pluit",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 9A",
+    "corridorIcon": "A",
+    "corridorColor": "cyan",
+    "corridorLowerBound": "Kali Grogol",
+    "corridorUpperBound": "Cililitan",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 9C",
+    "corridorIcon": "C",
+    "corridorColor": "cyan",
+    "corridorLowerBound": "Pinang Ranti",
+    "corridorUpperBound": "Bundaran Senayan",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 9H",
+    "corridorIcon": "H",
+    "corridorColor": "cyan",
+    "corridorLowerBound": "Pinang Ranti",
+    "corridorUpperBound": "Simpang Cawang",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 10",
+    "corridorIcon": "10",
+    "corridorColor": "sand",
+    "corridorLowerBound": "Tanjung Priok",
+    "corridorUpperBound": "PGC",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 10D",
+    "corridorIcon": "D",
+    "corridorColor": "sand",
+    "corridorLowerBound": "Tanjung Priok",
+    "corridorUpperBound": "Kp. Rambutan",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 10H",
+    "corridorIcon": "H",
+    "corridorColor": "sand",
+    "corridorLowerBound": "Tanjung Priok",
+    "corridorUpperBound": "Bundaran Senayan",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 11",
+    "corridorIcon": "11",
+    "corridorColor": "teal",
+    "corridorLowerBound": "Kp. Melayu",
+    "corridorUpperBound": "Pulo Gebang",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 12",
+    "corridorIcon": "12",
+    "corridorColor": "ocean",
+    "corridorLowerBound": "Pluit",
+    "corridorUpperBound": "Tanjung Priok",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 13",
+    "corridorIcon": "13",
+    "corridorColor": "orange",
+    "corridorLowerBound": "Ciledug",
+    "corridorUpperBound": "Tegal Mampang",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 13B",
+    "corridorIcon": "B",
+    "corridorColor": "orange",
+    "corridorLowerBound": "Puri Beta 2",
+    "corridorUpperBound": "Pancoran",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 13C",
+    "corridorIcon": "C",
+    "corridorColor": "orange",
+    "corridorLowerBound": "Puri Beta 2",
+    "corridorUpperBound": "Dukuh Atas",
+    "isCorridorActive": false
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 13D",
+    "corridorIcon": "D",
+    "corridorColor": "orange",
+    "corridorLowerBound": "Puri Beta 2",
+    "corridorUpperBound": "Ragunan",
+    "isCorridorActive": false
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor L13E",
+    "corridorIcon": "LE",
+    "corridorColor": "orange",
+    "corridorLowerBound": "Puri Beta 2",
+    "corridorUpperBound": "Flyover Kuningan",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "BRT",
+    "corridorName": "Corridor 14",
+    "corridorIcon": "14",
+    "corridorColor": "slate",
+    "corridorLowerBound": "Senen Raya",
+    "corridorUpperBound": "Jakarta Intl. Stadium",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "KRL",
+    "corridorName": "Soekarno-Hatta Line",
+    "corridorIcon": "A",
+    "corridorColor": "ice",
+    "corridorLowerBound": "Manggarai",
+    "corridorUpperBound": "Soekarno-Hatta",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "KRL",
+    "corridorName": "Bogor Line",
+    "corridorIcon": "B",
+    "corridorColor": "fuchsia",
+    "corridorLowerBound": "Jakarta Kota",
+    "corridorUpperBound": "Bogor",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "KRL",
+    "corridorName": "Bogor Line",
+    "corridorIcon": "N",
+    "corridorColor": "fuchsia",
+    "corridorLowerBound": "Jakarta Kota",
+    "corridorUpperBound": "Nambo",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "KRL",
+    "corridorName": "Cikarang Line",
+    "corridorIcon": "C",
+    "corridorColor": "cosmic",
+    "corridorLowerBound": "Cikarang",
+    "corridorUpperBound": "Jatinegara",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "KRL",
+    "corridorName": "Rangkasbitung Line",
+    "corridorIcon": "R",
+    "corridorColor": "forest",
+    "corridorLowerBound": "Tanah Abang",
+    "corridorUpperBound": "Rangkasbitung",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "KRL",
+    "corridorName": "Tangerang Line",
+    "corridorIcon": "T",
+    "corridorColor": "desert",
+    "corridorLowerBound": "Duri",
+    "corridorUpperBound": "Tangerang",
+    "isCorridorActive": true
+  },
+  {
+    "corridorType": "KRL",
+    "corridorName": "Tanjung Priok Line",
+    "corridorIcon": "U",
+    "corridorColor": "lavender",
+    "corridorLowerBound": "Jakarta Kota",
+    "corridorUpperBound": "Tanjung Priok",
+    "isCorridorActive": true
+  }
+]

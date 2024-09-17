@@ -215,18 +215,41 @@ export class AppComponent {
   // }
 
   // updateItemOnFirebase() {
-  //   const id = 'STP011';
-  //   const data = [
-  //     {
-  //       busStopName: 'Bundaran HI'
-  //     }
-  //   ]
-  //   this.firebaseService.updateBusStop(id, data)
-  //     .then(() => {
-  //       alert('updated');
-  //     })
-  //     .catch((error) => {
-  //       alert(error);
-  //     })
+  //   // const ids = ['SDT418', 'SDT419', 'SDT420', 'SDT421', 'SDT422', 'SDT423', 'SDT424', 'SDT425', 'SDT426', 'SDT427', 'SDT428', 'SDT429', 'SDT430', 'SDT431', 'SDT432', 'SDT433', 'SDT434', 'SDT435', 'SDT436', 'SDT437', 'SDT438', 'SDT439', 'SDT440'];
+  //   // const datas = [
+  //   //   {busStopId :'Tanjung Priok', busStopDirection :'terminus', busStopCode :'10-01', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Mambo', busStopNextLow :null, corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Mambo', busStopDirection :'bidirectional', busStopCode :'10-02', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Koja', busStopNextLow :'Tanjung Priok', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Koja', busStopDirection :'bidirectional', busStopCode :'10-03', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Walikota Jakarta Utara', busStopNextLow :'Mambo', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Walikota Jakarta Utara', busStopDirection :'bidirectional', busStopCode :'10-04', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Plumpang', busStopNextLow :'Koja', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Plumpang', busStopDirection :'bidirectional', busStopCode :'10-05', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Sunter Kelapa Gading', busStopNextLow :'Walikota Jakarta Utara', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Sunter Kelapa Gading', busStopDirection :'bidirectional', busStopCode :'10-06', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Sunter Boulevard Barat', busStopNextLow :'Plumpang', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Sunter Boulevard Barat', busStopDirection :'bidirectional', busStopCode :'null', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Kodamar', busStopNextLow :'Sunter Kelapa Gading', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Kodamar', busStopDirection :'bidirectional', busStopCode :'10-07', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Simpang Cempaka', busStopNextLow :'Sunter Boulevard Barat', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Simpang Cempaka', busStopDirection :'bidirectional', busStopCode :'10-08', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Pulo Mas Bypass', busStopNextLow :'Kodamar', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Cempaka Putih', busStopDirection :'low', busStopCode :'10-09', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :null, busStopNextLow :'Simpang Cempaka', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Pulo Mas Bypass', busStopDirection :'bidirectional', busStopCode :'10-10', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Kayu Putih Rawasari', busStopNextLow :'Cempaka Putih', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Kayu Putih Rawasari', busStopDirection :'bidirectional', busStopCode :'10-11', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Pemuda Pramuka', busStopNextLow :'Pulo Mas Bypass', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Pemuda Pramuka', busStopDirection :'bidirectional', busStopCode :'10-12', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Utan Kayu Rawamangun', busStopNextLow :'Kayu Putih Rawasari', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Utan Kayu Rawamangun', busStopDirection :'bidirectional', busStopCode :'10-13', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Pisangan', busStopNextLow :'Pemuda Pramuka', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Pisangan', busStopDirection :'bidirectional', busStopCode :'10-14', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Flyover Jatinegara', busStopNextLow :'Utan Kayu Rawamangun', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Flyover Jatinegara', busStopDirection :'bidirectional', busStopCode :'10-15', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Pedati Prumpung', busStopNextLow :'Pisangan', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Pedati Prumpung', busStopDirection :'bidirectional', busStopCode :'10-16', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Kebon Nanas', busStopNextLow :'Flyover Jatinegara', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Kebon Nanas', busStopDirection :'bidirectional', busStopCode :'10-17', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Halim', busStopNextLow :'Pedati Prumpung', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Halim', busStopDirection :'bidirectional', busStopCode :'10-18', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Simpang Cawang', busStopNextLow :'Kebon Nanas', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Simpang Cawang', busStopDirection :'bidirectional', busStopCode :'10-19', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Cawang Sentral', busStopNextLow :'Halim', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Cawang Sentral', busStopDirection :'bidirectional', busStopCode :'10-20', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'Cawang Cililitan', busStopNextLow :'Simpang Cawang', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'Cawang Cililitan', busStopDirection :'bidirectional', busStopCode :'10-21', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :'PGC', busStopNextLow :'Cawang Sentral', corridorIcon :'10', corridorColor :'sand'},
+  //   //   {busStopId :'PGC', busStopDirection :'terminus', busStopCode :'10-22', corridorId :'Koridor 10', busStopIsRapid :false, busStopNextUp :null, busStopNextLow :'Cawang Cililitan', corridorIcon :'10', corridorColor :'sand'}
+  //   // ]
+  //   // ids.forEach((id) => {
+  //   //   console.log('id', id)
+  //   //   this.firebaseService.updateBusStop(id, data)
+  //   //     .then(() => {
+  //   //       console.log('updated');
+  //   //     })
+  //   //     .catch((error) => {
+  //   //       console.log(error);
+  //   //     })
+  //   // })
   // }
 }
