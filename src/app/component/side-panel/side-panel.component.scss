@@ -16,7 +16,8 @@
       height: calc(100% - 54px);
       margin: 12px 0;
       border-radius: 12px;
-      overflow: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
       &::-webkit-scrollbar {
         display: none;
       }
