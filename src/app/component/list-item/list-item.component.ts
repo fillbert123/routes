@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-list-item',
@@ -7,12 +7,18 @@ import { Component, Input } from '@angular/core';
 })
 export class ListItemComponent {
   @Input() corridor: any;
+  @Input() color: string
+  @Input() stop: any;
+  @Input() listItemType: string;
+  @Input() isFirst: boolean;
+  @Input() isLast: boolean;
+  @Output() selectedCorridor = new EventEmitter<any>();
 
   getCorridorColor(color: string) {
     return `var(--${color})`
   }
 
   handleListItemClick(corridor: any) {
-    console.log(corridor);
+    this.selectedCorridor.emit(corridor);
   }
 }

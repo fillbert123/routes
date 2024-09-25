@@ -1,7 +1,9 @@
 .list-item {
   display: flex;
+  align-items: center;
   flex-direction: row;
   padding: 8px;
+  height: 32px;
   &:hover {
     border-radius: 12px;
     background-color: var(--colC8);
@@ -13,14 +15,52 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
     border: none;
     border-radius: 16px;
+  }
+  &__stop {
+    width: 24px;
+    height: 100%;
+    position: relative;
+    &__point {
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      left: 6px;
+      height: 16px;
+      width: 16px;
+      border-radius: 16px;
+      border: 2px solid var(--white);
+      z-index: 2;
+    }
+    &__line-top {
+      position: absolute;
+      top: -8px;
+      left: 12px;
+      width: 8px;
+      height: calc(50% + 8px);
+    }
+    &__line-bottom {
+      position: absolute;
+      bottom: -8px;
+      left: 12px;
+      width: 8px;
+      height: calc(50% + 8px);
+    }
   }
   &__info {
     margin: 0 0 0 12px;
     &__name {
       margin: 0;
+    }
+    &__code {
+      padding: 0;
+      width: 32px;
+      height: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
     }
     &__track {
       display: flex;

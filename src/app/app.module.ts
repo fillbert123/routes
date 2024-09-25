@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './component/app.component';
@@ -22,6 +23,9 @@ import { SidePanelComponent } from './component/side-panel/side-panel.component'
 import { ListComponent } from './component/list/list.component';
 import { ListItemComponent } from './component/list-item/list-item.component';
 import { CommandBarComponent } from './component/command-bar/command-bar.component';
+import { HomeComponent } from './page/home/home.component';
+import { SearchResultComponent } from './page/search-result/search-result.component';
+import { CorridorDetailComponent } from './page/corridor-detail/corridor-detail.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +43,16 @@ import { CommandBarComponent } from './component/command-bar/command-bar.compone
     SidePanelComponent,
     ListComponent,
     ListItemComponent,
-    CommandBarComponent
+    CommandBarComponent,
+    HomeComponent,
+    SearchResultComponent,
+    CorridorDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    FormsModule
   ],
   providers: [
     provideClientHydration()

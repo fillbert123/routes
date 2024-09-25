@@ -1,0 +1,19 @@
+<div class="corridor-detail">
+  <div class="corridor-detail__header">
+    <div class="corridor-detail__header__icon corridor-detail-icon" [ngStyle]="{ 'background-color': getCorridorColor(selectedCorridor.corridorColor) }">{{selectedCorridor.corridorIcon}}</div>
+    <div class="corridor-detail__header__title section-title">{{selectedCorridor.corridorName}}</div>
+  </div>
+  <app-terminus-selection
+    [terminusLower]="selectedCorridor.corridorLowerBoundShorten"
+    [terminusUpper]="selectedCorridor.corridorUpperBoundShorten"
+    (clickedDirection)="setSelectedDirection($event)"
+  />
+  <app-list 
+    (selectedCorridor)="handleListItemClick($event)" 
+    listType="track" 
+    [track]="track" 
+    [direction]="direction"
+    [color]="selectedCorridor.corridorColor"
+    [terminusLower]="selectedCorridor.corridorLowerBound" 
+    [terminusUpper]="selectedCorridor.corridorUpperBound"/>
+</div>

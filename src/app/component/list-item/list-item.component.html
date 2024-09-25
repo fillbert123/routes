@@ -1,10 +1,22 @@
-<div (click)="handleListItemClick(corridor)" class="list-item">
-  <div class="list-item__icon list-icon" [ngStyle]="{ 'background-color': getCorridorColor(corridor.corridorColor) }">{{corridor.corridorIcon}}</div>
+<div *ngIf="listItemType === 'corridor'" (click)="handleListItemClick(corridor)" class="list-item">
+  <div class="list-item__icon list-corridor-icon" [ngStyle]="{ 'background-color': getCorridorColor(corridor.corridorColor) }">{{corridor.corridorIcon}}</div>
   <div class="list-item__info">
-    <p class="list-item__info__name list-name">{{corridor.corridorName}}</p>
+    <p class="list-item__info__name list-corridor-name">{{corridor.corridorName}}</p>
     <div class="list-item__info__track">
-      <p class="list-item__info__track__terminus list-direction">{{corridor.corridorLowerBound}} - {{corridor.corridorUpperBound}}</p>
-      <p *ngIf="corridor?.corridorVia" class="list-item__info__track__via list-via">Via {{corridor.corridorVia}}</p>
+      <p class="list-item__info__track__terminus list-corridor-direction">{{corridor.corridorLowerBoundShorten}} - {{corridor.corridorUpperBoundShorten}}</p>
+      <p *ngIf="corridor?.corridorVia" class="list-item__info__track__via list-corridor-via">Via {{corridor.corridorVia}}</p>
     </div>
+  </div>
+</div>
+
+<div *ngIf="listItemType === 'stop'" (click)="handleListItemClick(corridor)" class="list-item">
+  <div class="list-item__stop">
+    <div class="list-item__stop__point" [ngStyle]="{ 'background-color': getCorridorColor(color) }"></div>
+    <div *ngIf="isFirst === false" class="list-item__stop__line-top" [ngStyle]="{ 'background-color': getCorridorColor(color) }"></div>
+    <div *ngIf="isLast === false" class="list-item__stop__line-bottom" [ngStyle]="{ 'background-color': getCorridorColor(color) }"></div>
+  </div>
+  <div class="list-item__info">
+    <div *ngIf="stop.stopCode" class="list-item__info__code list-stop-code" [ngStyle]="{ 'background-color': getCorridorColor(color) }">{{stop.stopCode}}</div>
+    <p class="list-item__info__name list-stop-name">{{stop.stopName}}</p>
   </div>
 </div>

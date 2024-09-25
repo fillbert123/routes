@@ -88,26 +88,38 @@ body {
   font-weight: 700;
 }
 
-.list-title {
+.list-title, .terminus-descriptive {
   font-size: 12px;
   font-weight: bold;
   color: var(--tx85);
 }
 
-.list-name {
+.corridor-detail-direction {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.list-corridor-name, .corridor-detail-name {
   font-size: 10px;
   font-weight: 700;
   color: var(--tx85);
 }
 
-.list-direction, .list-icon, .command-search {
+.list-corridor-direction, .list-corridor-icon, .corridor-detail-icon, .command-search, .terminus-bound, .list-stop-name {
   font-size: 16px;
   font-weight: bold;
   color: var(--white);
 }
 
-.list-via {
+.list-corridor-via, .corridor-detail-via, .list-stop-code {
   font-size: 10px;
   font-weight: 400;
+  color: var(--white);
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
   color: var(--white);
 }

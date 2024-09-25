@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class SidePanelComponent {
   isCollapsed: boolean = false;
+  query: string = '';
+  selectedCorridor: any = null;
 
   toggleSidePanelCollapseExpand() {
     this.isCollapsed = !this.isCollapsed;
@@ -51,5 +53,17 @@ export class SidePanelComponent {
     document.getElementById('command-bar__button-back')?.classList.remove('command-bar__button-back-collapse');
     document.getElementById('command-bar__search')?.classList.add('command-bar__search-expand');
     document.getElementById('command-bar__search')?.classList.remove('command-bar__search-collapse');
+  }
+
+  checkQuery(query: any) {
+    this.query = query;
+  }
+
+  handleListItemClick(corridor: any) {
+    this.selectedCorridor = corridor;
+  }
+
+  handleBackButtonClick() {
+    this.selectedCorridor = null;
   }
 }
