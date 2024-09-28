@@ -1,6 +1,6 @@
 .terminus {
   padding: 4px;
-  width: 100%;
+  width: calc(100% - 12px);
   border-radius: 16px;
   background-color: var(--bg80);
   display: flex;

@@ -302,10 +302,10 @@
     "isCorridorActive": true
   },
   {
-    "corridorLookUp": "brt9h",
+    "corridorLookUp": "brt9n",
     "corridorType": "BRT",
-    "corridorName": "Corridor 9H",
-    "corridorIcon": "H",
+    "corridorName": "Corridor 9N",
+    "corridorIcon": "N",
     "corridorColor": "cyan",
     "corridorLowerBound": "Pinang Ranti",
     "corridorUpperBound": "Simpang Cawang",

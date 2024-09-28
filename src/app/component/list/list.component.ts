@@ -77,7 +77,6 @@ export class ListComponent {
     const lowerBoundList = [];
     let currentStop = list.find((stop: any) => stop.stopName == terminusUpper);
     while(currentStop) {
-      console.log('curr', currentStop);
       lowerBoundList.push(currentStop);
       currentStop = list.find((stop: any) => stop.stopName == currentStop.stopNextLow);
     }

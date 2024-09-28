@@ -15,8 +15,15 @@
     <div *ngIf="isFirst === false" class="list-item__stop__line-top" [ngStyle]="{ 'background-color': getCorridorColor(color) }"></div>
     <div *ngIf="isLast === false" class="list-item__stop__line-bottom" [ngStyle]="{ 'background-color': getCorridorColor(color) }"></div>
   </div>
-  <div class="list-item__info">
-    <div *ngIf="stop.stopCode" class="list-item__info__code list-stop-code" [ngStyle]="{ 'background-color': getCorridorColor(color) }">{{stop.stopCode}}</div>
-    <p class="list-item__info__name list-stop-name">{{stop.stopName}}</p>
+  <div class="list-item__detail">
+    <div class="list-item__detail__info">
+      <div *ngIf="stop.stopCode" class="list-item__detail__info__code list-stop-code" [ngStyle]="{ 'background-color': getCorridorColor(color) }">{{stop.stopCode}}</div>
+      <p class="list-item__detail__info__name list-stop-name">{{stop.stopName}}</p>
+    </div>
+    <div class="list-item__detail__transit">
+      <div *ngFor="let transit of transitCorridor">
+        <div class="list-item__detail__transit__icon list-corridor-transit-icon" [ngStyle]="{ 'background-color': getCorridorColor(transit.corridorColor) }">{{transit.corridorIcon}}</div>
+      </div>
+    </div>
   </div>
 </div>

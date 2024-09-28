@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import corridorData from '../../../assets/data/corridor.json';
 
 @Component({
   selector: 'app-list-item',
@@ -13,6 +14,13 @@ export class ListItemComponent {
   @Input() isFirst: boolean;
   @Input() isLast: boolean;
   @Output() selectedCorridor = new EventEmitter<any>();
+  transitCorridor: any = [];
+
+  ngOnInit() {
+    if(this.listItemType === 'stop') {
+      this.getTransitCorridorData();
+    }
+  }
 
   getCorridorColor(color: string) {
     return `var(--${color})`
@@ -20,5 +28,14 @@ export class ListItemComponent {
 
   handleListItemClick(corridor: any) {
     this.selectedCorridor.emit(corridor);
+  }
+
+  getTransitCorridorData() {
+    if(this.stop?.stopTransit) {
+      this.stop.stopTransit.forEach((transit) => {
+        this.transitCorridor.push(...corridorData.filter((corridor) => corridor.corridorLookUp === transit));
+      });
+      console.log(this.transitCorridor);
+    }
   }
 }
