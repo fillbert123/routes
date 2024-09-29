@@ -1,5 +1,6 @@
 <div *ngIf="listItemType === 'corridor'" (click)="handleListItemClick(corridor)" class="list-item">
-  <div class="list-item__icon list-corridor-icon" [ngStyle]="{ 'background-color': getCorridorColor(corridor.corridorColor) }">{{corridor.corridorIcon}}</div>
+  <app-icon type="corridor-large" [color]="corridor.corridorColor" [icon]="corridor.corridorIcon"/>
+  <!-- <div class="list-item__icon list-corridor-icon" [ngStyle]="{ 'background-color': getCorridorColor(corridor.corridorColor) }">{{corridor.corridorIcon}}</div> -->
   <div class="list-item__info">
     <p class="list-item__info__name list-corridor-name">{{corridor.corridorName}}</p>
     <div class="list-item__info__track">
@@ -17,12 +18,15 @@
   </div>
   <div class="list-item__detail">
     <div class="list-item__detail__info">
-      <div *ngIf="stop.stopCode" class="list-item__detail__info__code list-stop-code" [ngStyle]="{ 'background-color': getCorridorColor(color) }">{{stop.stopCode}}</div>
+      <!-- <div *ngIf="stop.stopCode" class="list-item__detail__info__code list-stop-code" [ngStyle]="{ 'background-color': getCorridorColor(color) }">{{stop.stopCode}}</div> -->
+      <div *ngIf="stop.stopCode">
+        <app-chip type="code" [color]="color" [code]="stop.stopCode"/>
+      </div>
       <p class="list-item__detail__info__name list-stop-name">{{stop.stopName}}</p>
     </div>
     <div class="list-item__detail__transit">
       <div *ngFor="let transit of transitCorridor">
-        <div class="list-item__detail__transit__icon list-corridor-transit-icon" [ngStyle]="{ 'background-color': getCorridorColor(transit.corridorColor) }">{{transit.corridorIcon}}</div>
+        <app-icon type="corridor-small" [color]="transit.corridorColor" [icon]="transit.corridorIcon"/>
       </div>
     </div>
   </div>

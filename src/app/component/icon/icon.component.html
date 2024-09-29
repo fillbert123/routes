@@ -1,0 +1,7 @@
+<div *ngIf="type === 'corridor-small'" class="icon-small list-corridor-transit-icon" [ngStyle]="{ 'background-color': getCorridorColor(color) }">
+  {{icon}}
+</div>
+
+<div *ngIf="type === 'corridor-large'" class="icon-large list-corridor-icon" [ngStyle]="{ 'background-color': getCorridorColor(color) }">
+  {{icon}}
+</div>

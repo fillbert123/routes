@@ -26,6 +26,8 @@ import { CommandBarComponent } from './component/command-bar/command-bar.compone
 import { HomeComponent } from './page/home/home.component';
 import { SearchResultComponent } from './page/search-result/search-result.component';
 import { CorridorDetailComponent } from './page/corridor-detail/corridor-detail.component';
+import { ChipComponent } from './component/chip/chip.component';
+import { IconComponent } from './component/icon/icon.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { CorridorDetailComponent } from './page/corridor-detail/corridor-detail.
     CommandBarComponent,
     HomeComponent,
     SearchResultComponent,
-    CorridorDetailComponent
+    CorridorDetailComponent,
+    ChipComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,

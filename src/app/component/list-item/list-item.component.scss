@@ -9,15 +9,15 @@
     background-color: var(--colC8);
     cursor: pointer;
   }
-  &__icon {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 16px;
-  }
+  // &__icon {
+  //   width: 32px;
+  //   height: 32px;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   border: none;
+  //   border-radius: 16px;
+  // }
   &__stop {
     width: 24px;
     height: 100%;
@@ -58,16 +58,16 @@
       width: fit-content;
       display: flex;
       flex-direction: row;
-      &__icon {
-        margin: 0 0 0 4px;
-        width: 18px;
-        height: 18px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: none;
-        border-radius: 12px;
-      }
+      // &__icon {
+      //   margin: 0 0 0 4px;
+      //   width: 18px;
+      //   height: 18px;
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   border: none;
+      //   border-radius: 12px;
+      // }
     }
   }
   &__info, &__detail__info {

@@ -1,6 +1,6 @@
 <div class="corridor-detail">
   <div class="corridor-detail__header">
-    <div class="corridor-detail__header__icon corridor-detail-icon" [ngStyle]="{ 'background-color': getCorridorColor(selectedCorridor.corridorColor) }">{{selectedCorridor.corridorIcon}}</div>
+    <app-icon type="corridor-large" [color]="selectedCorridor.corridorColor" [icon]="selectedCorridor.corridorIcon"/>
     <div class="corridor-detail__header__title section-title">{{selectedCorridor.corridorName}}</div>
   </div>
   <app-terminus-selection

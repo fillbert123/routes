@@ -3,9 +3,9 @@
     {"stopName": "Blok M", "stopDirection": "terminus", "stopCode": "01-01", "stopCorridor": "Corridor 1", "stopNextUp": "Kejaksaan Agung", "stopNextLow": null},
     {"stopName": "Kejaksaan Agung", "stopTransit": ["brt6v"], "stopDirection": "bidirectional", "stopCode": "01-02", "stopCorridor": "Corridor 1", "stopNextUp": "Masjid Agung", "stopNextLow": "Blok M"},
     {"stopName": "Masjid Agung", "stopTransit": ["brt6v"], "stopDirection": "bidirectional", "stopCode": "01-03", "stopCorridor": "Corridor 1", "stopNextUp": "Bundaran Senayan", "stopNextLow": "Kejaksaan Agung"},
-    {"stopName": "Bundaran Senayan", "stopTransit": ["brt6v", "brt9c", "brt10h"], "stopDirection": "bidirectional", "stopCode": "01-04", "stopCorridor": "Corridor 1", "stopNextUp": "Gelora Bung Karno", "stopNextLow": "Masjid Agung"},
-    {"stopName": "Gelora Bung Karno", "stopTransit": ["brt3f", "brt6v", "brt9c", "brt10h"], "stopDirection": "bidirectional", "stopCode": "01-05", "stopCorridor": "Corridor 1", "stopNextUp": "Polda Metro Jaya", "stopNextLow": "Bundaran Senayan"},
-    {"stopName": "Polda Metro Jaya", "stopDirection": "bidirectional", "stopCode": "01-06", "stopCorridor": "Corridor 1", "stopNextUp": "Bendungan Hilir", "stopNextLow": "Gelora Bung Karno"},
+    {"stopName": "Bundaran Senayan", "stopTransit": ["brt6v", "brt9c", "brt10h"], "stopDirection": "bidirectional", "stopCode": "01-04", "stopCorridor": "Corridor 1", "stopNextUp": "Senayan", "stopNextLow": "Masjid Agung"},
+    {"stopName": "Senayan", "stopTransit": ["brt3f", "brt6v", "brt9c", "brt10h"], "stopDirection": "bidirectional", "stopCode": "01-05", "stopCorridor": "Corridor 1", "stopNextUp": "Polda Metro Jaya", "stopNextLow": "Bundaran Senayan"},
+    {"stopName": "Polda Metro Jaya", "stopDirection": "bidirectional", "stopCode": "01-06", "stopCorridor": "Corridor 1", "stopNextUp": "Bendungan Hilir", "stopNextLow": "Senayan"},
     {"stopName": "Bendungan Hilir", "stopDirection": "bidirectional", "stopCode": "01-07", "stopCorridor": "Corridor 1", "stopNextUp": "Karet", "stopNextLow": "Polda Metro Jaya"},
     {"stopName": "Karet", "stopTransit": ["brt6b", "brt13c"], "stopDirection": "bidirectional", "stopCode": "01-08", "stopCorridor": "Corridor 1", "stopNextUp": "Dukuh Atas", "stopNextLow": "Bendungan Hilir"},
     {"stopName": "Dukuh Atas", "stopTransit": ["brt6b", "brt13c"], "stopDirection": "bidirectional", "stopCode": "01-09", "stopCorridor": "Corridor 1", "stopNextUp": "Tosari", "stopNextLow": "Karet"},
@@ -107,9 +107,9 @@
     {"stopName": "Tanjung Duren", "stopTransit": ["brt8", "brt9", "brt9a"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 3F", "stopNextUp": "Kota Bambu", "stopNextLow": "Grogol Reformasi"},
     {"stopName": "Kota Bambu", "stopTransit": ["brt9", "brt9a", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 3F", "stopNextUp": "Kemanggisan", "stopNextLow": "Tanjung Duren"},
     {"stopName": "Kemanggisan", "stopTransit": ["brt9", "brt9a", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 3F", "stopNextUp": "Petamburan", "stopNextLow": "Kota Bambu"},
-    {"stopName": "Petamburan", "stopTransit": ["brt9", "brt9a", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 3F", "stopNextUp": "Senayan", "stopNextLow": "Kemanggisan"},
-    {"stopName": "Senayan", "stopTransit": ["brt9", "brt9a", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 3F", "stopNextUp": "Gelora Bung Karno", "stopNextLow": "Petamburan"},
-    {"stopName": "Gelora Bung Karno", "stopTransit": ["brt1", "brt6v", "brt9c", "brt10h"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 3F", "stopNextUp": null, "stopNextLow": "Senayan"}  
+    {"stopName": "Petamburan", "stopTransit": ["brt9", "brt9a", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 3F", "stopNextUp": "Gerbang Pemuda", "stopNextLow": "Kemanggisan"},
+    {"stopName": "Gerbang Pemuda", "stopTransit": ["brt9", "brt9a", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 3F", "stopNextUp": "Senayan", "stopNextLow": "Petamburan"},
+    {"stopName": "Senayan", "stopTransit": ["brt1", "brt6v", "brt9c", "brt10h"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 3F", "stopNextUp": null, "stopNextLow": "Gerbang Pemuda"}  
   ],
   "brt3h": [
     {"stopName": "Jelambar", "stopTransit": ["brt2a", "brt3h", "brt8"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 3H", "stopNextUp": "Grogol", "stopNextLow": null},
@@ -328,8 +328,8 @@
     {"stopName": "Pasar Santa", "stopTransit": ["brt13", "brt13b", "brt13c", "brt13d"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 6V", "stopNextUp": "Masjid Agung", "stopNextLow": "Rawa Barat"},
     {"stopName": "Kejaksaan Agung", "stopTransit": ["brt1"], "stopDirection": "low", "stopCode": null, "stopCorridor": "Corridor 6V", "stopNextUp": null, "stopNextLow": "Pasar Santa"},
     {"stopName": "Masjid Agung", "stopTransit": ["brt1"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 6V", "stopNextUp": "Bundaran Senayan", "stopNextLow": "Kejaksaan Agung"},
-    {"stopName": "Bundaran Senayan", "stopTransit": ["brt1", "brt9c", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 6V", "stopNextUp": "Gelora Bung Karno", "stopNextLow": "Masjid Agung"},
-    {"stopName": "Gelora Bung Karno", "stopTransit": ["brt1", "brt3f", "brt9c", "brt10h"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 6V", "stopNextUp": null, "stopNextLow": "Bundaran Senayan"}  
+    {"stopName": "Bundaran Senayan", "stopTransit": ["brt1", "brt9c", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 6V", "stopNextUp": "Senayan", "stopNextLow": "Masjid Agung"},
+    {"stopName": "Senayan", "stopTransit": ["brt1", "brt3f", "brt9c", "brt10h"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 6V", "stopNextUp": null, "stopNextLow": "Bundaran Senayan"}  
   ],
   "brt7": [
     {"stopName": "Kampung Rambutan", "stopTransit": ["brt7f", "brt10d"], "stopDirection": "terminus", "stopCode": "07-01", "stopCorridor": "Corridor 7", "stopNextUp": "Tanah Merdeka", "stopNextLow": null},
@@ -414,9 +414,9 @@
     {"stopName": "Simpang Kuningan", "stopTransit": ["brt9a", "brt9c", "brt13c", "brtl13e"], "stopDirection": "bidirectional", "stopCode": "09-11", "stopCorridor": "Corridor 9", "stopNextUp": "Denpasar", "stopNextLow": "Tegal Parang"},
     {"stopName": "Denpasar", "stopTransit": ["brt6b", "brt9a", "brt13c"], "stopDirection": "bidirectional", "stopCode": "09-12", "stopCorridor": "Corridor 9", "stopNextUp": "Widya Chandra", "stopNextLow": "Simpang Kuningan"},
     {"stopName": "Widya Chandra", "stopTransit": ["brt6b", "brt9a", "brt13c"], "stopDirection": "bidirectional", "stopCode": "09-13", "stopCorridor": "Corridor 9", "stopNextUp": "Semanggi", "stopNextLow": "Denpasar"},
-    {"stopName": "Semanggi", "stopTransit": ["brt6b", "brt9a", "brt13c"], "stopDirection": "bidirectional", "stopCode": "09-14", "stopCorridor": "Corridor 9", "stopNextUp": "Senayan", "stopNextLow": "Widya Chandra"},
-    {"stopName": "Senayan", "stopTransit": ["brt3f", "brt9a", "brt10h"], "stopDirection": "bidirectional", "stopCode": "09-15", "stopCorridor": "Corridor 9", "stopNextUp": "Petamburan", "stopNextLow": "Semanggi"},
-    {"stopName": "Petamburan", "stopTransit": ["brt3f", "brt9a", "brt10h"], "stopDirection": "bidirectional", "stopCode": "09-16", "stopCorridor": "Corridor 9", "stopNextUp": "Kemanggisan", "stopNextLow": "Senayan"},
+    {"stopName": "Semanggi", "stopTransit": ["brt6b", "brt9a", "brt13c"], "stopDirection": "bidirectional", "stopCode": "09-14", "stopCorridor": "Corridor 9", "stopNextUp": "Gerbang Pemuda", "stopNextLow": "Widya Chandra"},
+    {"stopName": "Gerbang Pemuda", "stopTransit": ["brt3f", "brt9a", "brt10h"], "stopDirection": "bidirectional", "stopCode": "09-15", "stopCorridor": "Corridor 9", "stopNextUp": "Petamburan", "stopNextLow": "Semanggi"},
+    {"stopName": "Petamburan", "stopTransit": ["brt3f", "brt9a", "brt10h"], "stopDirection": "bidirectional", "stopCode": "09-16", "stopCorridor": "Corridor 9", "stopNextUp": "Kemanggisan", "stopNextLow": "Gerbang Pemuda"},
     {"stopName": "Kemanggisan", "stopTransit": ["brt3f", "brt9a", "brt10h"], "stopDirection": "bidirectional", "stopCode": "09-17", "stopCorridor": "Corridor 9", "stopNextUp": "Kota Bambu", "stopNextLow": "Petamburan"},
     {"stopName": "Kota Bambu", "stopTransit": ["brt3f", "brt9a", "brt10h"], "stopDirection": "bidirectional", "stopCode": "09-18", "stopCorridor": "Corridor 9", "stopNextUp": "Tanjung Duren", "stopNextLow": "Kemanggisan"},
     {"stopName": "Tanjung Duren", "stopTransit": ["brt3f", "brt8", "brt9a"], "stopDirection": "bidirectional", "stopCode": "09-19", "stopCorridor": "Corridor 9", "stopNextUp": "Grogol Reformasi", "stopNextLow": "Kota Bambu"},
@@ -443,9 +443,9 @@
     {"stopName": "Simpang Kuningan", "stopTransit": ["brt9", "brt9c", "brt13c", "brtl13e"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9A", "stopNextUp": "Denpasar", "stopNextLow": "Tegal Parang"},
     {"stopName": "Denpasar", "stopTransit": ["brt6b", "brt9", "brt13c"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9A", "stopNextUp": "Widya Chandra", "stopNextLow": "Simpang Kuningan"},
     {"stopName": "Widya Chandra", "stopTransit": ["brt6b", "brt9", "brt13c"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9A", "stopNextUp": "Semanggi", "stopNextLow": "Denpasar"},
-    {"stopName": "Semanggi", "stopTransit": ["brt6b", "brt9", "brt13c"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9A", "stopNextUp": "Senayan", "stopNextLow": "Widya Chandra"},
-    {"stopName": "Senayan", "stopTransit": ["brt3f", "brt9", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9A", "stopNextUp": "Petamburan", "stopNextLow": "Semanggi"},
-    {"stopName": "Petamburan", "stopTransit": ["brt3f", "brt9", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9A", "stopNextUp": "Kemanggisan", "stopNextLow": "Senayan"},
+    {"stopName": "Semanggi", "stopTransit": ["brt6b", "brt9", "brt13c"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9A", "stopNextUp": "Gerbang Pemuda", "stopNextLow": "Widya Chandra"},
+    {"stopName": "Gerbang Pemuda", "stopTransit": ["brt3f", "brt9", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9A", "stopNextUp": "Petamburan", "stopNextLow": "Semanggi"},
+    {"stopName": "Petamburan", "stopTransit": ["brt3f", "brt9", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9A", "stopNextUp": "Kemanggisan", "stopNextLow": "Gerbang Pemuda"},
     {"stopName": "Kemanggisan", "stopTransit": ["brt3f", "brt9", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9A", "stopNextUp": "Kota Bambu", "stopNextLow": "Petamburan"},
     {"stopName": "Kota Bambu", "stopTransit": ["brt3f", "brt9", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9A", "stopNextUp": "Tanjung Duren", "stopNextLow": "Kemanggisan"},
     {"stopName": "Tanjung Duren", "stopTransit": ["brt3f", "brt8", "brt9"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9A", "stopNextUp": "Grogol Reformasi", "stopNextLow": "Kota Bambu"},
@@ -466,9 +466,9 @@
     {"stopName": "Simpang Kuningan", "stopTransit": ["brt9", "brt9a", "brt13c", "brtl13e"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9C", "stopNextUp": "Denpasar", "stopNextLow": "Tegal Parang"},
     {"stopName": "Denpasar", "stopTransit": ["brt6b", "brt9", "brt9a"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9C", "stopNextUp": "Widya Chandra", "stopNextLow": "Simpang Kuningan"},
     {"stopName": "Widya Chandra", "stopTransit": ["brt6b", "brt9", "brt9a"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9C", "stopNextUp": "Semanggi", "stopNextLow": "Denpasar"},
-    {"stopName": "Semanggi", "stopTransit": ["brt6b", "brt9", "brt9a"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9C", "stopNextUp": "Gelora Bung Karno", "stopNextLow": "Widya Chandra"},
-    {"stopName": "Gelora Bung Karno", "stopTransit": ["brt1", "brt3f", "brt6v", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9C", "stopNextUp": "Bundaran Senayan", "stopNextLow": "Semanggi"},
-    {"stopName": "Bundaran Senayan", "stopTransit": ["brt1", "brt6v", "brt10h"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 9C", "stopNextUp": null, "stopNextLow": "Gelora Bung Karno"}  
+    {"stopName": "Semanggi", "stopTransit": ["brt6b", "brt9", "brt9a"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9C", "stopNextUp": "Senayan", "stopNextLow": "Widya Chandra"},
+    {"stopName": "Senayan", "stopTransit": ["brt1", "brt3f", "brt6v", "brt10h"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 9C", "stopNextUp": "Bundaran Senayan", "stopNextLow": "Semanggi"},
+    {"stopName": "Bundaran Senayan", "stopTransit": ["brt1", "brt6v", "brt10h"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 9C", "stopNextUp": null, "stopNextLow": "Senayan"}  
   ],
   "brt9n": [
     {"stopName": "Pinang Ranti", "stopTransit": ["brt9", "brt9c"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 9N", "stopNextUp": "Makasar", "stopNextLow": null},
@@ -537,10 +537,10 @@
     {"stopName": "Tomang Raya", "stopTransit": ["brt8"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 10H", "stopNextUp": "Kota Bambu", "stopNextLow": "Tarakan"},
     {"stopName": "Kota Bambu", "stopTransit": ["brt3f", "brt9", "brt9a"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 10H", "stopNextUp": "Kemanggisan", "stopNextLow": "Tomang Raya"},
     {"stopName": "Kemanggisan", "stopTransit": ["brt3f", "brt9", "brt9a"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 10H", "stopNextUp": "Petamburan", "stopNextLow": "Kota Bambu"},
-    {"stopName": "Petamburan", "stopTransit": ["brt3f", "brt9", "brt9a"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 10H", "stopNextUp": "Senayan", "stopNextLow": "Kemanggisan"},
-    {"stopName": "Senayan", "stopTransit": ["brt3f", "brt9", "brt9a"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 10H", "stopNextUp": "Gelora Bung Karno", "stopNextLow": "Petamburan"},
-    {"stopName": "Gelora Bung Karno", "stopTransit": ["brt1", "brt3f", "brt6v", "brt9c"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 10H", "stopNextUp": "Bundaran Senayan", "stopNextLow": "Senayan"},
-    {"stopName": "Bundaran Senayan", "stopTransit": ["brt1", "brt6v", "brt9c"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 10H", "stopNextUp": null, "stopNextLow": "Gelora Bung Karno"}  
+    {"stopName": "Petamburan", "stopTransit": ["brt3f", "brt9", "brt9a"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 10H", "stopNextUp": "Gerbang Pemuda", "stopNextLow": "Kemanggisan"},
+    {"stopName": "Gerbang Pemuda", "stopTransit": ["brt3f", "brt9", "brt9a"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 10H", "stopNextUp": "Senayan", "stopNextLow": "Petamburan"},
+    {"stopName": "Senayan", "stopTransit": ["brt1", "brt3f", "brt6v", "brt9c"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 10H", "stopNextUp": "Bundaran Senayan", "stopNextLow": "Gerbang Pemuda"},
+    {"stopName": "Bundaran Senayan", "stopTransit": ["brt1", "brt6v", "brt9c"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 10H", "stopNextUp": null, "stopNextLow": "Senayan"}  
   ],
   "brt11": [
     {"stopName": "Kampung Melayu", "stopTransit": ["brt5", "brt5c", "brt5d", "brt7"], "stopDirection": "terminus", "stopCode": "11-16", "stopCorridor": "Corridor 11", "stopNextUp": "Stasiun Jatinegara", "stopNextLow": null},
@@ -605,21 +605,21 @@
     {"stopName": "Tegal Mampang", "stopTransit": ["brt6v", "brt13b", "brt13c", "brt13d", "brtl13e"], "stopDirection": "terminus", "stopCode": "13-01", "stopCorridor": "Corridor 13", "stopNextUp": null, "stopNextLow": "Rawa Barat"}  
   ],
   "brt13b": [
-    {"stopName": "Puri Beta 2", "stopTransit": [], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Puri Beta 1", "stopNextLow": null},
-    {"stopName": "Puri Beta 1", "stopTransit": [], "stopDirection": "up", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Petukangan Utara", "stopNextLow": null},
-    {"stopName": "Petukangan Utara", "stopTransit": [], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "JORR", "stopNextLow": "Puri Beta 2"},
-    {"stopName": "JORR", "stopTransit": [], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Swadarma", "stopNextLow": "Petukangan Utara"},
-    {"stopName": "Swadarma", "stopTransit": [], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Cipulir", "stopNextLow": "JORR"},
-    {"stopName": "Cipulir", "stopTransit": [], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Seskoal", "stopNextLow": "Swadarma"},
-    {"stopName": "Seskoal", "stopTransit": [], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Kebayoran Lama", "stopNextLow": "Cipulir"},
-    {"stopName": "Kebayoran Lama", "stopTransit": [], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Velbak", "stopNextLow": "Seskoal"},
-    {"stopName": "Velbak", "stopTransit": [], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Mayestik", "stopNextLow": "Kebayoran Lama"},
-    {"stopName": "Mayestik", "stopTransit": [], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "CSW", "stopNextLow": "Velbak"},
-    {"stopName": "CSW", "stopTransit": [], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Pasar Santa", "stopNextLow": "Mayestik"},
-    {"stopName": "Pasar Santa", "stopTransit": [], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Rawa Barat", "stopNextLow": "CSW"},
-    {"stopName": "Rawa Barat", "stopTransit": [], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Pancoran", "stopNextLow": "Pasar Santa"},
-    {"stopName": "Tegal Mampang", "stopTransit": [], "stopDirection": "low", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": null, "stopNextLow": "Rawa Barat"},
-    {"stopName": "Pancoran", "stopTransit": [], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": null, "stopNextLow": "Tegal Mampang"}
+    {"stopName": "Puri Beta 2", "stopTransit": ["brt13", "brt13c", "brt13d", "brtl13e"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Puri Beta 1", "stopNextLow": null},
+    {"stopName": "Puri Beta 1", "stopTransit": ["brt13", "brt13c", "brt13d", "brtl13e"], "stopDirection": "up", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Petukangan Utara", "stopNextLow": null},
+    {"stopName": "Petukangan Utara", "stopTransit": ["brt13", "brt13c", "brt13d", "brtl13e"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "JORR", "stopNextLow": "Puri Beta 2"},
+    {"stopName": "JORR", "stopTransit": ["brt13", "brt13c", "brt13d"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Swadarma", "stopNextLow": "Petukangan Utara"},
+    {"stopName": "Swadarma", "stopTransit": ["brt13", "brt13c", "brt13d"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Cipulir", "stopNextLow": "JORR"},
+    {"stopName": "Cipulir", "stopTransit": ["brt13", "brt13c", "brt13d"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Seskoal", "stopNextLow": "Swadarma"},
+    {"stopName": "Seskoal", "stopTransit": ["brt13", "brt13c", "brt13d"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Kebayoran Lama", "stopNextLow": "Cipulir"},
+    {"stopName": "Kebayoran Lama", "stopTransit": ["brt13", "brt13c", "brt13d"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Velbak", "stopNextLow": "Seskoal"},
+    {"stopName": "Velbak", "stopTransit": ["brt13", "brt13c", "brt13d", "brtl13e"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Mayestik", "stopNextLow": "Kebayoran Lama"},
+    {"stopName": "Mayestik", "stopTransit": ["brt13", "brt13c", "brt13d"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "CSW", "stopNextLow": "Velbak"},
+    {"stopName": "CSW", "stopTransit": ["brt13", "brt13c", "brt13d", "brtl13e"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Pasar Santa", "stopNextLow": "Mayestik"},
+    {"stopName": "Pasar Santa", "stopTransit": ["brt6v", "brt13", "brt13c", "brt13d"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Rawa Barat", "stopNextLow": "CSW"},
+    {"stopName": "Rawa Barat", "stopTransit": ["brt6v", "brt13", "brt13c", "brt13d"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": "Pancoran", "stopNextLow": "Pasar Santa"},
+    {"stopName": "Tegal Mampang", "stopTransit": ["brt6v", "brt13", "brt13c", "brt13d", "brtl13e"], "stopDirection": "low", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": null, "stopNextLow": "Rawa Barat"},
+    {"stopName": "Pancoran", "stopTransit": ["brt9", "brt9a", "brt9c"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 13B", "stopNextUp": null, "stopNextLow": "Tegal Mampang"}
   ],
   "brt13c": [
     {"stopName": "Puri Beta 2", "stopTransit": ["brt13", "brt13b", "brt13d", "brtl13e"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "Corridor 13C", "stopNextUp": "Puri Beta 1", "stopNextLow": null},
