@@ -1,0 +1,11 @@
+<div class="route-preview">
+  <h3 class="route-preview__title route-preview-title">{{interchange.corridorName}}: {{interchange.corridorLowerBoundShorten}} - {{interchange.corridorUpperBoundShorten}}</h3>
+  <div class="route-preview__content">
+    <div *ngIf="routeNextData.stopNextUp" class="route-preview__content__upper">
+      <app-line-overview [data]="routePreviewData" bound="up"/>
+    </div>
+    <div *ngIf="routeNextData.stopNextLow" class="route-preview__content__lower">
+      <app-line-overview [data]="routePreviewData" bound="low"/>
+    </div>
+  </div>
+</div>

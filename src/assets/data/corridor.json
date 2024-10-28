@@ -102,9 +102,9 @@
     "corridorIcon": "F",
     "corridorColor": "yellow",
     "corridorLowerBound": "Kalideres",
-    "corridorUpperBound": "Gelora Bung Karno",
+    "corridorUpperBound": "Senayan",
     "corridorLowerBoundShorten": "Kalideres",
-    "corridorUpperBoundShorten": "Gelora Bung Karno",
+    "corridorUpperBoundShorten": "Senayan",
     "isCorridorActive": true
   },
   {
@@ -224,9 +224,9 @@
     "corridorIcon": "V",
     "corridorColor": "green",
     "corridorLowerBound": "Ragunan",
-    "corridorUpperBound": "Gelora Bung Karno",
+    "corridorUpperBound": "Senayan",
     "corridorLowerBoundShorten": "Ragunan",
-    "corridorUpperBoundShorten": "Gelora Bung Karno",
+    "corridorUpperBoundShorten": "Senayan",
     "isCorridorActive": true
   },
   {
@@ -283,8 +283,8 @@
     "corridorName": "Corridor 9A",
     "corridorIcon": "A",
     "corridorColor": "cyan",
-    "corridorLowerBound": "Kali Grogol",
-    "corridorUpperBound": "Cililitan",
+    "corridorLowerBound": "Cililitan",
+    "corridorUpperBound": "Kali Grogol",
     "corridorLowerBoundShorten": "Kali Grogol",
     "corridorUpperBoundShorten": "Cililitan",
     "isCorridorActive": true
@@ -472,7 +472,7 @@
   {
     "corridorLookUp": "krln",
     "corridorType": "KRL",
-    "corridorName": "Bogor Line",
+    "corridorName": "Bogor Line Nambo Branch",
     "corridorIcon": "N",
     "corridorColor": "fuchsia",
     "corridorLowerBound": "Jakarta Kota",

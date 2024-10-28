@@ -9,6 +9,7 @@ export class SidePanelComponent {
   isCollapsed: boolean = false;
   query: string = '';
   selectedCorridor: any = null;
+  selectedStop: any = null;
 
   toggleSidePanelCollapseExpand() {
     this.isCollapsed = !this.isCollapsed;
@@ -59,8 +60,13 @@ export class SidePanelComponent {
     this.query = query;
   }
 
-  handleListItemClick(corridor: any) {
+  handleListCorridorClick(corridor: any) {
     this.selectedCorridor = corridor;
+    this.selectedStop = null;
+  }
+
+  handleListStopClick(stop: any) {
+    this.selectedStop = stop;
   }
 
   handleBackButtonClick() {

@@ -49,6 +49,7 @@
   --colC8: rgba(200, 200, 200, 0.3);
   --st30: rgba(255, 255, 255, 0.3);
   --disable: #858585;
+  --grey: #858585;
 
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
@@ -88,10 +89,22 @@ body {
   font-weight: 700;
 }
 
-.list-title, .terminus-descriptive {
+.list-title, .terminus-descriptive, .route-preview-title {
   font-size: 12px;
   font-weight: bold;
   color: var(--tx85);
+}
+
+.route-preview-bound, .route-preview-terminus {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.route-preview-stop {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--white);
 }
 
 .corridor-detail-direction {
@@ -120,6 +133,12 @@ body {
 
 .list-corridor-transit-icon {
   font-size: 10px;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.icon-medium {
+  font-size: 14px;
   font-weight: bold;
   color: var(--white);
 }

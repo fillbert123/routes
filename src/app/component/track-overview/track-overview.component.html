@@ -1,0 +1,23 @@
+<div class="track-overview">
+  <div class="track-overview__info-set">
+    <div class="track-overview__info-set__info" *ngFor="let info of data.trackInformationData">
+      <div class="track-overview__info-set__info__empty" *ngIf="info === 'empty'"></div>
+      <div class="track-overview__info-set__info__nonempty" *ngIf="info === 'backward'">
+        <img src="../../../assets/icons/arrow.backward.svg" alt="">
+      </div>
+      <div class="track-overview__info-set__info__nonempty" *ngIf="info === 'forward'">
+        <img src="../../../assets/icons/arrow.forward.svg" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="track-overview__stop-set">
+    <div *ngFor="let stop of data.stopData" class="track-overview__stop-set__stop">
+      <div class="track-overview__stop-set__stop__icon" [ngStyle]="{ 'background-color': getTrackColor(stop.color) }"></div>
+      <div *ngIf="stop.name === data.currentStop" class="track-overview__stop-set__stop__icon-ripple"></div>
+      <p class="track-overview__stop-set__stop__name route-preview-terminus">{{stop.name}}</p>
+    </div>
+  </div>
+  <div class="track-overview__track-set">
+    <div *ngFor="let stop of data.trackStyleColorData" class="track-overview__track-set__track" [ngStyle]="{ 'width': getTrackLength(), 'border-color': getTrackColor(stop.color), 'border-style': getTrackStyle(stop.style) }"></div>
+  </div>
+</div>

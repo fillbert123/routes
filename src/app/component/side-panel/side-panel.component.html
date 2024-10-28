@@ -6,15 +6,19 @@
       </section>
 
       <section *ngIf="selectedCorridor === null && query === ''" id="home-section" class="side-panel__content__page">
-        <app-home (selectedCorridor)="handleListItemClick($event)"/>
+        <app-home (selectedCorridor)="handleListCorridorClick($event)"/>
       </section>
 
       <section *ngIf="selectedCorridor === null && query !== ''" id="search-result" class="side-panel__content__page">
-        <app-search-result [query]="query" (selectedCorridor)="handleListItemClick($event)"/>
+        <app-search-result [query]="query" (selectedCorridor)="handleListCorridorClick($event)"/>
       </section>
 
-      <section *ngIf="selectedCorridor !== null" class="side-panel__content__page">
-        <app-corridor-detail [selectedCorridor]="selectedCorridor"/>
+      <section *ngIf="selectedCorridor !== null && selectedStop === null" class="side-panel__content__page">
+        <app-corridor-detail [selectedCorridor]="selectedCorridor" (selectedStop)="handleListStopClick($event)"/>
+      </section>
+
+      <section *ngIf="selectedStop !== null" class="side-panel__content__page">
+        <app-stop-detail [selectedStop]="selectedStop"/>
       </section>
     </div>
   </div>

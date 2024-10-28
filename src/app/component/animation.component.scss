@@ -243,3 +243,41 @@
     opacity: 1;
   }
 }
+
+.track-overview__stop-set__stop__icon-ripple {
+  // -webkit-animation-name: track-overview__stop-set__stop__icon-ripple;
+  // -webkit-animation-duration: 2s;
+  // -webkit-animation-timing-function: ease;
+  // -webkit-animation-fill-mode: both;
+  // -webkit-animation-iteration-count: infinite;
+  position: absolute; /* Ensure the animation flows smoothly */
+  opacity: 0.5;
+  -webkit-animation: track-overview__stop-set__stop__icon-ripple 2s ease infinite;
+  animation: track-overview__stop-set__stop__icon-ripple 2s ease infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes track-overview__stop-set__stop__icon-ripple {
+  0% {
+    width: 16px;
+    height: 16px;
+    opacity: 0.5;
+    top: 26px;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  80% {
+    width: 48px;
+    height: 48px;
+    opacity: 0;
+    top: 10px;
+  }
+  100% {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    top: 26px;
+  }
+}

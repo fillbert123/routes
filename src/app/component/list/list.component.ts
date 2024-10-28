@@ -16,6 +16,7 @@ export class ListComponent {
   @Input() terminusUpper: string;
   @Input() terminusLower: string;
   @Output() selectedCorridor = new EventEmitter<any>();
+  @Output() selectedStop = new EventEmitter<any>();
   list: any;
   upperBoundTrack: any;
   lowerBoundTrack: any;
@@ -57,7 +58,6 @@ export class ListComponent {
               this.list = this.setUpperBoundTrack(this.track, this.terminusLower);
               break;
           }
-          console.log('list', this.list);
           break;
       }
     }
@@ -83,8 +83,12 @@ export class ListComponent {
     return lowerBoundList;
   }
 
-  handleListItemClick(corridor: any) {
+  handleListCorridorClick(corridor: any) {
     this.selectedCorridor.emit(corridor);
+  }
+
+  handleListStopClick(stop: any) {
+    this.selectedStop.emit(stop);
   }
 }
 

@@ -14,6 +14,7 @@ export class ListItemComponent {
   @Input() isFirst: boolean;
   @Input() isLast: boolean;
   @Output() selectedCorridor = new EventEmitter<any>();
+  @Output() selectedStop = new EventEmitter<any>();
   transitCorridor: any = [];
 
   ngOnInit() {
@@ -26,8 +27,12 @@ export class ListItemComponent {
     return `var(--${color})`
   }
 
-  handleListItemClick(corridor: any) {
+  handleListCorridorClick(corridor: any) {
     this.selectedCorridor.emit(corridor);
+  }
+
+  handleListStopClick(stop: any) {
+    this.selectedStop.emit(stop);
   }
 
   getTransitCorridorData() {
@@ -35,7 +40,6 @@ export class ListItemComponent {
       this.stop.stopTransit.forEach((transit) => {
         this.transitCorridor.push(...corridorData.filter((corridor) => corridor.corridorLookUp === transit));
       });
-      console.log(this.transitCorridor);
     }
   }
 }

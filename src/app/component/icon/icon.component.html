@@ -2,6 +2,10 @@
   {{icon}}
 </div>
 
+<div *ngIf="type === 'corridor-medium'" class="icon-medium icon-medium" [ngStyle]="{ 'background-color': getCorridorColor(color) }">
+  {{icon}}
+</div>
+
 <div *ngIf="type === 'corridor-large'" class="icon-large list-corridor-icon" [ngStyle]="{ 'background-color': getCorridorColor(color) }">
   {{icon}}
 </div>

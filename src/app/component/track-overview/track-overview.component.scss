@@ -1,0 +1,80 @@
+.track-overview {
+  margin: 8px 0 0 0;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  &__info-set {
+    width: 100%;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    &__info {
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &__empty {
+        width: 16px;
+        height: 16px;
+        margin: 0 18px;
+      }
+      &__nonempty {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+  &__stop-set {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &__stop {
+      width: 72px;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+      &__icon {
+        height: 16px;
+        width: 16px;
+        border-color: var(--white);
+        border-width: 2px;
+        border-radius: 16px;
+        border-style: solid;
+        position: relative;
+        z-index: 4;
+        &-ripple {
+          position: absolute;
+          border-radius: 100%;
+          z-index: 3;
+          background-color: var(--white);
+        }
+      }
+      &__name {
+        width: 72px;
+        display: flex;
+        margin: 4px 0 0 0;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+  }
+  &__track-set {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    top: 30px;
+    z-index: 1;
+    &__track {
+      border-width: 4px;
+      border-style: dotted;
+    }
+  }
+}

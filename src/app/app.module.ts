@@ -28,6 +28,11 @@ import { SearchResultComponent } from './page/search-result/search-result.compon
 import { CorridorDetailComponent } from './page/corridor-detail/corridor-detail.component';
 import { ChipComponent } from './component/chip/chip.component';
 import { IconComponent } from './component/icon/icon.component';
+import { StopDetailComponent } from './page/stop-detail/stop-detail.component';
+import { SelectComponent } from './component/select/select.component';
+import { RoutePreviewComponent } from './component/route-preview/route-preview.component';
+import { LineOverviewComponent } from './component/line-overview/line-overview.component';
+import { TrackOverviewComponent } from './component/track-overview/track-overview.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +55,12 @@ import { IconComponent } from './component/icon/icon.component';
     SearchResultComponent,
     CorridorDetailComponent,
     ChipComponent,
-    IconComponent
+    IconComponent,
+    StopDetailComponent,
+    SelectComponent,
+    RoutePreviewComponent,
+    LineOverviewComponent,
+    TrackOverviewComponent
   ],
   imports: [
     BrowserModule,

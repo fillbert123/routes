@@ -1,4 +1,4 @@
-<div *ngIf="listItemType === 'corridor'" (click)="handleListItemClick(corridor)" class="list-item">
+<div *ngIf="listItemType === 'corridor'" (click)="handleListCorridorClick(corridor)" class="list-item">
   <app-icon type="corridor-large" [color]="corridor.corridorColor" [icon]="corridor.corridorIcon"/>
   <!-- <div class="list-item__icon list-corridor-icon" [ngStyle]="{ 'background-color': getCorridorColor(corridor.corridorColor) }">{{corridor.corridorIcon}}</div> -->
   <div class="list-item__info">
@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div *ngIf="listItemType === 'stop'" (click)="handleListItemClick(corridor)" class="list-item">
+<div *ngIf="listItemType === 'stop'" (click)="handleListStopClick(stop)" class="list-item">
   <div class="list-item__stop">
     <div class="list-item__stop__point" [ngStyle]="{ 'background-color': getCorridorColor(color) }"></div>
     <div *ngIf="isFirst === false" class="list-item__stop__line-top" [ngStyle]="{ 'background-color': getCorridorColor(color) }"></div>

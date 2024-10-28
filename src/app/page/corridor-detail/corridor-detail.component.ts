@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import stopData from '../../../assets/data/stop.json';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import stopDirectionData from '../../../assets/data/stopDirection.json';
 
 @Component({
   selector: 'app-corridor-detail',
@@ -8,6 +8,7 @@ import stopData from '../../../assets/data/stop.json';
 })
 export class CorridorDetailComponent {
   @Input() selectedCorridor: any;
+  @Output() selectedStop = new EventEmitter<any>();
   direction: string;
   track: any;
 
@@ -24,10 +25,10 @@ export class CorridorDetailComponent {
   }
 
   getRoute() {
-    this.track = stopData[this.selectedCorridor.corridorLookUp];
+    this.track = stopDirectionData[this.selectedCorridor.corridorLookUp];
   }
 
-  handleListItemClick(stop: string) {
-
+  handleListStopClick(stop: string) {
+    this.selectedStop.emit(stop);
   }
 }

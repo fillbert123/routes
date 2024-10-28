@@ -1,0 +1,15 @@
+<div class="stop-detail">
+  <div class="stop-detail__header">
+    <div class="stop-detail__header__icon">
+      <div *ngFor="let interchange of selectedStopInterchangeData">
+        <app-icon type="corridor-medium" [color]="interchange.corridorColor" [icon]="interchange.corridorIcon"/>
+      </div>
+    </div>
+    <div class="stop-detail__header__title section-title">{{selectedStop.stopName}}</div>
+  </div>
+  <div class="stop-detail__content">
+    <div *ngFor="let interchange of selectedStopInterchangeData">
+      <app-route-preview [interchange]="interchange" [stop]="selectedStop"/>
+    </div>
+  </div>
+</div>
