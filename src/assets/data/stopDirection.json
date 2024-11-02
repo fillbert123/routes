@@ -691,7 +691,8 @@
     {"stopName": "Senen Raya", "stopTransit": ["brt2", "brt2a"], "stopDirection": "terminus", "stopCode": "14-02", "stopCorridor": "Corridor 14", "stopNextUp": "Pasar Senen", "stopNextLow": null},
     {"stopName": "Pasar Senen", "stopTransit": ["brt2", "brt2a", "brt7f"], "stopDirection": "bidirectional", "stopCode": "14-01", "stopCorridor": "Corridor 14", "stopNextUp": "Tanah Tinggi", "stopNextLow": "Senen Raya"},
     {"stopName": "Tanah Tinggi", "stopDirection": "bidirectional", "stopCode": "14-03", "stopCorridor": "Corridor 14", "stopNextUp": "Kemayoran", "stopNextLow": "Pasar Senen"},
-    {"stopName": "Kemayoran", "stopDirection": "bidirectional", "stopCode": "14-04", "stopCorridor": "Corridor 14", "stopNextUp": "Landasan Pacu", "stopNextLow": "Tanah Tinggi"},
+    {"stopName": "Kemayoran", "stopDirection": "bidirectional", "stopCode": "14-04", "stopCorridor": "Corridor 14", "stopNextUp": "JIEXPO Kemayoran", "stopNextLow": "Tanah Tinggi"},
+    {"stopName": "JIEXPO Kemayoran", "stopDirection": "up", "stopCode": "14-05", "stopCorridor": "Corridor 14", "stopNextUp": "Landasan Pacu", "stopNextLow": null},
     {"stopName": "Landasan Pacu", "stopTransit": ["brt12"], "stopDirection": "low", "stopCode": "14-05", "stopCorridor": "Corridor 14", "stopNextUp": "Danau Agung", "stopNextLow": null},
     {"stopName": "Danau Agung", "stopTransit": ["brt12"], "stopDirection": "bidirectional", "stopCode": "14-06", "stopCorridor": "Corridor 14", "stopNextUp": "Danau Sunter", "stopNextLow": "Kemayoran"},
     {"stopName": "Danau Sunter", "stopTransit": ["brt12"], "stopDirection": "bidirectional", "stopCode": "14-07", "stopCorridor": "Corridor 14", "stopNextUp": "Jembatan Item", "stopNextLow": "Danau Agung"},
@@ -754,7 +755,7 @@
   "krla": [
     {"stopName": "Manggarai", "stopNameRefer": "Manggarai KRL", "stopTransit": ["krlb", "krln", "krlc"], "stopDirection": "terminus", "stopCode": "A-01", "stopCorridor": "Soekarno-Hatta Line", "stopNextUp": "Sudirman Baru", "stopNextLow": null},
     {"stopName": "Sudirman Baru", "stopNameRefer": "Sudirman Baru KRL", "stopTransit": ["krlc"], "stopDirection": "bidirectional", "stopCode": "A-02", "stopCorridor": "Soekarno-Hatta Line", "stopNextUp": "Duri", "stopNextLow": "Manggarai"},
-    {"stopName": "Duri", "stopNameRefer": "Duri KRL", "stopTransit": ["krlc", "krtl"], "stopDirection": "bidirectional", "stopCode": "A-03", "stopCorridor": "Soekarno-Hatta Line", "stopNextUp": "Rawa Buaya", "stopNextLow": "Sudirman Baru"},
+    {"stopName": "Duri", "stopNameRefer": "Duri KRL", "stopTransit": ["krlc", "krlt"], "stopDirection": "bidirectional", "stopCode": "A-03", "stopCorridor": "Soekarno-Hatta Line", "stopNextUp": "Rawa Buaya", "stopNextLow": "Sudirman Baru"},
     {"stopName": "Rawa Buaya", "stopNameRefer": "Rawa Buaya KRL", "stopTransit": ["krlt"], "stopDirection": "bidirectional", "stopCode": "A-04", "stopCorridor": "Soekarno-Hatta Line", "stopNextUp": "Batu Ceper", "stopNextLow": "Duri"},
     {"stopName": "Batu Ceper", "stopNameRefer": "Batu Ceper KRL", "stopTransit": ["krlt"], "stopDirection": "bidirectional", "stopCode": "A-05", "stopCorridor": "Soekarno-Hatta Line", "stopNextUp": "Soekarno-Hatta", "stopNextLow": "Rawa Buaya"},
     {"stopName": "Soekarno-Hatta", "stopNameRefer": "Soekarno-Hatta KRL", "stopDirection": "terminus", "stopCode": "A-06", "stopCorridor": "Soekarno-Hatta Line", "stopNextUp": null, "stopNextLow": "Batu Ceper"}

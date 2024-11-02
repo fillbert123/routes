@@ -15,7 +15,6 @@ export class RoutePreviewComponent {
   ngOnInit() {
     this.routeNextData = this.getRouteNextData();
     this.setRoutePreviewData()
-    console.log('routeNextData', this.routeNextData);
   }
 
   getRouteNextData() {

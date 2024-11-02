@@ -21,6 +21,14 @@
       &::-webkit-scrollbar {
         display: none;
       }
+      &__search {
+        width: 100%;
+        height: calc(100% - 98px);
+        margin: 12px 0;
+        border-radius: 12px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
     }
   }
   &__resize {

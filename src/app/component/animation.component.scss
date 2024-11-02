@@ -245,11 +245,6 @@
 }
 
 .track-overview__stop-set__stop__icon-ripple {
-  // -webkit-animation-name: track-overview__stop-set__stop__icon-ripple;
-  // -webkit-animation-duration: 2s;
-  // -webkit-animation-timing-function: ease;
-  // -webkit-animation-fill-mode: both;
-  // -webkit-animation-iteration-count: infinite;
   position: absolute; /* Ensure the animation flows smoothly */
   opacity: 0.5;
   -webkit-animation: track-overview__stop-set__stop__icon-ripple 2s ease infinite;

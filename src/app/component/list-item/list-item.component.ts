@@ -42,4 +42,22 @@ export class ListItemComponent {
       });
     }
   }
+
+  getSearchStopName(name) {
+    if(name.endsWith('MRT') || name.endsWith('LRT') || name.endsWith('KRL')) {
+      return name.substring(0, name.length - 4);
+    }
+    return name;
+  }
+
+  getInterchangeCorridorData(interchange, value) {
+    let data = corridorData.find((corridor) => corridor.corridorLookUp === interchange);
+    if(value === 'color') {
+      return data.corridorColor;
+    }
+    if(value === 'icon') {
+      return data.corridorIcon;
+    }
+    return null;
+  }
 }

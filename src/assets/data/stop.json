@@ -229,6 +229,7 @@
   {"stopName": "Kemayoran", "stopInterchange": ["brt14"]},
   {"stopName": "Jembatan Item", "stopInterchange": ["brt14"]},
   {"stopName": "Jakarta International Stadium", "stopInterchange": ["brt14"]},
+  {"stopName": "JIEXPO Kemayoran", "stopInterchange": ["brt14"]},
 
   {"stopName": "Lebak Bulus MRT", "stopInterchange": ["mrtm"]},
   {"stopName": "Fatmawati MRT", "stopInterchange": ["mrtm"]},
@@ -271,7 +272,7 @@
 
   {"stopName": "Manggarai KRL", "stopInterchange": ["krla", "krlb", "krln", "krlc"]},
   {"stopName": "Sudirman Baru KRL", "stopInterchange": ["krla", "krlc"]},
-  {"stopName": "Duri KRL", "stopInterchange": ["krla", "krlc", "krtl"]},
+  {"stopName": "Duri KRL", "stopInterchange": ["krla", "krlc", "krlt"]},
   {"stopName": "Rawa Buaya KRL", "stopInterchange": ["krla", "krlt"]},
   {"stopName": "Batu Ceper KRL", "stopInterchange": ["krla", "krlt"]},
   {"stopName": "Soekarno-Hatta KRL", "stopInterchange": ["krla"]},

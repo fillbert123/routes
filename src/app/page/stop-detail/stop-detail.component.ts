@@ -13,7 +13,6 @@ export class StopDetailComponent {
   selectedStopInterchangeData: any = [];
 
   ngOnInit() {
-    console.log('selectedStop', this.selectedStop);
     if(this.selectedStop.stopNameRefer) {
       this.selectedStopInterchange = this.getStopInterchange(this.selectedStop.stopNameRefer).stopInterchange;
     } else {

@@ -1,1 +1,9 @@
-<app-list (selectedCorridor)="handleListItemClick($event)" class="side-panel__content__lists__list" [searchResult]="searchResult" listType="corridor"/>
+<div *ngIf="corridorSearchResult.length !== 0">
+  <app-list (selectedCorridor)="handleListItemClick($event)" class="side-panel__content__lists__list" [searchResult]="corridorSearchResult" listType="corridor"/>
+</div>
+<div *ngIf="stopSearchResult.length !== 0">
+  <app-list (selectedCorridor)="handleListItemClick($event)" class="side-panel__content__lists__list" [searchResult]="stopSearchResult" listType="stop"/>
+</div>
+<div *ngIf="corridorSearchResult.length === 0 && stopSearchResult.length === 0">
+  No result.
+</div>

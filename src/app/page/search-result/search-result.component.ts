@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import corridorData from '../../../assets/data/corridor.json';
+import stopData from '../../../assets/data/stop.json'
 
 @Component({
   selector: 'app-search-result',
@@ -9,21 +10,29 @@ import corridorData from '../../../assets/data/corridor.json';
 export class SearchResultComponent {
   @Input() query: string = '';
   @Output() selectedCorridor = new EventEmitter<any>();
-  searchResult: any = [];
+  corridorSearchResult: any = [];
+  stopSearchResult: any = [];
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['query']) {
-      this.searchResult = this.searchByQuery(this.query);
+      this.corridorSearchResult = this.searchCorridorByQuery(this.query);
+      this.stopSearchResult = this.searchStopByQuery(this.query);
     }
   }
 
-  searchByQuery(query: any) {
+  searchCorridorByQuery(query: any) {
     return corridorData.filter((corridor) => (
       corridor.corridorType.toLowerCase().includes(query.toLowerCase()) ||
       corridor.corridorName.toLowerCase().includes(query.toLowerCase()) ||
       corridor.corridorLowerBound.toLowerCase().includes(query.toLowerCase()) ||
       corridor.corridorUpperBound.toLowerCase().includes(query.toLowerCase()) ||
       corridor?.corridorVia?.toLowerCase().includes(query.toLowerCase())
+    ));
+  }
+
+  searchStopByQuery(query: any) {
+    return stopData.filter((stop) => (
+      stop.stopName.toLowerCase().includes(query.toLowerCase())
     ));
   }
 

@@ -8,10 +8,6 @@ import { Component, Input } from '@angular/core';
 export class TrackOverviewComponent {
   @Input() data: any;
 
-  ngOnInit() {
-    console.log('data track overview', this.data);
-  }
-
   getTrackColor(color: string) {
     if(color === 'color') {
       return `var(--${this.data.corridorColor})`;
