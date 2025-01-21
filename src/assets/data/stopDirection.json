@@ -693,11 +693,11 @@
     {"stopName": "Tanah Tinggi", "stopDirection": "bidirectional", "stopCode": "14-03", "stopCorridor": "Corridor 14", "stopNextUp": "Kemayoran", "stopNextLow": "Pasar Senen"},
     {"stopName": "Kemayoran", "stopDirection": "bidirectional", "stopCode": "14-04", "stopCorridor": "Corridor 14", "stopNextUp": "JIEXPO Kemayoran", "stopNextLow": "Tanah Tinggi"},
     {"stopName": "JIEXPO Kemayoran", "stopDirection": "up", "stopCode": "14-05", "stopCorridor": "Corridor 14", "stopNextUp": "Landasan Pacu", "stopNextLow": null},
-    {"stopName": "Landasan Pacu", "stopTransit": ["brt12"], "stopDirection": "low", "stopCode": "14-05", "stopCorridor": "Corridor 14", "stopNextUp": "Danau Agung", "stopNextLow": null},
-    {"stopName": "Danau Agung", "stopTransit": ["brt12"], "stopDirection": "bidirectional", "stopCode": "14-06", "stopCorridor": "Corridor 14", "stopNextUp": "Danau Sunter", "stopNextLow": "Kemayoran"},
-    {"stopName": "Danau Sunter", "stopTransit": ["brt12"], "stopDirection": "bidirectional", "stopCode": "14-07", "stopCorridor": "Corridor 14", "stopNextUp": "Jembatan Item", "stopNextLow": "Danau Agung"},
-    {"stopName": "Jembatan Item", "stopDirection": "bidirectional", "stopCode": "14-08", "stopCorridor": "Corridor 14", "stopNextUp": "Jakarta International Stadium", "stopNextLow": "Danau Sunter"},
-    {"stopName": "Jakarta International Stadium", "stopDirection": "terminus", "stopCode": "14-09", "stopCorridor": "Corridor 14", "stopNextUp": null, "stopNextLow": "Jembatan Item"}  
+    {"stopName": "Landasan Pacu", "stopTransit": ["brt12"], "stopDirection": "low", "stopCode": "14-06", "stopCorridor": "Corridor 14", "stopNextUp": "Danau Agung", "stopNextLow": null},
+    {"stopName": "Danau Agung", "stopTransit": ["brt12"], "stopDirection": "bidirectional", "stopCode": "14-07", "stopCorridor": "Corridor 14", "stopNextUp": "Danau Sunter", "stopNextLow": "Kemayoran"},
+    {"stopName": "Danau Sunter", "stopTransit": ["brt12"], "stopDirection": "bidirectional", "stopCode": "14-08", "stopCorridor": "Corridor 14", "stopNextUp": "Jembatan Item", "stopNextLow": "Danau Agung"},
+    {"stopName": "Jembatan Item", "stopDirection": "bidirectional", "stopCode": "14-09", "stopCorridor": "Corridor 14", "stopNextUp": "Jakarta International Stadium", "stopNextLow": "Danau Sunter"},
+    {"stopName": "Jakarta International Stadium", "stopDirection": "terminus", "stopCode": "14-10", "stopCorridor": "Corridor 14", "stopNextUp": null, "stopNextLow": "Jembatan Item"}  
   ],
   "mrtm": [
     {"stopName": "Lebak Bulus", "stopNameRefer": "Lebak Bulus MRT", "stopDirection": "terminus", "stopCode": "M-01", "stopCorridor": "North-South Line", "stopNextUp": "Fatmawati", "stopNextLow": null},

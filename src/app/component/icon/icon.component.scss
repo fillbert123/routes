@@ -1,4 +1,16 @@
 .icon {
+  &-extra-small {
+    margin: 0 0 0 2px;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 6px;
+    font-size: 6px;
+    font-weight: bold;
+  }
   &-small {
     margin: 0 0 0 4px;
     width: 18px;
@@ -27,5 +39,28 @@
     align-items: center;
     border: none;
     border-radius: 16px;
+  }
+  &-connection {
+    width: 36px;
+    height: 36px;
+    position: relative;
+    &__icon {
+      width: 36px;
+      height: 36px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &__stroke {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: conic-gradient(var(--red), var(--yellow), var(--green), var(--blue), var(--purple), var(--red));
+      -webkit-mask: radial-gradient(circle, transparent 50%, black 51%);
+      mask: radial-gradient(circle, transparent 50%, black 51%);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 }

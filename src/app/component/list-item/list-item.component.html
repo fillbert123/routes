@@ -29,7 +29,7 @@
     <div class="list-item__detail__info">
       <!-- <div *ngIf="stop.stopCode" class="list-item__detail__info__code list-stop-code" [ngStyle]="{ 'background-color': getCorridorColor(color) }">{{stop.stopCode}}</div> -->
       <div *ngIf="stop.stopCode">
-        <app-chip type="code" [color]="color" [code]="stop.stopCode"/>
+        <app-chip type="code" [color]="color" [field]="stop.stopCode"/>
       </div>
       <p class="list-item__detail__info__name list-stop-name">{{stop.stopName}}</p>
     </div>

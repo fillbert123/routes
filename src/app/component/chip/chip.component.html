@@ -1,3 +1,13 @@
-<div *ngIf="type === 'code'" class="chip" [ngStyle]="{ 'background-color': getCorridorColor(color) }">
-  {{code}}
+<div *ngIf="type === 'code'" class="chip-badge badge-label" [ngStyle]="{ 'background-color': getCorridorColor(color) }">
+  <span>{{field}}</span>
 </div>
+<div *ngIf="type === 'filter'" class="chip-filter-active filter-label" [id]="'chip-filter' + field" (click)="handleFilterClick(field)">
+  <span>{{field}}</span>
+</div>
+<span *ngIf="type === 'connection'" class="chip-connection">
+  <span *ngFor="let icon of sideIcon">
+    <app-icon type="corridor-extra-small" [color]="icon.corridorColor" [icon]="icon.corridorIcon"/>
+  </span>
+  <span class="chip-connection__label connection-label">{{field}}</span>
+  <img class="chip-connection__icon-right" src="../../../assets/icons/chevron.forward.svg" alt="">
+</span>

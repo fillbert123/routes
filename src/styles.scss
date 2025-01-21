@@ -95,7 +95,7 @@ body {
   color: var(--tx85);
 }
 
-.route-preview-bound, .route-preview-terminus {
+.route-preview-bound, .route-preview-terminus, .filter-label, .banner-label {
   font-size: 12px;
   font-weight: bold;
   color: var(--white);
@@ -125,13 +125,13 @@ body {
   color: var(--white);
 }
 
-.list-corridor-via, .corridor-detail-via, .chip {
+.list-corridor-via, .corridor-detail-via, .badge-label {
   font-size: 10px;
   font-weight: 400;
   color: var(--white);
 }
 
-.list-corridor-transit-icon {
+.list-corridor-transit-icon, .connection-label {
   font-size: 10px;
   font-weight: bold;
   color: var(--white);
@@ -148,4 +148,14 @@ body {
   font-size: 24px;
   font-weight: bold;
   color: var(--white);
+}
+
+.icon-extra-small {
+  font-size: 8px;
+  font-weight: bold;
+}
+
+.chip-connection-label {
+  font-size: 14px;
+  font-weight: bold;
 }

@@ -1,0 +1,38 @@
+.chip-selection {
+  margin: 12px 0;
+  display: flex;
+  flex-direction: row;
+  &__home-filter {
+    display: flex;
+    flex-direction: row;
+    &__chip {
+      &:not(:first-child) {
+        padding-left: 4px;
+      }
+      &:last-child {
+        padding-right: 8px;
+      }
+      &:not(:last-child) {
+        padding-right: 4px;
+      }
+    }
+  }
+  &__search-filter {
+    display: flex;
+    flex-direction: row;
+    border-width: 0 0 0 1px;
+    border-style: solid;
+    border-color: var(--st30);
+    &__chip {
+      &:first-child {
+        padding-left: 8px;
+      }
+      &:not(:first-child) {
+        padding-left: 4px;
+      }
+      &:not(:last-child) {
+        padding-right: 4px;
+      }
+    }
+  }
+}

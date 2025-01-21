@@ -11,14 +11,22 @@ export class StopDetailComponent {
   @Input() selectedStop: any;
   selectedStopInterchange: any = [];
   selectedStopInterchangeData: any = [];
+  selectedStopConnection: any = [];
+  selectedStopConnectionData: any = [];
 
   ngOnInit() {
+    let stopInterchange
     if(this.selectedStop.stopNameRefer) {
-      this.selectedStopInterchange = this.getStopInterchange(this.selectedStop.stopNameRefer).stopInterchange;
+      stopInterchange = this.getStopInterchange(this.selectedStop.stopNameRefer);
     } else {
-      this.selectedStopInterchange = this.getStopInterchange(this.selectedStop.stopName).stopInterchange;
+      stopInterchange = this.getStopInterchange(this.selectedStop.stopName);
     }
+    this.selectedStopInterchange = stopInterchange.stopInterchange;
+    this.selectedStopConnection = stopInterchange?.stopConnected;
     this.setStopInterchangeData(this.selectedStopInterchange);
+    if(this.selectedStopConnection) {
+      this.setStopConnectionData(this.selectedStopConnection);
+    }
   }
 
   getStopInterchange(stopName: string) {
@@ -33,6 +41,15 @@ export class StopDetailComponent {
         return corridor.corridorLookUp === interchange;
       })
       this.selectedStopInterchangeData.push(interchangeCorridorData);
+    })
+  }
+
+  setStopConnectionData(stopConnection: any) {
+    stopConnection.forEach((connection) => {
+      let stopConnectionData = stopData.find((stop) => {
+        return stop.stopName === connection;
+      })
+      this.selectedStopConnectionData.push(stopConnectionData);
     })
   }
 }

@@ -7,6 +7,9 @@
     </div>
     <div class="stop-detail__header__title section-title">{{selectedStop.stopName}}</div>
   </div>
+  <div *ngIf="selectedStopConnection">
+    <app-banner type="connectivity" [stopConnectionData]="selectedStopConnectionData"></app-banner>
+  </div>
   <div class="stop-detail__content">
     <div *ngFor="let interchange of selectedStopInterchangeData">
       <app-route-preview [interchange]="interchange" [stop]="selectedStop"/>

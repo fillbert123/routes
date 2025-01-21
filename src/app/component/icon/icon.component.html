@@ -1,3 +1,7 @@
+<div *ngIf="type === 'corridor-extra-small'" class="icon-extra-small" [ngStyle]="{ 'background-color': getCorridorColor(color) }">
+  {{icon}}
+</div>
+
 <div *ngIf="type === 'corridor-small'" class="icon-small list-corridor-transit-icon" [ngStyle]="{ 'background-color': getCorridorColor(color) }">
   {{icon}}
 </div>
@@ -8,4 +12,9 @@
 
 <div *ngIf="type === 'corridor-large'" class="icon-large list-corridor-icon" [ngStyle]="{ 'background-color': getCorridorColor(color) }">
   {{icon}}
+</div>
+
+<div *ngIf="type === 'stop-connection'" class="icon-connection">
+  <div class="icon-connection__stroke"></div>
+  <img class="icon-connection__icon" src="../../../assets/icons/app.connected.to.app.below.fill.svg" alt="">
 </div>

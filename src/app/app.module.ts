@@ -33,6 +33,8 @@ import { SelectComponent } from './component/select/select.component';
 import { RoutePreviewComponent } from './component/route-preview/route-preview.component';
 import { LineOverviewComponent } from './component/line-overview/line-overview.component';
 import { TrackOverviewComponent } from './component/track-overview/track-overview.component';
+import { ChipSelectionComponent } from './component/chip-selection/chip-selection.component';
+import { BannerComponent } from './component/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { TrackOverviewComponent } from './component/track-overview/track-overvie
     SelectComponent,
     RoutePreviewComponent,
     LineOverviewComponent,
-    TrackOverviewComponent
+    TrackOverviewComponent,
+    ChipSelectionComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,

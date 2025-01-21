@@ -14,7 +14,6 @@
     &__page {
       width: 100%;
       height: calc(100% - 54px);
-      margin: 12px 0;
       border-radius: 12px;
       overflow-y: auto;
       overflow-x: hidden;
@@ -23,7 +22,7 @@
       }
       &__search {
         width: 100%;
-        height: calc(100% - 98px);
+        height: calc(100% - 145px);
         margin: 12px 0;
         border-radius: 12px;
         overflow-y: auto;

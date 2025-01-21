@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-chip',
@@ -8,9 +8,15 @@ import { Component, Input } from '@angular/core';
 export class ChipComponent {
   @Input() type: string;
   @Input() color: string;
-  @Input() code: string;
+  @Input() field: string;
+  @Input() sideIcon: any;
+  @Output() clickedFilter = new EventEmitter<any>();
 
   getCorridorColor(color: string) {
     return `var(--${color})`
+  }
+
+  handleFilterClick(filter: string) {
+    this.clickedFilter.emit(filter);
   }
 }
