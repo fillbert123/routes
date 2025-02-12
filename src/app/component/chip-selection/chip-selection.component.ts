@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-chip-selection',
@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 export class ChipSelectionComponent {
   homeFilters = ['All', 'BRT', 'MRT', 'LRT', 'KRL'];
   searchFilters = ['Corridor', 'Stop'];
-  selectedFilter: any = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'Corridor', 'Stop'];
+  // selectedFilter: any = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'Corridor', 'Stop'];
+  @Output() filterClick = new EventEmitter<any>();
+  @Input() selectedFilter: any;
 
   selectFilter(filter: any) {
     if(this.selectedFilter.find((selectedFilter) => selectedFilter === filter) === undefined) {
@@ -16,6 +18,7 @@ export class ChipSelectionComponent {
     } else {
       this.removeFilter(filter);
     }
+    this.filterClick.emit(this.selectedFilter);
   }
 
   addFilter(filter: any) {
@@ -24,17 +27,16 @@ export class ChipSelectionComponent {
         if(homeFilter !== 'All' && !this.selectedFilter.includes(homeFilter)) {
           this.addFilter(homeFilter);
         } else if(!this.selectedFilter.includes(homeFilter)) {
-          this.selectedFilter.push(filter);
+          this.selectedFilter = [...this.selectedFilter, filter];
           this.toggleChipStyle('active', filter);
         }
       })
     } else if(filter === 'justAll') {
-      this.selectedFilter.push('All');
+      this.selectedFilter = [...this.selectedFilter, 'All'];
       this.toggleChipStyle('active', 'All');
     } else {
-      this.selectedFilter.push(filter);
+      this.selectedFilter = [...this.selectedFilter, filter];
       this.toggleChipStyle('active', filter);
-      console.log('selected filter: ', this.selectedFilter);
       if(this.isAllHomeFilterActive()) {
         this.addFilter('justAll');
       }

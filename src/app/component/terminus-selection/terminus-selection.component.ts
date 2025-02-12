@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import stopData from '../../../assets/data/stop.json'
 
 @Component({
   selector: 'app-terminus-selection',
@@ -8,18 +9,26 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class TerminusSelectionComponent {
   @Input() terminusLower: any;
   @Input() terminusUpper: any;
-  @Input() selTrkDir: any; //moved to selectedDirection
-  @Input() selectedDirection: any;
-  @Output() clickedDirection = new EventEmitter<any>();
+  @Output() directionClick = new EventEmitter<any>();
   direction: any;
 
   ngOnInit() {
-    // this.direction = (this.selTrkDir) ? this.selTrkDir : 'upper';
-    this.direction = (this.selectedDirection) ? this.selectedDirection : 'upper';
+    this.direction = 'upper';
   }
 
-  handleDirectionClick(direction: any) {
+  handleDirectionClick(direction: string) {
     this.direction = direction;
-    this.clickedDirection.emit(direction);
+    this.directionClick.emit(direction);
+  }
+
+  getStopName(code, shorten = false) {
+    let stop = stopData.find((item) => {
+      return item.stopId === code;
+    });
+    if(shorten) {
+      return (stop.stopNameShorten) ? stop.stopNameShorten : stop.stopName;
+    } else {
+      return stop.stopName;
+    }
   }
 }

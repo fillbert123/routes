@@ -2,23 +2,23 @@
   <div class="side-panel">
     <div id="side-panel__content" class="side-panel__content">
       <section class="side-panel__content__header">
-        <app-command-bar (backButtonClick)="handleBackButtonClick()" (query)="checkQuery($event)"/>
+        <app-command-bar [selectedFilter]="selectedFilter" [isSearching]="isSearching" [currentPage]="currentPage" (backButtonClick)="handleBackButtonClick()" (searchButtonClick)="handleSearchButtonClick()" (filterClick)="handleFilterClick($event)" (queryChange)="setQuery($event)"/>
       </section>
 
-      <section *ngIf="selectedCorridor === null && query === ''" id="home-section" class="side-panel__content__page">
-        <app-home (selectedCorridor)="handleListCorridorClick($event)"/>
+      <section *ngIf="isSearching" id="search-result" class="side-panel__content__page__search">
+        <app-search-result [selectedFilter]="selectedFilter" [query]="query" (selectedCorridor)="handleListCorridorClick($event)"/>
       </section>
 
-      <section *ngIf="query !== ''" id="search-result" class="side-panel__content__page__search">
-        <app-search-result [query]="query" (selectedCorridor)="handleListCorridorClick($event)"/>
+      <section *ngIf="!isSearching && currentPage === 'home'" id="home-section" class="side-panel__content__page">
+        <app-home (itemClick)="handleItemClick($event)"/>
       </section>
 
-      <section *ngIf="selectedCorridor !== null && selectedStop === null && query === ''" class="side-panel__content__page">
-        <app-corridor-detail [selectedCorridor]="selectedCorridor" (selectedStop)="handleListStopClick($event)"/>
+      <section *ngIf="!isSearching && currentPage === 'corridorDetail'" class="side-panel__content__page">
+        <app-corridor-detail [corridor]="selectedCorridor" (itemClick)="handleItemClick($event)"/>
       </section>
 
-      <section *ngIf="selectedCorridor !== null && selectedStop !== null && query === ''" class="side-panel__content__page">
-        <app-stop-detail [selectedStop]="selectedStop"/>
+      <section *ngIf="!isSearching && currentPage === 'stopDetail'" class="side-panel__content__page">
+        <app-stop-detail [stop]="selectedStop"/>
       </section>
     </div>
   </div>

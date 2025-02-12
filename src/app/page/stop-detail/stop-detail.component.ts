@@ -14,18 +14,45 @@ export class StopDetailComponent {
   selectedStopConnection: any = [];
   selectedStopConnectionData: any = [];
 
+  //redesigned
+  @Input() stop: string;
+  stopDetail: any;
+  stopInterchangeDetail: any = [];
+
   ngOnInit() {
-    let stopInterchange
-    if(this.selectedStop.stopNameRefer) {
-      stopInterchange = this.getStopInterchange(this.selectedStop.stopNameRefer);
-    } else {
-      stopInterchange = this.getStopInterchange(this.selectedStop.stopName);
-    }
-    this.selectedStopInterchange = stopInterchange.stopInterchange;
-    this.selectedStopConnection = stopInterchange?.stopConnected;
-    this.setStopInterchangeData(this.selectedStopInterchange);
-    if(this.selectedStopConnection) {
-      this.setStopConnectionData(this.selectedStopConnection);
+    // let stopInterchange
+    // if(this.selectedStop.stopNameRefer) {
+    //   stopInterchange = this.getStopInterchange(this.selectedStop.stopNameRefer);
+    // } else {
+    //   stopInterchange = this.getStopInterchange(this.selectedStop.stopName);
+    // }
+    // this.selectedStopInterchange = stopInterchange.stopInterchange;
+    // this.selectedStopConnection = stopInterchange?.stopConnected;
+    // this.setStopInterchangeData(this.selectedStopInterchange);
+    // if(this.selectedStopConnection) {
+    //   this.setStopConnectionData(this.selectedStopConnection);
+    // }
+    this.getCorridorDetail();
+  }
+
+  getStopName(code) {
+    return stopData.find((item) => {
+      return item.stopId === code;
+    }).stopName;
+  }
+
+  getCorridorDetail() {
+    this.stopDetail = stopData.find((item) => {
+      return item.stopId === this.stop;
+    })
+    this.getTransitDetailList();
+  }
+
+  getTransitDetailList() {
+    if(this.stopDetail?.stopInterchange) {
+      this.stopDetail.stopInterchange.forEach((interchange) => {
+        this.stopInterchangeDetail.push(...corridorData.filter((corridor) => corridor.corridorId === interchange));
+      });
     }
   }
 
@@ -38,7 +65,7 @@ export class StopDetailComponent {
   setStopInterchangeData(stopInterchange: any) {
     stopInterchange.forEach((interchange) => {
       let interchangeCorridorData = corridorData.find((corridor) => {
-        return corridor.corridorLookUp === interchange;
+        return corridor.corridorId === interchange;
       })
       this.selectedStopInterchangeData.push(interchangeCorridorData);
     })

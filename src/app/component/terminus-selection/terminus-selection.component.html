@@ -5,7 +5,7 @@
     class="terminus__lower"
   >
     <p class="terminus__lower__descriptive terminus-descriptive">Bound for</p>
-    <p class="terminus__lower__destination terminus-bound">{{terminusLower}}</p>
+    <p class="terminus__lower__destination terminus-bound">{{getStopName(terminusLower, true)}}</p>
   </button>
   <button 
     (click)="handleDirectionClick('upper')"
@@ -13,6 +13,6 @@
     class="terminus__upper"
   >
     <p class="terminus__upper__descriptive terminus-descriptive">Bound for</p>
-    <p class="terminus__upper__destination terminus-bound">{{terminusUpper}}</p>
+    <p class="terminus__upper__destination terminus-bound">{{getStopName(terminusUpper, true)}}</p>
   </button>
 </div>
