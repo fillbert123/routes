@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import corridorData from '../../../assets/data/corridor.json';
+import stopDirectionData from '../../../assets/data/stopDirection.json';
 
 @Component({
   selector: 'app-list',
@@ -8,7 +9,7 @@ import corridorData from '../../../assets/data/corridor.json';
 })
 
 export class ListComponent {
-  @Input() direction: string;
+  // @Input() direction: string;
   @Input() listType: any;
   @Input() searchResult: any;
   @Input() track: any;
@@ -21,12 +22,80 @@ export class ListComponent {
   upperBoundTrack: any;
   lowerBoundTrack: any;
 
+  //redesigned
+  @Input() type: string;
+  @Input() item: string;
+  @Input() direction: string;
+  itemList: any;
+  @Input() corridor: string;
+  @Output() itemClick = new EventEmitter<any>();
+  @Input() searchResultList: any;
+  @Input() listTitle: string = null;
+
   ngOnInit() {
-    this.setList();
+    // this.setList();
+    this.setItemList();
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.setList();
+    // this.setList();
+    this.setListTitle();
+    this.setItemList();
+  }
+
+  setListTitle() {
+    if(!this.listTitle) {
+      this.listTitle = this.item;
+    }
+  }
+
+  setItemList() {
+    switch(this.item) {
+      case 'brt':
+        this.itemList = corridorData.filter((corridor) => corridor.corridorType === 'BRT');
+        break;
+      case 'mrt':
+        this.itemList = corridorData.filter((corridor) => corridor.corridorType === 'MRT');
+        break;
+      case 'lrt':
+        this.itemList = corridorData.filter((corridor) => corridor.corridorType === 'LRT');
+        break;
+      case 'krl':
+        this.itemList = corridorData.filter((corridor) => corridor.corridorType === 'KRL');
+        break;
+      case 'track':
+        let track = stopDirectionData[this.corridor];
+        let lowerBound = this.getCorridorLowerBound(this.corridor);
+        let upperBound = this.getCorridorUpperBound(this.corridor);
+        switch(this.direction) {
+          case 'lower':
+            this.itemList = this.setLowerBoundTrack(track, upperBound);
+            break;
+          default:
+            this.itemList = this.setUpperBoundTrack(track, lowerBound);
+            break;
+        }
+        break;
+      default:
+        this.itemList = this.item;
+        break;
+    }
+  }
+
+  getCorridorLowerBound(code) {
+    return corridorData.find((item) => {
+      return item.corridorId === code;
+    }).corridorLowerBound;
+  }
+
+  getCorridorUpperBound(code) {
+    return corridorData.find((item) => {
+      return item.corridorId === code;
+    }).corridorUpperBound;
+  }
+
+  handleItemClick(id) {
+    this.itemClick.emit(id);
   }
 
   setList() {

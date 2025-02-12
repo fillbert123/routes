@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import stopData from '../../../assets/data/stop.json'
 
 @Component({
   selector: 'app-line-overview',
@@ -16,11 +17,17 @@ export class LineOverviewComponent {
     this.setLineOverviewData();
   }
 
+  getStopName(code) {
+    return stopData.find((item) => {
+      return item.stopId === code;
+    }).stopName;
+  }
+
   setTerminus() {
     if(this.bound === 'up') {
-      this.terminus = this.data.terminusUpperStopShorten;
+      this.terminus = this.data.terminusUpperStop;
     } else if(this.bound === 'low') {
-      this.terminus = this.data.terminusLowerStopShorten;
+      this.terminus = this.data.terminusLowerStop;
     }
   }
 

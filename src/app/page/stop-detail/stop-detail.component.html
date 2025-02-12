@@ -1,18 +1,18 @@
 <div class="stop-detail">
   <div class="stop-detail__header">
     <div class="stop-detail__header__icon">
-      <div *ngFor="let interchange of selectedStopInterchangeData">
+      <div *ngFor="let interchange of stopInterchangeDetail">
         <app-icon type="corridor-medium" [color]="interchange.corridorColor" [icon]="interchange.corridorIcon"/>
       </div>
     </div>
-    <div class="stop-detail__header__title section-title">{{selectedStop.stopName}}</div>
+    <div class="stop-detail__header__title section-title">{{getStopName(stop)}}</div>
   </div>
-  <div *ngIf="selectedStopConnection">
-    <app-banner type="connectivity" [stopConnectionData]="selectedStopConnectionData"></app-banner>
+  <div *ngIf="stopDetail.stopConnected">
+    <app-banner type="connectivity" [connection]="stopDetail.stopConnected"></app-banner>
   </div>
   <div class="stop-detail__content">
-    <div *ngFor="let interchange of selectedStopInterchangeData">
-      <app-route-preview [interchange]="interchange" [stop]="selectedStop"/>
+    <div *ngFor="let interchange of stopInterchangeDetail">
+      <app-route-preview [interchange]="interchange" [stop]="stop"/>
     </div>
   </div>
 </div>

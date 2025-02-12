@@ -1,4 +1,4 @@
-import { Component, EventEmitter, NgModule, Output, SimpleChange } from '@angular/core';
+import { Component, EventEmitter, NgModule, Input, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-command-bar',
@@ -7,18 +7,51 @@ import { Component, EventEmitter, NgModule, Output, SimpleChange } from '@angula
 })
 export class CommandBarComponent {
   inputValue: string = '';
-  @Output() query = new EventEmitter<any>();
+  @Output() queryChange = new EventEmitter<any>();
   @Output() backButtonClick = new EventEmitter<any>();
+  @Output() searchButtonClick = new EventEmitter<any>();
+  @Output() clearButtonClick = new EventEmitter<any>();
+  @Input() currentPage: any;
+  @Input() isSearching: boolean;
+  @Output() filterClick = new EventEmitter<any>();
+  @Input() selectedFilter: any;
 
-  changeQuery(event: any) {
-    this.emitChangeQuery(event);
+  ngOnInit() {
+    this.stylizeBackButton();
   }
 
-  emitChangeQuery(event: any) {
-    this.query.emit(event);
+  ngOnChanges(changes: SimpleChanges) {
+    this.stylizeBackButton();
+  }
+
+  stylizeBackButton() {
+    if(this.currentPage === 'home' && !this.isSearching) {
+      document.getElementById('command-bar__button-back')?.classList.add('command-bar__control__button-disabled');
+      document.getElementById('command-bar__button-back')?.classList.remove('command-bar__control__button');
+    } else {
+      document.getElementById('command-bar__button-back')?.classList.add('command-bar__control__button');
+      document.getElementById('command-bar__button-back')?.classList.remove('command-bar__control__button-disabled');
+    }
+  }
+
+  handleQueryChange(event) {
+    this.queryChange.emit(event);
   }
 
   handleBackButtonClick() {
+    this.inputValue = '';
     this.backButtonClick.emit();
+  }
+
+  handleSearchButtonClick() {
+    this.searchButtonClick.emit();
+  }
+
+  handleClearButtonClick() {
+    this.clearButtonClick.emit();
+  }
+
+  handleFilterClick(event) {
+    this.filterClick.emit(event);
   }
 }

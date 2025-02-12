@@ -1,4 +1,1 @@
-<app-list (selectedCorridor)="handleListItemClick($event)" class="side-panel__content__lists__list" listType="brt"/>
-<app-list (selectedCorridor)="handleListItemClick($event)" class="side-panel__content__lists__list" listType="mrt"/>
-<app-list (selectedCorridor)="handleListItemClick($event)" class="side-panel__content__lists__list" listType="lrt"/>
-<app-list (selectedCorridor)="handleListItemClick($event)" class="side-panel__content__lists__list" listType="krl"/>
+<app-list *ngFor="let corridorCategory of corridorCategoryList" (itemClick)="handleItemClick($event)" class="side-panel__content__lists__list" [item]="corridorCategory" type="corridor"/>

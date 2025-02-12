@@ -5,12 +5,12 @@
     </div>  
     <div class="banner__connectivity__text">
       <div class="banner__connectivity__text__first banner-label">This stop is connected to:</div>
-      <div *ngIf="connectionData.length === 1">
-        <span class="banner__connectivity__text__next banner-label">{{connectionData[0].connectedStopType}} <app-chip type="connection" [field]="connectionData[0].connectedStopName" [sideIcon]="connectionData[0].connectedStopCorridor"/></span>
+      <div *ngIf="stopConnectionDetail.length === 1">
+        <span class="banner__connectivity__text__next banner-label">{{getConnectionTypeName(stopConnectionDetail[0].stopType)}} <app-chip type="connection" [field]="stopConnectionDetail[0].stopName" [connection]="stopConnectionDetail[0].stopInterchange"/></span>
       </div>
-      <div *ngIf="connectionData.length === 2">
-        <span class="banner__connectivity__text__next banner-label">{{connectionData[0].connectedStopType}} <app-chip type="connection" [field]="connectionData[0].connectedStopName" [sideIcon]="connectionData[0].connectedStopCorridor"/></span>
-        <span class="banner__connectivity__text__next banner-label">and {{connectionData[1].connectedStopType}} <app-chip type="connection" [field]="connectionData[1].connectedStopName" [sideIcon]="connectionData[1].connectedStopCorridor"/></span>
+      <div *ngIf="stopConnectionDetail.length === 2">
+        <span class="banner__connectivity__text__next banner-label">{{getConnectionTypeName(stopConnectionDetail[0].stopType)}} <app-chip type="connection" [field]="stopConnectionDetail[0].stopName" [connection]="stopConnectionDetail[0].stopInterchange"/></span>
+        <span class="banner__connectivity__text__next banner-label">and {{getConnectionTypeName(stopConnectionDetail[1].stopType)}} <app-chip type="connection" [field]="stopConnectionDetail[1].stopName" [connection]="stopConnectionDetail[1].stopInterchange"/></span>
       </div>
     </div>
   </div>

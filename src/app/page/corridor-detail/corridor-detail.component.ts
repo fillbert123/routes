@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import corridorData from '../../../assets/data/corridor.json'
 import stopDirectionData from '../../../assets/data/stopDirection.json';
 
 @Component({
@@ -7,16 +8,27 @@ import stopDirectionData from '../../../assets/data/stopDirection.json';
   styleUrl: './corridor-detail.component.scss'
 })
 export class CorridorDetailComponent {
-  @Input() selectedCorridor: any;
   @Output() selectedStop = new EventEmitter<any>();
-  direction: string;
+  // direction: string;
   track: any;
 
+  //redesigned
+  @Input() corridor: string;
+  corridorDetail: any;
+  direction: string;
+  @Output() itemClick = new EventEmitter<any>();
+
   ngOnInit() {
-    this.getRoute();
+    this.getCorridorDetail();
   }
 
-  setSelectedDirection(direction: string) {
+  getCorridorDetail() {
+    this.corridorDetail = corridorData.find((item) => {
+      return item.corridorId === this.corridor;
+    })
+  }
+
+  handleDirectionClick(direction) {
     this.direction = direction;
   }
 
@@ -24,11 +36,11 @@ export class CorridorDetailComponent {
     return `var(--${color})`
   }
 
-  getRoute() {
-    this.track = stopDirectionData[this.selectedCorridor.corridorLookUp];
-  }
-
   handleListStopClick(stop: string) {
     this.selectedStop.emit(stop);
+  }
+
+  handleItemClick(id) {
+    this.itemClick.emit(id);
   }
 }

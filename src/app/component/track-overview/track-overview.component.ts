@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import stopData from '../../../assets/data/stop.json'
 
 @Component({
   selector: 'app-track-overview',
@@ -7,6 +8,12 @@ import { Component, Input } from '@angular/core';
 })
 export class TrackOverviewComponent {
   @Input() data: any;
+
+  getStopName(code) {
+    return stopData.find((item) => {
+      return item.stopId === code;
+    }).stopName;
+  }
 
   getTrackColor(color: string) {
     if(color === 'color') {

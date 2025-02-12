@@ -1,19 +1,18 @@
 <div class="corridor-detail">
   <div class="corridor-detail__header">
-    <app-icon type="corridor-large" [color]="selectedCorridor.corridorColor" [icon]="selectedCorridor.corridorIcon"/>
-    <div class="corridor-detail__header__title section-title">{{selectedCorridor.corridorName}}</div>
+    <app-icon type="corridor-large" [color]="corridorDetail.corridorColor" [icon]="corridorDetail.corridorIcon"/>
+    <div class="corridor-detail__header__title section-title">{{corridorDetail.corridorName}}</div>
   </div>
   <app-terminus-selection
-    [terminusLower]="selectedCorridor.corridorLowerBoundShorten"
-    [terminusUpper]="selectedCorridor.corridorUpperBoundShorten"
-    (clickedDirection)="setSelectedDirection($event)"
+    [terminusLower]="corridorDetail.corridorLowerBound"
+    [terminusUpper]="corridorDetail.corridorUpperBound"
+    (directionClick)="handleDirectionClick($event)"
   />
-  <app-list 
-    (selectedStop)="handleListStopClick($event)" 
-    listType="track" 
-    [track]="track" 
+  <app-list
+    type="track"
+    item="track"
+    [corridor]="corridor"
     [direction]="direction"
-    [color]="selectedCorridor.corridorColor"
-    [terminusLower]="selectedCorridor.corridorLowerBound" 
-    [terminusUpper]="selectedCorridor.corridorUpperBound"/>
+    (itemClick)="handleItemClick($event)"
+  />
 </div>

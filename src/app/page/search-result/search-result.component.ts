@@ -12,31 +12,39 @@ export class SearchResultComponent {
   @Output() selectedCorridor = new EventEmitter<any>();
   corridorSearchResult: any = [];
   stopSearchResult: any = [];
+  @Input() selectedFilter: any;
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['query']) {
-      this.corridorSearchResult = this.searchCorridorByQuery(this.query);
-      this.stopSearchResult = this.searchStopByQuery(this.query);
-    }
+    this.corridorSearchResult = this.searchCorridorByQuery(this.query);
+    this.stopSearchResult = this.searchStopByQuery(this.query);
   }
 
   searchCorridorByQuery(query: any) {
-    return corridorData.filter((corridor) => (
+    let searchResult = corridorData.filter((corridor) => (
       corridor.corridorType.toLowerCase().includes(query.toLowerCase()) ||
-      corridor.corridorName.toLowerCase().includes(query.toLowerCase()) ||
-      corridor.corridorLowerBound.toLowerCase().includes(query.toLowerCase()) ||
-      corridor.corridorUpperBound.toLowerCase().includes(query.toLowerCase()) ||
-      corridor?.corridorVia?.toLowerCase().includes(query.toLowerCase())
+      corridor.corridorName.toLowerCase().includes(query.toLowerCase())
     ));
+    let filterResult = searchResult.filter((corridor) => {
+      return this.selectedFilter.includes(corridor.corridorType);
+    })
+    return filterResult;
   }
 
   searchStopByQuery(query: any) {
-    return stopData.filter((stop) => (
+    let searchResult = stopData.filter((stop) => (
       stop.stopName.toLowerCase().includes(query.toLowerCase())
     ));
+    let filterResult = searchResult.filter((stop) => {
+      return this.selectedFilter.includes(stop.stopType.toUpperCase());
+    })
+    return filterResult;
   }
 
-  handleListItemClick(corridor: any) {
+  handleItemClick(corridor: any) {
     this.selectedCorridor.emit(corridor);
+  }
+
+  isIncludeFilter(filter) {
+    return this.selectedFilter.includes(filter);
   }
 }

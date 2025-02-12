@@ -14,7 +14,7 @@
     <div *ngFor="let stop of data.stopData" class="track-overview__stop-set__stop">
       <div class="track-overview__stop-set__stop__icon" [ngStyle]="{ 'background-color': getTrackColor(stop.color) }"></div>
       <div *ngIf="stop.name === data.currentStop" class="track-overview__stop-set__stop__icon-ripple"></div>
-      <p class="track-overview__stop-set__stop__name route-preview-terminus">{{stop.name}}</p>
+      <p class="track-overview__stop-set__stop__name route-preview-terminus">{{getStopName(stop.name)}}</p>
     </div>
   </div>
   <div class="track-overview__track-set">

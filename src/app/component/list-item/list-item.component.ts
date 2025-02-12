@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import corridorData from '../../../assets/data/corridor.json';
+import stopData from '../../../assets/data/stop.json'
 
 @Component({
   selector: 'app-list-item',
@@ -11,15 +12,33 @@ export class ListItemComponent {
   @Input() color: string
   @Input() stop: any;
   @Input() listItemType: string;
-  @Input() isFirst: boolean;
-  @Input() isLast: boolean;
+  // @Input() isFirst: boolean;
+  // @Input() isLast: boolean;
   @Output() selectedCorridor = new EventEmitter<any>();
   @Output() selectedStop = new EventEmitter<any>();
   transitCorridor: any = [];
 
+  //redesigned
+  @Input() type: string;
+  @Input() item: any;
+  @Output() itemClick = new EventEmitter<any>();
+  corridorDetail: any;
+  @Input() isStopFirst: boolean;
+  @Input() isStopLast: boolean;
+  transitDetailList: any = [];
+
   ngOnInit() {
-    if(this.listItemType === 'stop') {
-      this.getTransitCorridorData();
+    this.getCorridorDetail();
+  }
+
+  getStopName(code, shorten = false) {
+    let stop = stopData.find((item) => {
+      return item.stopId === code;
+    });
+    if(shorten) {
+      return (stop.stopNameShorten) ? stop.stopNameShorten : stop.stopName;
+    } else {
+      return stop.stopName;
     }
   }
 
@@ -38,7 +57,7 @@ export class ListItemComponent {
   getTransitCorridorData() {
     if(this.stop?.stopTransit) {
       this.stop.stopTransit.forEach((transit) => {
-        this.transitCorridor.push(...corridorData.filter((corridor) => corridor.corridorLookUp === transit));
+        this.transitCorridor.push(...corridorData.filter((corridor) => corridor.corridorId === transit));
       });
     }
   }
@@ -51,7 +70,7 @@ export class ListItemComponent {
   }
 
   getInterchangeCorridorData(interchange, value) {
-    let data = corridorData.find((corridor) => corridor.corridorLookUp === interchange);
+    let data = corridorData.find((corridor) => corridor.corridorId === interchange);
     if(value === 'color') {
       return data.corridorColor;
     }
@@ -59,5 +78,30 @@ export class ListItemComponent {
       return data.corridorIcon;
     }
     return null;
+  }
+
+  //redesign
+  handleItemClick(id) {
+    this.itemClick.emit(id);
+  }
+
+  getCorridorDetail() {
+    this.corridorDetail = corridorData.find((item) => {
+      return item.corridorId === this.item.stopCorridor;
+    })
+    this.getTransitDetailList();
+  }
+
+  getTransitDetailList() {
+    if(this.item?.stopTransit) {
+      this.item.stopTransit.forEach((transit) => {
+        this.transitDetailList.push(...corridorData.filter((corridor) => corridor.corridorId === transit));
+      });
+    }
+    if(this.item?.stopInterchange) {
+      this.item.stopInterchange.forEach((transit) => {
+        this.transitDetailList.push(...corridorData.filter((corridor) => corridor.corridorId === transit));
+      });
+    }
   }
 }

@@ -6,9 +6,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  @Output() selectedCorridor = new EventEmitter<any>();
+  @Output() itemClick = new EventEmitter<any>();
+  corridorCategoryList = ['brt', 'mrt', 'lrt', 'krl']
 
-  handleListItemClick(corridor: any) {
-    this.selectedCorridor.emit(corridor);
+  handleItemClick(id) {
+    this.itemClick.emit(id);
   }
 }

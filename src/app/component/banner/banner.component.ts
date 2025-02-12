@@ -9,33 +9,22 @@ import corridorData from '../../../assets/data/corridor.json';
 })
 export class BannerComponent {
   @Input() type: string;
-  @Input() stopConnectionData: any;
-  connectionData: any;
-
+  @Input() connection: any;
+  stopConnectionDetail: any = [];
 
   ngOnInit() {
     if(this.type === 'connectivity') {
-      this.setConnectionLabel();
+      this.getConnectionDetailList();
     }
   }
 
-  setConnectionLabel() {
-    let connectionData = [];
-    this.stopConnectionData.forEach((connection) => {
-      console.log('connection: ', connection);
-      let eachStopType = this.setEachStopType(connection.stopType);
-      let eachStopCorridor = this.setEachStopCorridor(connection.stopInterchange);
-      connectionData.push({
-        "connectedStopName": this.getStopName(connection.stopName),
-        "connectedStopType": eachStopType,
-        "connectedStopCorridor": eachStopCorridor
-      })
-    })
-    // console.log('connectionData', connectionData);
-    this.connectionData = connectionData;
+  getConnectionDetailList() {
+    this.connection.forEach((connection) => {
+      this.stopConnectionDetail.push(...stopData.filter((stop) => stop.stopId === connection));
+    });
   }
 
-  setEachStopType(type) {
+  getConnectionTypeName(type) {
     switch(type) {
       case ListType.MRT:
         return 'MRT Jakarta';
@@ -50,27 +39,6 @@ export class BannerComponent {
       default:
         return '';
     }
-  }
-
-  setEachStopCorridor(interchanges) {
-    let interchangesData = []
-    interchanges.forEach((interchange) => {
-      let interchangeCorridorData = corridorData.find((corridor) => {
-        return corridor.corridorLookUp === interchange;
-      })
-      interchangesData.push({
-        "corridorIcon": interchangeCorridorData.corridorIcon,
-        "corridorColor": interchangeCorridorData.corridorColor
-      })
-    })
-    return interchangesData;
-  }
-
-  getStopName(name) {
-    if(name.endsWith('MRT') || name.endsWith('LRT') || name.endsWith('KRL')) {
-      return name.substring(0, name.length - 4);
-    }
-    return name;
   }
 }
 

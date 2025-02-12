@@ -8,8 +8,32 @@ import { Component } from '@angular/core';
 export class SidePanelComponent {
   isCollapsed: boolean = false;
   query: string = '';
-  selectedCorridor: any = null;
-  selectedStop: any = null;
+  // selectedCorridor: any = null;
+  // selectedStop: any = null;
+
+  //redesigned
+  currentPage: any = 'home';
+  selectedCorridor: string = null;
+  selectedStop: string = null;
+  isSearching: boolean = false;
+  selectedFilter: any;
+
+  ngOnInit() {
+    this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'Corridor', 'Stop'];
+  }
+
+  handleItemClick(id) {
+    switch(this.currentPage) {
+      case 'home':
+        this.selectedCorridor = id;
+        this.currentPage = 'corridorDetail';
+        break;
+      case 'corridorDetail':
+        this.selectedStop = id;
+        this.currentPage = 'stopDetail';
+        break;
+    }
+  } 
 
   toggleSidePanelCollapseExpand() {
     this.isCollapsed = !this.isCollapsed;
@@ -56,8 +80,13 @@ export class SidePanelComponent {
     document.getElementById('command-bar__search')?.classList.remove('command-bar__search-collapse');
   }
 
-  checkQuery(query: any) {
+  setQuery(query) {
     this.query = query;
+    if(this.query !== '') {
+      this.isSearching = true;
+    } else {
+      this.isSearching = false;
+    }
   }
 
   handleListCorridorClick(corridor: any) {
@@ -70,6 +99,16 @@ export class SidePanelComponent {
   }
 
   handleBackButtonClick() {
-    this.selectedCorridor = null;
+    this.currentPage = 'home';
+    this.query = '';
+    this.isSearching = false;
+  }
+
+  handleSearchButtonClick() {
+    this.currentPage = 'home';
+  }
+
+  handleFilterClick(event) {
+    this.selectedFilter = event;
   }
 }

@@ -1,15 +1,15 @@
 <div class="command-bar">
   <div class="command-bar__control">
-    <button (click)="handleBackButtonClick()" id="command-bar__button-back" class="command-bar__control__button">
+    <button (click)="handleBackButtonClick()" id="command-bar__button-back" class="command-bar__control__button-disabled">
       <img src="../../../assets/icons/chevron.backward.svg" alt="">
     </button>
-    <input class="command-bar__control__search command-search" [(ngModel)]="inputValue" (ngModelChange)="changeQuery($event)" placeholder="Search" type="text" name="" id="command-bar__search">
-    <button class="command-bar__control__button">
+    <input class="command-bar__control__search command-search" [(ngModel)]="inputValue" (ngModelChange)="handleQueryChange($event)" placeholder="Search" type="text" name="" id="command-bar__search">
+    <button (click)="handleSearchButtonClick()" class="command-bar__control__button">
       <img src="../../../assets/icons/magnifyingglass.svg" alt="">
     </button>
   </div>
   <div *ngIf="inputValue !== ''" class="command-bar__filter">
-    <app-chip-selection />
+    <app-chip-selection [selectedFilter]="selectedFilter" (filterClick)="handleFilterClick($event)"/>
   </div>
 </div>
 

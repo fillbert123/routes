@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import stopData from '../../../assets/data/stop.json'
 import stopDirectionData from '../../../assets/data/stopDirection.json';
 
 @Component({
@@ -14,27 +15,31 @@ export class RoutePreviewComponent {
 
   ngOnInit() {
     this.routeNextData = this.getRouteNextData();
-    this.setRoutePreviewData()
+    this.setRoutePreviewData();
+  }
+
+  getStopName(code) {
+    return stopData.find((item) => {
+      return item.stopId === code;
+    }).stopName;
   }
 
   getRouteNextData() {
-    return stopDirectionData[this.interchange.corridorLookUp].find((stop) => {
-      return stop.stopName === this.stop.stopName;
+    return stopDirectionData[this.interchange.corridorId].find((stop) => {
+      return stop.stopName === this.stop;
     })
   }
 
   setRoutePreviewData() {
     this.routePreviewData = {
-      "currentStop": this.stop.stopName,
+      "currentStop": this.stop,
       "corridorColor": this.interchange.corridorColor,
       "nextUpperStop": this.routeNextData.stopNextUp,
       "nextLowerStop": this.routeNextData.stopNextLow,
-      "terminusUpperStopShorten": this.interchange.corridorUpperBoundShorten,
       "terminusUpperStop": this.interchange.corridorUpperBound,
-      "terminusLowerStopShorten": this.interchange.corridorLowerBoundShorten,
       "terminusLowerStop": this.interchange.corridorLowerBound,
-      "isUpperTerminus": this.checkIsTerminus(this.interchange.corridorUpperBound, this.stop.stopName),
-      "isLowerTerminus": this.checkIsTerminus(this.interchange.corridorLowerBound, this.stop.stopName),
+      "isUpperTerminus": this.checkIsTerminus(this.interchange.corridorUpperBound, this.stop),
+      "isLowerTerminus": this.checkIsTerminus(this.interchange.corridorLowerBound, this.stop),
       "isNextAfterUpperTerminus": this.checkIsNextAfterTerminus(this.interchange.corridorUpperBound, this.routeNextData.stopNextUp),
       "isNextAfterLowerTerminus": this.checkIsNextAfterTerminus(this.interchange.corridorLowerBound, this.routeNextData.stopNextLow)
     }
