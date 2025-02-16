@@ -14,7 +14,7 @@ export class RoutePreviewComponent {
   routePreviewData: any;
 
   ngOnInit() {
-    this.routeNextData = this.getRouteNextData();
+    this.routeNextData = this.getRouteNextData(this.stop);
     this.setRoutePreviewData();
   }
 
@@ -24,9 +24,9 @@ export class RoutePreviewComponent {
     }).stopName;
   }
 
-  getRouteNextData() {
+  getRouteNextData(stopId) {
     return stopDirectionData[this.interchange.corridorId].find((stop) => {
-      return stop.stopName === this.stop;
+      return stop.stopName === stopId;
     })
   }
 
@@ -41,8 +41,11 @@ export class RoutePreviewComponent {
       "isUpperTerminus": this.checkIsTerminus(this.interchange.corridorUpperBound, this.stop),
       "isLowerTerminus": this.checkIsTerminus(this.interchange.corridorLowerBound, this.stop),
       "isNextAfterUpperTerminus": this.checkIsNextAfterTerminus(this.interchange.corridorUpperBound, this.routeNextData.stopNextUp),
-      "isNextAfterLowerTerminus": this.checkIsNextAfterTerminus(this.interchange.corridorLowerBound, this.routeNextData.stopNextLow)
+      "isNextAfterLowerTerminus": this.checkIsNextAfterTerminus(this.interchange.corridorLowerBound, this.routeNextData.stopNextLow),
+      "isNextTwoAfterUpperTerminus": this.checkIsNextTwoAfterTerminus(this.interchange.corridorUpperBound, this.routeNextData.stopNextUp, 'up'),
+      "isNextTwoAfterLowerTerminus": this.checkIsNextTwoAfterTerminus(this.interchange.corridorLowerBound, this.routeNextData.stopNextLow, 'low'),
     }
+    console.log('route preview data', this.routePreviewData);
   }
 
   checkIsTerminus(terminus, current) {
@@ -51,5 +54,14 @@ export class RoutePreviewComponent {
 
   checkIsNextAfterTerminus(terminus, next) {
     return (terminus === next) ? true : false;
+  }
+
+  checkIsNextTwoAfterTerminus(terminus, next, direction) {
+    if(next === null) {
+      return false;
+    } else {
+      let nextStopData = (direction === 'up') ? this.getRouteNextData(next).stopNextUp : this.getRouteNextData(next).stopNextLow;
+      return (terminus === nextStopData) ? true : false;
+    }
   }
 }

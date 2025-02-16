@@ -50,7 +50,7 @@ export class LineOverviewComponent {
   getTrackInformationData() {
     let stopStatus = this.getStopStatus();
     let tempInformationData = [];
-    if(stopStatus !== 'l-term' && stopStatus !== 'aft-l-term-l') {
+    if(stopStatus !== 'u-cur-lt' && stopStatus !== 'l-bef-lt') {
       tempInformationData.push('empty');
     }
     if(this.bound === 'low') {
@@ -58,7 +58,7 @@ export class LineOverviewComponent {
     } else {
       tempInformationData.push('forward');
     }
-    if(stopStatus !== 'u-term' && stopStatus !== 'aft-u-term-u') {
+    if(stopStatus !== 'l-cur-ut' && stopStatus !== 'u-bef-ut') {
       tempInformationData.push('empty');
     }
     return tempInformationData;
@@ -68,13 +68,13 @@ export class LineOverviewComponent {
     let stopStatus = this.getStopStatus();
     let tempStopData = [];
     tempStopData = this.setStopData(tempStopData, this.data.terminusLowerStop, this.data.corridorColor, stopStatus, 'lower-terminus');
-    if(stopStatus === 'u-term' || stopStatus === 'aft-u-term-l' || stopStatus === 'bidr-l') {
+    if(stopStatus === 'l-cur-ut' || stopStatus === 'l-aft-ut' || stopStatus === 'l-strd' || stopStatus === 'l-two-bef-lt') {
       tempStopData = this.setStopData(tempStopData, this.data.nextLowerStop, this.data.corridorColor, stopStatus);
     }
-    if(stopStatus !== 'u-term' && stopStatus !== 'l-term') {
+    if(stopStatus !== 'l-cur-ut' && stopStatus !== 'u-cur-lt') {
       tempStopData = this.setStopData(tempStopData, this.data.currentStop, this.data.corridorColor, stopStatus);
     }
-    if(stopStatus === 'l-term' || stopStatus === 'aft-l-term-u' || stopStatus === 'bidr-u') {
+    if(stopStatus === 'u-cur-lt' || stopStatus === 'u-aft-lt' || stopStatus === 'u-strd' || stopStatus === 'u-two-bef-ut') {
       tempStopData = this.setStopData(tempStopData, this.data.nextUpperStop, this.data.corridorColor, stopStatus);
     }
     tempStopData = this.setStopData(tempStopData, this.data.terminusUpperStop, this.data.corridorColor, stopStatus, 'upper-terminus');
@@ -83,12 +83,12 @@ export class LineOverviewComponent {
 
   setStopData(currentData, name, color, stopStatus, stopPosition?) {
     let data;
-    if(stopPosition && stopPosition === 'lower-terminus' && (stopStatus === 'bidr-u' || stopStatus === 'aft-l-term-u' || stopStatus === 'aft-u-term-u')) {
+    if(stopPosition && stopPosition === 'lower-terminus' && (stopStatus === 'u-strd' || stopStatus === 'u-aft-lt' || stopStatus === 'u-bef-ut' || stopStatus === 'u-two-bef-ut')) {
       data = {
         'name': name,
         'color': 'grey'
       }
-    } else if(stopPosition && stopPosition === 'upper-terminus' && (stopStatus === 'bidr-l' || stopStatus === 'aft-l-term-l' || stopStatus === 'aft-u-term-l')) {
+    } else if(stopPosition && stopPosition === 'upper-terminus' && (stopStatus === 'l-strd' || stopStatus === 'l-bef-lt' || stopStatus === 'l-aft-ut' || stopStatus === 'l-two-bef-lt')) {
       data = {
         'name': name,
         'color': 'grey'
@@ -119,26 +119,27 @@ export class LineOverviewComponent {
 
   getTrackStyleData() {
     let stopStatus = this.getStopStatus();
+    console.log('stopStatus', stopStatus);
     let tempTrackStyle = [];
-    if(stopStatus === 'l-term') {
+    if(stopStatus === 'u-cur-lt') {
       tempTrackStyle.push('arrow-u');
-    } else if(stopStatus === 'aft-l-term-u') {
+    } else if(stopStatus === 'u-aft-lt' || stopStatus === 'l-two-bef-lt') {
       tempTrackStyle.push('solid');
-    } else if(stopStatus === 'aft-l-term-l') {
+    } else if(stopStatus === 'l-bef-lt') {
       tempTrackStyle.push('arrow-l');
     } else {
       tempTrackStyle.push('dashed');
     }
-    if(stopStatus === 'l-term' || stopStatus === 'aft-l-term-l') {
+    if(stopStatus === 'u-cur-lt' || stopStatus === 'l-bef-lt') {
       tempTrackStyle.push('dashed');
-    } else if(stopStatus === 'bidr-u' || stopStatus === 'aft-l-term-u' || stopStatus === 'aft-u-term-u') {
+    } else if(stopStatus === 'u-strd' || stopStatus === 'u-aft-lt' || stopStatus === 'u-bef-ut' || stopStatus === 'u-two-bef-ut') {
       tempTrackStyle.push('arrow-u');
     } else {
       tempTrackStyle.push('arrow-l');
     }
-    if(stopStatus === 'aft-u-term-l') {
+    if(stopStatus === 'l-aft-ut' || stopStatus === 'u-two-bef-ut') {
       tempTrackStyle.push('solid');
-    } else if(stopStatus === 'bidr-u' || stopStatus === 'bidr-l' || stopStatus === 'aft-l-term-u') {
+    } else if(stopStatus === 'u-strd' || stopStatus === 'l-strd' || stopStatus === 'u-aft-lt' || stopStatus === 'l-two-bef-lt') {
       tempTrackStyle.push('dashed');
     }
     return tempTrackStyle;
@@ -147,36 +148,41 @@ export class LineOverviewComponent {
   getTrackColorData() {
     let stopStatus = this.getStopStatus();
     let tempTrackColor = [];
-    if(stopStatus === 'bidr-u' || stopStatus === 'aft-l-term-u' || stopStatus === 'aft-u-term-u') {
+    if(stopStatus === 'u-strd' || stopStatus === 'u-aft-lt' || stopStatus === 'u-bef-ut' || stopStatus === 'u-two-bef-ut') {
       tempTrackColor.push('grey');
     }
     tempTrackColor.push('color');
-    if(stopStatus !== 'aft-u-term-u' && stopStatus !== 'aft-l-term-l') {
+    if(stopStatus !== 'u-bef-ut' && stopStatus !== 'l-bef-lt') {
       tempTrackColor.push('color');
     }
-    if(stopStatus === 'bidr-l' || stopStatus === 'aft-l-term-l' || stopStatus === 'aft-u-term-l') {
+    if(stopStatus === 'l-strd' || stopStatus === 'l-bef-lt' || stopStatus === 'l-aft-ut' || stopStatus === 'l-two-bef-lt') {
       tempTrackColor.push('grey');
     }
     return tempTrackColor;
   }
 
   getStopStatus() {
+    console.log('data', this.data);
     if(this.data.isUpperTerminus) {
-      return 'u-term';
+      return 'l-cur-ut';
     } else if(this.data.isLowerTerminus) {
-      return 'l-term';
+      return 'u-cur-lt';
     } else if(this.data.isNextAfterUpperTerminus && this.bound === 'up') {
-      return 'aft-u-term-u';
+      return 'u-bef-ut';
     } else if(this.data.isNextAfterUpperTerminus && this.bound === 'low') {
-      return 'aft-u-term-l';
+      return 'l-aft-ut';
     } else if(this.data.isNextAfterLowerTerminus && this.bound === 'up') {
-      return 'aft-l-term-u';
+      return 'u-aft-lt';
     } else if(this.data.isNextAfterLowerTerminus && this.bound === 'low') {
-      return 'aft-l-term-l';
+      return 'l-bef-lt';
+    } else if(this.data.isNextTwoAfterUpperTerminus && this.bound === 'up') {
+      return 'u-two-bef-ut';
+    } else if(this.data.isNextTwoAfterLowerTerminus && this.bound === 'low') {
+      return 'l-two-bef-lt';
     } else if(this.bound === 'up') {
-      return 'bidr-u';
+      return 'u-strd';
     } else if(this.bound === 'low') {
-      return 'bidr-l';
+      return 'l-strd';
     }
     return null;
   }

@@ -31,9 +31,9 @@ export class TrackOverviewComponent {
 
   getTrackLength() {
     if(this.data.trackStyleColorData.length === 3) {
-      return '84px';
+      return '76px';
     } else if(this.data.trackStyleColorData.length === 2) {
-      return '144px';
+      return '136px';
     } else {
       return null;
     }

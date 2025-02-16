@@ -85,6 +85,7 @@ export class SidePanelComponent {
     if(this.query !== '') {
       this.isSearching = true;
     } else {
+      this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'Corridor', 'Stop'];
       this.isSearching = false;
     }
   }
@@ -101,6 +102,7 @@ export class SidePanelComponent {
   handleBackButtonClick() {
     this.currentPage = 'home';
     this.query = '';
+    this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'Corridor', 'Stop'];
     this.isSearching = false;
   }
 
