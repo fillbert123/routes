@@ -8,11 +8,11 @@
     <div class="stop-detail__header__title section-title">{{getStopName(stop)}}</div>
   </div>
   <div *ngIf="stopDetail.stopConnected">
-    <app-banner type="connectivity" [connection]="stopDetail.stopConnected"></app-banner>
+    <app-banner type="connectivity" [connection]="stopDetail.stopConnected" (stopClick)="handleStopClick($event)"/>
   </div>
   <div class="stop-detail__content">
     <div *ngFor="let interchange of stopInterchangeDetail">
-      <app-route-preview [interchange]="interchange" [stop]="stop"/>
+      <app-route-preview [interchange]="interchange" [stop]="stop" (stopClick)="handleStopClick($event)"/>
     </div>
   </div>
 </div>

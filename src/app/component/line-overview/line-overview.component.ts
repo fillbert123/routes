@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import stopData from '../../../assets/data/stop.json'
 
 @Component({
@@ -11,8 +11,11 @@ export class LineOverviewComponent {
   @Input() data: any;
   terminus: string;
   lineOverviewData: any;
+  @Output() stopClick = new EventEmitter<any>();
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges) {
+    this.terminus = null;
+    this.lineOverviewData = null;
     this.setTerminus();
     this.setLineOverviewData();
   }
@@ -119,7 +122,6 @@ export class LineOverviewComponent {
 
   getTrackStyleData() {
     let stopStatus = this.getStopStatus();
-    console.log('stopStatus', stopStatus);
     let tempTrackStyle = [];
     if(stopStatus === 'u-cur-lt') {
       tempTrackStyle.push('arrow-u');
@@ -162,7 +164,6 @@ export class LineOverviewComponent {
   }
 
   getStopStatus() {
-    console.log('data', this.data);
     if(this.data.isUpperTerminus) {
       return 'l-cur-ut';
     } else if(this.data.isLowerTerminus) {
@@ -185,5 +186,9 @@ export class LineOverviewComponent {
       return 'l-strd';
     }
     return null;
+  }
+
+  handleStopClick(stop: any) {
+    this.stopClick.emit(stop);
   }
 }

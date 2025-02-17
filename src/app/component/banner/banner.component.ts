@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import stopData from '../../../assets/data/stop.json';
 import corridorData from '../../../assets/data/corridor.json';
 
@@ -11,8 +11,10 @@ export class BannerComponent {
   @Input() type: string;
   @Input() connection: any;
   stopConnectionDetail: any = [];
+  @Output() stopClick = new EventEmitter<any>();
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges) {
+    this.stopConnectionDetail = [];
     if(this.type === 'connectivity') {
       this.getConnectionDetailList();
     }
@@ -39,6 +41,10 @@ export class BannerComponent {
       default:
         return '';
     }
+  }
+
+  handleStopClick(stop: any) {
+    this.stopClick.emit(stop);
   }
 }
 

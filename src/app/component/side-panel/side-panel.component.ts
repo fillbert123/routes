@@ -90,9 +90,19 @@ export class SidePanelComponent {
     }
   }
 
-  handleListCorridorClick(corridor: any) {
-    this.selectedCorridor = corridor;
-    this.selectedStop = null;
+  handleItemCLick(item: string) {
+    this.isSearching = false;
+    let itemType = (item.startsWith('STP') ? 'stop' : 'corridor');
+    switch(itemType) {
+      case 'stop':
+        this.currentPage = 'stopDetail';
+        this.selectedStop = item;
+        break;
+      case 'corridor':
+        this.currentPage = 'corridorDetail';
+        this.selectedCorridor = item;
+        break;
+    }
   }
 
   handleListStopClick(stop: any) {
@@ -112,5 +122,10 @@ export class SidePanelComponent {
 
   handleFilterClick(event) {
     this.selectedFilter = event;
+  }
+
+  handleStopClick(stop: any) {
+    this.currentPage = 'stopDetail';
+    this.selectedStop = stop;
   }
 }

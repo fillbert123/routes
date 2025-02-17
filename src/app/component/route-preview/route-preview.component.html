@@ -2,10 +2,10 @@
   <h3 class="route-preview__title route-preview-title">{{interchange.corridorName}}: {{getStopName(interchange.corridorLowerBound)}} - {{getStopName(interchange.corridorUpperBound)}}</h3>
   <div class="route-preview__content">
     <div *ngIf="routeNextData.stopNextUp" class="route-preview__content__upper">
-      <app-line-overview [data]="routePreviewData" bound="up"/>
+      <app-line-overview [data]="routePreviewData" bound="up" (stopClick)="handleStopClick($event)"/>
     </div>
     <div *ngIf="routeNextData.stopNextLow" class="route-preview__content__lower">
-      <app-line-overview [data]="routePreviewData" bound="low"/>
+      <app-line-overview [data]="routePreviewData" bound="low" (stopClick)="handleStopClick($event)"/>
     </div>
   </div>
 </div>

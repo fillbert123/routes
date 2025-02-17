@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import corridorData from '../../../assets/data/corridor.json';
 
 @Component({
@@ -14,7 +14,8 @@ export class ChipComponent {
   @Output() clickedFilter = new EventEmitter<any>();
   corridorDetail: any = [];
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges) {
+    this.corridorDetail = [];
     if(this.type === 'connection') {
       this.getCorridorDetail();
     }

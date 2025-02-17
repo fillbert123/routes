@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import stopData from '../../../assets/data/stop.json'
 
 @Component({
@@ -8,6 +8,7 @@ import stopData from '../../../assets/data/stop.json'
 })
 export class TrackOverviewComponent {
   @Input() data: any;
+  @Output() stopClick = new EventEmitter<any>();
 
   getStopName(code) {
     return stopData.find((item) => {
@@ -41,5 +42,9 @@ export class TrackOverviewComponent {
 
   getNumberOfTrackShown() {
     return this.data.trackStyleColorData.length;
+  }
+
+  handleStopClick(stop: any) {
+    this.stopClick.emit(stop);
   }
 }

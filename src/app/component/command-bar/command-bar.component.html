@@ -8,11 +8,11 @@
       <img src="../../../assets/icons/magnifyingglass.svg" alt="">
     </button>
   </div>
-  <div *ngIf="inputValue !== ''" class="command-bar__filter">
+  <div *ngIf="isSearching" class="command-bar__filter">
     <app-chip-selection [selectedFilter]="selectedFilter" (filterClick)="handleFilterClick($event)"/>
   </div>
 </div>
 
-<div *ngIf="inputValue !== ''" class="command-bar__result">
+<div *ngIf="isSearching" class="command-bar__result">
   <h2 class="section-title">Results for '{{inputValue}}'</h2>
 </div>

@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div *ngIf="type === 'stop'" (click)="handleItemClick(corridor)" class="list-item-search-stop">
+<div *ngIf="type === 'stop'" (click)="handleItemClick(item.stopId)" class="list-item-search-stop">
   <p class="list-item__name list-stop-name">{{getSearchStopName(item.stopName)}}</p>
   <div class="list-item__icons">
     <div *ngFor="let transit of transitDetailList">

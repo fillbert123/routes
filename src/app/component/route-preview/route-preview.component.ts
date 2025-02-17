@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import stopData from '../../../assets/data/stop.json'
 import stopDirectionData from '../../../assets/data/stopDirection.json';
 
@@ -12,9 +12,11 @@ export class RoutePreviewComponent {
   @Input() stop: any;
   routeNextData: any;
   routePreviewData: any;
+  @Output() stopClick = new EventEmitter<any>();
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges) {
     this.routeNextData = this.getRouteNextData(this.stop);
+    this.routePreviewData = null;
     this.setRoutePreviewData();
   }
 
@@ -45,7 +47,6 @@ export class RoutePreviewComponent {
       "isNextTwoAfterUpperTerminus": this.checkIsNextTwoAfterTerminus(this.interchange.corridorUpperBound, this.routeNextData.stopNextUp, 'up'),
       "isNextTwoAfterLowerTerminus": this.checkIsNextTwoAfterTerminus(this.interchange.corridorLowerBound, this.routeNextData.stopNextLow, 'low'),
     }
-    console.log('route preview data', this.routePreviewData);
   }
 
   checkIsTerminus(terminus, current) {
@@ -60,8 +61,13 @@ export class RoutePreviewComponent {
     if(next === null) {
       return false;
     } else {
-      let nextStopData = (direction === 'up') ? this.getRouteNextData(next).stopNextUp : this.getRouteNextData(next).stopNextLow;
-      return (terminus === nextStopData) ? true : false;
+      let nextStopData = this.getRouteNextData(next);
+      let nextStopDataByDirection = (direction === 'up') ? nextStopData.stopNextUp : nextStopData.stopNextLow;
+      return (terminus === nextStopDataByDirection) ? true : false;
     }
+  }
+
+  handleStopClick(stop: any) {
+    this.stopClick.emit(stop);
   }
 }

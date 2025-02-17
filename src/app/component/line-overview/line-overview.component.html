@@ -3,5 +3,5 @@
     <h3 class="line-overview__header__title route-preview-title">Bound for </h3>
     <h3 class="line-overview__header__bound route-preview-bound">{{getStopName(terminus)}}</h3>
   </div>
-  <app-track-overview [data]="lineOverviewData"/>
+  <app-track-overview [data]="lineOverviewData" (stopClick)="handleStopClick($event)"/>
 </div>

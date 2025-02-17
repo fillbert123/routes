@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import corridorData from '../../../assets/data/corridor.json';
 import stopData from '../../../assets/data/stop.json';
 
@@ -16,22 +16,13 @@ export class StopDetailComponent {
 
   //redesigned
   @Input() stop: string;
-  stopDetail: any;
+  stopDetail: any = null;
   stopInterchangeDetail: any = [];
+  @Output() stopClick = new EventEmitter<any>();
 
-  ngOnInit() {
-    // let stopInterchange
-    // if(this.selectedStop.stopNameRefer) {
-    //   stopInterchange = this.getStopInterchange(this.selectedStop.stopNameRefer);
-    // } else {
-    //   stopInterchange = this.getStopInterchange(this.selectedStop.stopName);
-    // }
-    // this.selectedStopInterchange = stopInterchange.stopInterchange;
-    // this.selectedStopConnection = stopInterchange?.stopConnected;
-    // this.setStopInterchangeData(this.selectedStopInterchange);
-    // if(this.selectedStopConnection) {
-    //   this.setStopConnectionData(this.selectedStopConnection);
-    // }
+  ngOnChanges(changes: SimpleChanges) {
+    this.stopDetail = null;
+    this.stopInterchangeDetail = [];
     this.getCorridorDetail();
   }
 
@@ -78,5 +69,9 @@ export class StopDetailComponent {
       })
       this.selectedStopConnectionData.push(stopConnectionData);
     })
+  }
+
+  handleStopClick(stop: any) {
+    this.stopClick.emit(stop);
   }
 }

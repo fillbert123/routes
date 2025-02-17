@@ -9,7 +9,7 @@ import stopData from '../../../assets/data/stop.json'
 })
 export class SearchResultComponent {
   @Input() query: string = '';
-  @Output() selectedCorridor = new EventEmitter<any>();
+  @Output() itemClick = new EventEmitter<any>();
   corridorSearchResult: any = [];
   stopSearchResult: any = [];
   @Input() selectedFilter: any;
@@ -40,8 +40,8 @@ export class SearchResultComponent {
     return filterResult;
   }
 
-  handleItemClick(corridor: any) {
-    this.selectedCorridor.emit(corridor);
+  handleItemClick(item: any) {
+    this.itemClick.emit(item);
   }
 
   isIncludeFilter(filter) {

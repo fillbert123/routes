@@ -347,7 +347,7 @@
     "corridorName": "Bekasi Line",
     "corridorIcon": "E",
     "corridorColor": "moss",
-    "corridorLowerBound": "STP009",
+    "corridorLowerBound": "STP244",
     "corridorUpperBound": "STP257",
     "isCorridorActive": true
   },
@@ -357,7 +357,7 @@
     "corridorName": "Cibubur Line",
     "corridorIcon": "I",
     "corridorColor": "midnight",
-    "corridorLowerBound": "STP009",
+    "corridorLowerBound": "STP244",
     "corridorUpperBound": "STP261",
     "isCorridorActive": true
   },

@@ -49,7 +49,7 @@
     {"stopName": "STP044", "stopTransit": ["COR003", "COR010", "COR017"], "stopDirection": "low", "stopCode": "02-24", "stopCorridor": "COR002", "stopNextUp": null, "stopNextLow": "STP034"}  
   ],
   "COR003": [
-    {"stopName": "STP023", "stopTransit": ["COR002", "COR007", "COR008"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "COR003", "stopNextUp": "STP024", "stopNextLow": ""},
+    {"stopName": "STP023", "stopTransit": ["COR002", "COR007", "COR008"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "COR003", "stopNextUp": "STP024", "stopNextLow": null},
     {"stopName": "STP024", "stopTransit": ["COR002"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR003", "stopNextUp": "STP025", "stopNextLow": "STP023"},
     {"stopName": "STP025", "stopTransit": ["COR002"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR003", "stopNextUp": "STP026", "stopNextLow": "STP024"},
     {"stopName": "STP026", "stopTransit": ["COR002"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR003", "stopNextUp": "STP027", "stopNextLow": "STP025"},
