@@ -1,9 +1,9 @@
 <main class="reykjavik">
-  <!-- <div class="reykjavik__map" id="map">
-    <app-system-map/>
-  </div> -->
+  <div class="reykjavik__map" id="map">
+    <app-system-map (clickObject)="handleClickObject($event)" (clickLine)="handleClickLine($event)"/>
+  </div>
   <div class="reykjavik__panel">
-    <app-side-panel/>
+    <app-side-panel [selectedId]="selectedStopId" [selectedLine]="selectedLine"/>
   </div>
 </main>
 

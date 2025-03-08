@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-side-panel',
@@ -12,6 +12,8 @@ export class SidePanelComponent {
   // selectedStop: any = null;
 
   //redesigned
+  @Input() selectedId: string;
+  @Input() selectedLine: string;
   currentPage: any = 'home';
   selectedCorridor: string = null;
   selectedStop: string = null;
@@ -22,9 +24,36 @@ export class SidePanelComponent {
     this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'Corridor', 'Stop'];
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if(this.selectedId && changes['selectedId']) {
+      this.selectedStop = this.selectedId;
+      this.currentPage = 'stopDetail';
+    }
+    if(this.selectedLine && changes['selectedLine']) {
+      this.currentPage = 'corridorSelection';
+    }
+  }
+
+
+  handleSearchItemClick(item: string) {
+    this.isSearching = false;
+    let itemType = (item.startsWith('STP') ? 'stop' : 'corridor');
+    switch(itemType) {
+      case 'stop':
+        this.currentPage = 'stopDetail';
+        this.selectedStop = item;
+        break;
+      case 'corridor':
+        this.currentPage = 'corridorDetail';
+        this.selectedCorridor = item;
+        break;
+    }
+  }
+
   handleItemClick(id) {
     switch(this.currentPage) {
       case 'home':
+      case 'corridorSelection':
         this.selectedCorridor = id;
         this.currentPage = 'corridorDetail';
         break;
@@ -87,21 +116,6 @@ export class SidePanelComponent {
     } else {
       this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'Corridor', 'Stop'];
       this.isSearching = false;
-    }
-  }
-
-  handleItemCLick(item: string) {
-    this.isSearching = false;
-    let itemType = (item.startsWith('STP') ? 'stop' : 'corridor');
-    switch(itemType) {
-      case 'stop':
-        this.currentPage = 'stopDetail';
-        this.selectedStop = item;
-        break;
-      case 'corridor':
-        this.currentPage = 'corridorDetail';
-        this.selectedCorridor = item;
-        break;
     }
   }
 

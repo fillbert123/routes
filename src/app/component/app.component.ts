@@ -20,6 +20,24 @@ export class AppComponent {
   busStopDetailList: any[] = [];
   busStopList: any[] = [];
 
+  //redesigned
+  selectedStopId: string = null;
+  selectedLine: string = null;
+
+  handleClickObject(id) {
+    this.selectedStopId = '';
+    setTimeout(() => {
+      this.selectedStopId = id;
+    })
+  }
+
+  handleClickLine(line) {
+    this.selectedLine = '';
+    setTimeout(() => {
+      this.selectedLine = line;
+    })
+  }
+
   constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit(): void {

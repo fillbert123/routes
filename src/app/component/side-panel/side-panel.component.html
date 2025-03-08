@@ -6,7 +6,7 @@
       </section>
 
       <section *ngIf="isSearching" id="search-result" class="side-panel__content__page__search">
-        <app-search-result [selectedFilter]="selectedFilter" [query]="query" (itemClick)="handleItemCLick($event)"/>
+        <app-search-result [selectedFilter]="selectedFilter" [query]="query" (itemClick)="handleSearchItemClick($event)"/>
       </section>
 
       <section *ngIf="!isSearching && currentPage === 'home'" id="home-section" class="side-panel__content__page">
@@ -19,6 +19,10 @@
 
       <section *ngIf="!isSearching && currentPage === 'stopDetail'" class="side-panel__content__page">
         <app-stop-detail [stop]="selectedStop" (stopClick)="handleStopClick($event)"/>
+      </section>
+
+      <section *ngIf="!isSearching && currentPage === 'corridorSelection'" class="side-panel__content__page">
+        <app-corridor-selection [selectedLine]="selectedLine" (itemClick)="handleItemClick($event)"/>
       </section>
     </div>
   </div>
