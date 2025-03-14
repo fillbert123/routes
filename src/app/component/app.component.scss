@@ -19,12 +19,7 @@ html {
   background-color: var(--darkgrey);
 }
 
-.divider {
-  width: 1px;
-  background: var(--red-to-pink-to-purple-vertical-gradient);
-  margin-inline: 0.5rem;
-}
-.reykjavik {
+.app {
   position: relative;
   &__map {
     width: 100%;
