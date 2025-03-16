@@ -3,6 +3,7 @@ import { FirebaseService } from '../service/firebase.service';
 import { DocumentChange, DocumentData } from '@angular/fire/firestore';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { isMobile } from '../shared/methods';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ export class AppComponent {
   corridorList: any[] = [];
   busStopDetailList: any[] = [];
   busStopList: any[] = [];
+  isMobile: boolean = false;
 
   //redesigned
   selectedStopId: string = null;
@@ -41,6 +43,10 @@ export class AppComponent {
   constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit(): void {
+    if(isMobile()) {
+      this.setMobileStyle();
+      this.isMobile = true;
+    }
     // this.getCorridorList();
     // this.getBusStopDetailList();
     // this.getBusStopList();
@@ -50,6 +56,10 @@ export class AppComponent {
     // this.updateItemOnFirebase();
     // this.deleteItemFromFirebase();
     // this.addStopDetailToFirebase();
+  }
+
+  setMobileStyle() {
+    document.getElementById('app__panel').classList.add('app__panel-mobile');
   }
 
   // async getCorridorList() {

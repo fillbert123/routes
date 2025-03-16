@@ -1,4 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { isMobile } from '../../shared/methods';
 
 @Component({
   selector: 'app-side-panel',
@@ -22,6 +23,9 @@ export class SidePanelComponent {
 
   ngOnInit() {
     this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'Corridor', 'Stop'];
+    if(isMobile()) {
+      this.setMobileStyle();
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -34,6 +38,9 @@ export class SidePanelComponent {
     }
   }
 
+  setMobileStyle() {
+    document.getElementById('side-panel__content').classList.add('side-panel__content-mobile');
+  }
 
   handleSearchItemClick(item: string) {
     this.isSearching = false;

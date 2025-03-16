@@ -31,13 +31,7 @@ export class TrackOverviewComponent {
   }
 
   getTrackLength() {
-    if(this.data.trackStyleColorData.length === 3) {
-      return '76px';
-    } else if(this.data.trackStyleColorData.length === 2) {
-      return '136px';
-    } else {
-      return null;
-    }
+    return (window.innerWidth - 144) / this.data.trackStyleColorData.length + 'px';
   }
 
   getNumberOfTrackShown() {

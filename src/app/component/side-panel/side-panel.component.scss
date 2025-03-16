@@ -10,7 +10,7 @@
     border: 1px solid var(--st30);
     border-radius: 12px 12px 12px 12px;
     background-color: var(--bg80);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(16px);
     &__page {
       width: 100%;
       height: calc(100% - 54px);
@@ -28,6 +28,12 @@
         overflow-y: auto;
         overflow-x: hidden;
       }
+    }
+    &-mobile {
+      height: calc(100vh - 24px) !important;
+      width: calc(100vw - 24px) !important;
+      border: 0 none !important;
+      border-radius: 0 !important;
     }
   }
   &__resize {
