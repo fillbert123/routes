@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import stopData from '../../../assets/data/stop.json'
+import { isMobile } from '../../shared/methods';
 
 @Component({
   selector: 'app-track-overview',
@@ -31,7 +32,17 @@ export class TrackOverviewComponent {
   }
 
   getTrackLength() {
-    return (window.innerWidth - 144) / this.data.trackStyleColorData.length + 'px';
+    if(isMobile()) {
+      return (window.innerWidth - 144) / this.data.trackStyleColorData.length + 'px';
+    } else {
+      if(this.data.trackStyleColorData.length === 3) {
+        return '76px';
+      } else if(this.data.trackStyleColorData.length === 2) {
+        return '136px';
+      } else {
+        return null;
+      }
+    }
   }
 
   getNumberOfTrackShown() {
