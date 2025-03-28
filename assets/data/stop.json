@@ -6,7 +6,7 @@
   {"stopId": "STP005", "stopType": "brt", "stopName": "Senayan", "stopInterchange": ["COR001", "COR005", "COR015", "COR021", "COR025"]},
   {"stopId": "STP006", "stopType": "brt", "stopName": "Polda Metro Jaya", "stopInterchange": ["COR001"]},
   {"stopId": "STP007", "stopType": "brt", "stopName": "Bendungan Hilir", "stopInterchange": ["COR001"], "stopConnected": ["STP126"]},
-  {"stopId": "STP008", "stopType": "brt", "stopName": "Karet", "stopInterchange": ["COR001", "COR014", "COR030"]},
+  {"stopId": "STP008", "stopType": "brt", "stopName": "Karet Sudirman", "stopInterchange": ["COR001", "COR014", "COR030"]},
   {"stopId": "STP009", "stopType": "brt", "stopName": "Dukuh Atas", "stopInterchange": ["COR001", "COR014", "COR030"], "stopConnected": ["STP079"]},
   {"stopId": "STP010", "stopType": "brt", "stopName": "Tosari", "stopInterchange": ["COR001", "COR014"]},
   {"stopId": "STP011", "stopType": "brt", "stopName": "Bundaran HI", "stopInterchange": ["COR001", "COR013", "COR014"], "stopConnected": ["STP243"]},
