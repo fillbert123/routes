@@ -77,7 +77,7 @@
     {"stopName": "STP054", "stopTransit": ["COR004", "COR005"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "COR003", "stopNextUp": null, "stopNextLow": "STP053"}  
   ],
   "COR004": [
-    {"stopName": "STP055", "stopTransit": ["COR005"], "stopDirection": "terminus", "stopCode": "03-01", "stopCorridor": "COR004", "stopNextUp": "STP056", "stopNextLow": ""},
+    {"stopName": "STP055", "stopTransit": ["COR005"], "stopDirection": "terminus", "stopCode": "03-01", "stopCorridor": "COR004", "stopNextUp": "STP056", "stopNextLow": null},
     {"stopName": "STP056", "stopTransit": ["COR005"], "stopDirection": "bidirectional", "stopCode": "03-02", "stopCorridor": "COR004", "stopNextUp": "STP057", "stopNextLow": "STP055"},
     {"stopName": "STP057", "stopTransit": ["COR005"], "stopDirection": "bidirectional", "stopCode": "03-03", "stopCorridor": "COR004", "stopNextUp": "STP054", "stopNextLow": "STP056"},
     {"stopName": "STP054", "stopTransit": ["COR003", "COR005"], "stopDirection": "bidirectional", "stopCode": "03-04", "stopCorridor": "COR004", "stopNextUp": "STP053", "stopNextLow": "STP057"},
@@ -213,7 +213,7 @@
     {"stopName": "STP108", "stopTransit": ["COR011", "COR016", "COR019", "COR020", "COR021", "COR022"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR010", "stopNextUp": "STP109", "stopNextLow": "STP107"},
     {"stopName": "STP109", "stopTransit": ["COR011", "COR016", "COR019", "COR020", "COR021", "COR022", "COR023"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR010", "stopNextUp": "STP110", "stopNextLow": "STP108"},
     {"stopName": "STP110", "stopTransit": ["COR011", "COR016", "COR020", "COR023"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR010", "stopNextUp": "STP111", "stopNextLow": "STP109"},
-    {"stopName": "STP111", "stopTransit": ["COR011", "COR020", "COR023"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR010", "stopNextUp": "STP112", "stopNextLow": ""},
+    {"stopName": "STP111", "stopTransit": ["COR011", "COR020", "COR023"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR010", "stopNextUp": "STP112", "stopNextLow": null},
     {"stopName": "STP112", "stopTransit": ["COR011", "COR016", "COR020"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "COR010", "stopNextUp": null, "stopNextLow": "STP110"}  
   ],
   "COR011": [
@@ -640,7 +640,7 @@
     {"stopName": "STP168", "stopTransit": ["COR019", "COR020", "COR021"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR030", "stopNextUp": "STP124", "stopNextLow": "STP167"},
     {"stopName": "STP124", "stopTransit": ["COR014", "COR019", "COR020", "COR021"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR030", "stopNextUp": "STP125", "stopNextLow": "STP168"},
     {"stopName": "STP125", "stopTransit": ["COR014", "COR019", "COR020", "COR021"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR030", "stopNextUp": "STP126", "stopNextLow": "STP124"},
-    {"stopName": "STP126", "stopTransit": ["COR014", "COR019", "COR020", "COR021"], "stopDirection": "up", "stopCode": null, "stopCorridor": "COR030", "stopNextUp": "STP008", "stopNextLow": ""},
+    {"stopName": "STP126", "stopTransit": ["COR014", "COR019", "COR020", "COR021"], "stopDirection": "up", "stopCode": null, "stopCorridor": "COR030", "stopNextUp": "STP008", "stopNextLow": "STP125"},
     {"stopName": "STP008", "stopTransit": ["COR001", "COR014"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR030", "stopNextUp": "STP009", "stopNextLow": "STP125"},
     {"stopName": "STP009", "stopTransit": ["COR001", "COR014"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "COR030", "stopNextUp": null, "stopNextLow": "STP008"}  
   ],
@@ -668,7 +668,7 @@
     {"stopName": "STP116", "stopTransit": ["COR012", "COR013", "COR014", "COR015"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR031", "stopNextUp": "STP115", "stopNextLow": "STP117"},
     {"stopName": "STP115", "stopTransit": ["COR012", "COR013", "COR014", "COR015"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR031", "stopNextUp": "STP114", "stopNextLow": "STP116"},
     {"stopName": "STP114", "stopTransit": ["COR012", "COR013", "COR014", "COR015"], "stopDirection": "bidirectional", "stopCode": null, "stopCorridor": "COR031", "stopNextUp": "STP113", "stopNextLow": "STP115"},
-    {"stopName": "STP113", "stopTransit": ["COR012", "COR013", "COR014", "COR015"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "COR031", "stopNextUp": "", "stopNextLow": "STP114"}  
+    {"stopName": "STP113", "stopTransit": ["COR012", "COR013", "COR014", "COR015"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "COR031", "stopNextUp": null, "stopNextLow": "STP114"}  
   ],
   "COR032": [
     {"stopName": "STP215", "stopTransit": ["COR028", "COR029", "COR030", "COR031"], "stopDirection": "terminus", "stopCode": null, "stopCorridor": "COR032", "stopNextUp": "STP216", "stopNextLow": null},

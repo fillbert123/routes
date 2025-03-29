@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import stopData from '../../../assets/data/stop.json'
+import { isMobile } from '../../shared/methods';
 
 @Component({
   selector: 'app-terminus-selection',
@@ -11,14 +12,25 @@ export class TerminusSelectionComponent {
   @Input() terminusUpper: any;
   @Output() directionClick = new EventEmitter<any>();
   direction: any;
+  buttonWidth: number;
 
   ngOnInit() {
     this.direction = 'upper';
+    this.buttonWidth = this.getButtonWidth();
+    console.log('button width', this.buttonWidth);
   }
 
   handleDirectionClick(direction: string) {
     this.direction = direction;
     this.directionClick.emit(direction);
+  }
+
+  getButtonWidth() {
+    if(isMobile()) {
+      let windowWidth = window.innerWidth;
+      return (windowWidth - 36)/2;
+    }
+    return 186;
   }
 
   getStopName(code, shorten = false) {
