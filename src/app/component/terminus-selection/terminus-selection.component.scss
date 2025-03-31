@@ -1,7 +1,7 @@
 .selection {
   padding: 4px;
   width: calc(100% - 8px);
-  border-radius: 16px;
+  border-radius: 24px;
   background-color: var(--bg80);
   display: flex;
   justify-content: space-between;
@@ -28,7 +28,7 @@
   &__background {
     height: calc(100% - 8px);
     border: 0 solid;
-    border-radius: 12px;
+    border-radius: 20px;
     background-color: var(--bg80);
     position: absolute;
     transition: transform 0.2s ease-in-out;

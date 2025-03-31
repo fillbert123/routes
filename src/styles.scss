@@ -89,13 +89,13 @@ body {
   font-weight: 700;
 }
 
-.list-title, .terminus-descriptive, .route-preview-title {
+.list-title, .terminus-descriptive, .line-overview-title {
   font-size: 12px;
   font-weight: bold;
   color: var(--tx85);
 }
 
-.route-preview-bound, .route-preview-terminus, .filter-label, .banner-label {
+.route-preview-bound, .route-preview-terminus, .filter-label, .banner-label, .route-preview-title, .line-overview-bound {
   font-size: 12px;
   font-weight: bold;
   color: var(--white);

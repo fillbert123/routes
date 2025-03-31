@@ -44,7 +44,7 @@ export class CommandBarComponent {
   }
 
   handleSearchButtonClick() {
-    this.searchButtonClick.emit();
+    // this.searchButtonClick.emit();
   }
 
   handleClearButtonClick() {
