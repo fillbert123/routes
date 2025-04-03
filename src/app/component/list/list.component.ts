@@ -63,6 +63,9 @@ export class ListComponent {
       case 'krl':
         this.itemList = corridorData.filter((corridor) => corridor.corridorType === 'KRL');
         break;
+      case 'tjb':
+        this.itemList = corridorData.filter((corridor) => corridor.corridorType === 'TJB');
+        break;
       case 'track':
         let track = stopDirectionData[this.corridor];
         let lowerBound = this.getCorridorLowerBound(this.corridor);
@@ -115,6 +118,9 @@ export class ListComponent {
         case ListType.KRL:
           this.list = corridorData.filter((corridor) => corridor.corridorType === 'KRL');
           break;
+        case ListType.TJB:
+          this.list = corridorData.filter((corridor) => corridor.corridorType === 'TJB');
+          break;
         case ListType.TRACK:
           switch(this.direction) {
             case DirectionType.LOWER:
@@ -166,6 +172,7 @@ enum ListType {
   LRT = 'lrt',
   BRT = 'brt',
   KRL = 'krl',
+  TJB = 'tjb',
   TRACK = 'track'
 }
 

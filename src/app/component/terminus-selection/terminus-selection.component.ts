@@ -17,7 +17,6 @@ export class TerminusSelectionComponent {
   ngOnInit() {
     this.direction = 'upper';
     this.buttonWidth = this.getButtonWidth();
-    console.log('button width', this.buttonWidth);
   }
 
   handleDirectionClick(direction: string) {

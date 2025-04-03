@@ -15,9 +15,12 @@ export class RoutePreviewComponent {
   @Output() stopClick = new EventEmitter<any>();
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log('stop', this.stop);
+    console.log('interchange', this.interchange);
     this.routeNextData = this.getRouteNextData(this.stop);
     this.routePreviewData = null;
     this.setRoutePreviewData();
+    console.log('route preview data', this.routePreviewData);
   }
 
   getStopName(code) {
