@@ -484,5 +484,104 @@
     "corridorLowerBound": "STP274",
     "corridorUpperBound": "STP351",
     "isCorridorActive": true
+  },
+  {
+    "corridorId": "COR045",
+    "corridorType": "TJB",
+    "corridorName": "Transjabodetabek B11",
+    "corridorIcon": "1",
+    "corridorGroup": "B1",
+    "corridorColor": "brick",
+    "corridorLowerBound": "STP352",
+    "corridorUpperBound": "STP353",
+    "isCorridorActive": true
+  },
+  {
+    "corridorId": "COR046",
+    "corridorType": "TJB",
+    "corridorName": "Transjabodetabek B21",
+    "corridorIcon": "1",
+    "corridorGroup": "B2",
+    "corridorColor": "mauve",
+    "corridorLowerBound": "STP352",
+    "corridorUpperBound": "STP354",
+    "isCorridorActive": true
+  },
+  {
+    "corridorId": "COR047",
+    "corridorType": "TJB",
+    "corridorName": "Transjabodetabek D11",
+    "corridorIcon": "1",
+    "corridorGroup": "D1",
+    "corridorColor": "plum",
+    "corridorLowerBound": "STP355",
+    "corridorUpperBound": "STP356",
+    "isCorridorActive": true
+  },
+  {
+    "corridorId": "COR048",
+    "corridorType": "TJB",
+    "corridorName": "Transjabodetabek D21",
+    "corridorIcon": "1",
+    "corridorGroup": "D2",
+    "corridorColor": "olive",
+    "corridorLowerBound": "STP357",
+    "corridorUpperBound": "STP358",
+    "isCorridorActive": true
+  },
+  {
+    "corridorId": "COR049",
+    "corridorType": "TJB",
+    "corridorName": "Transjabodetabek S11",
+    "corridorIcon": "1",
+    "corridorGroup": "S1",
+    "corridorColor": "storm",
+    "corridorLowerBound": "STP359",
+    "corridorUpperBound": "STP360",
+    "isCorridorActive": true
+  },
+  {
+    "corridorId": "COR050",
+    "corridorType": "TJB",
+    "corridorName": "Transjabodetabek S21",
+    "corridorIcon": "1",
+    "corridorGroup": "S2",
+    "corridorColor": "amber",
+    "corridorLowerBound": "STP361",
+    "corridorUpperBound": "STP362",
+    "isCorridorActive": true
+  },
+  {
+    "corridorId": "COR051",
+    "corridorType": "TJB",
+    "corridorName": "Transjabodetabek S22",
+    "corridorIcon": "2",
+    "corridorGroup": "S2",
+    "corridorColor": "amber",
+    "corridorLowerBound": "STP363",
+    "corridorUpperBound": "STP362",
+    "isCorridorActive": true
+  },
+  {
+    "corridorId": "COR052",
+    "corridorType": "TJB",
+    "corridorName": "Transjabodetabek T11",
+    "corridorIcon": "1",
+    "corridorGroup": "T1",
+    "corridorColor": "twilight",
+    "corridorLowerBound": "STP364",
+    "corridorUpperBound": "STP365",
+    "isCorridorActive": true
+  },
+  {
+    "corridorId": "COR053",
+    "corridorType": "TJB",
+    "corridorName": "Transjabodetabek T12",
+    "corridorIcon": "2",
+    "corridorGroup": "T1",
+    "corridorColor": "twilight",
+    "corridorLowerBound": "STP366",
+    "corridorUpperBound": "STP365",
+    "isCorridorActive": true
   }
 ]

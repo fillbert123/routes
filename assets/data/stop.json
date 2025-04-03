@@ -350,5 +350,21 @@
   {"stopId": "STP348", "stopType": "krl", "stopName": "Tanah Tinggi", "stopInterchange": ["COR043"]},
   {"stopId": "STP349", "stopType": "krl", "stopName": "Tangerang", "stopInterchange": ["COR043"]},
   {"stopId": "STP350", "stopType": "krl", "stopName": "Ancol", "stopInterchange": ["COR044"]},
-  {"stopId": "STP351", "stopType": "krl", "stopName": "Tanjung Priok", "stopInterchange": ["COR044"]}
+  {"stopId": "STP351", "stopType": "krl", "stopName": "Tanjung Priok", "stopInterchange": ["COR044"]},
+  {"stopId": "STP352", "stopType": "tjb", "stopName": "Cawang", "stopInterchange": ["COR045", "COR046"]},
+  {"stopId": "STP353", "stopType": "tjb", "stopName": "Summarecon Bekasi", "stopInterchange": ["COR045"]},
+  {"stopId": "STP354", "stopType": "tjb", "stopName": "Bekasi Timur", "stopInterchange": ["COR046"]},
+  {"stopId": "STP355", "stopType": "tjb", "stopName": "Cawang Sentral", "stopInterchange": ["COR047"]},
+  {"stopId": "STP356", "stopType": "tjb", "stopName": "Terminal Depok", "stopInterchange": ["COR047"]},
+  {"stopId": "STP357", "stopType": "tjb", "stopName": "Lebak Bulus", "stopInterchange": ["COR048"]},
+  {"stopId": "STP358", "stopType": "tjb", "stopName": "Universitas Indonesia", "stopInterchange": ["COR048"]},
+  {"stopId": "STP359", "stopType": "tjb", "stopName": "Jelambar", "stopInterchange": ["COR049"]},
+  {"stopId": "STP360", "stopType": "tjb", "stopName": "BSD", "stopInterchange": ["COR049"]},
+  {"stopId": "STP361", "stopType": "tjb", "stopName": "Blok M", "stopInterchange": ["COR050"]},
+  {"stopId": "STP362", "stopType": "tjb", "stopName": "Ciputat", "stopInterchange": ["COR050", "COR051"]},
+  {"stopId": "STP363", "stopType": "tjb", "stopName": "Kampung Rambutan", "stopInterchange": ["COR051"]},
+  {"stopId": "STP364", "stopType": "tjb", "stopName": "Petamburan", "stopInterchange": ["COR052"]},
+  {"stopId": "STP365", "stopType": "tjb", "stopName": "Poris Plawad", "stopInterchange": ["COR052", "COR053"]},
+  {"stopId": "STP366", "stopType": "tjb", "stopName": "Juanda", "stopInterchange": ["COR053"]},
+  {"stopId": "", "stopType": "", "stopName": "", "stopInterchange": [""]}
 ]
