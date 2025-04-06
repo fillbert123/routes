@@ -20,9 +20,10 @@ export class SidePanelComponent {
   selectedStop: string = null;
   isSearching: boolean = false;
   selectedFilter: any;
+  isShowFilterPane: boolean = false;
 
   ngOnInit() {
-    this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'Corridor', 'Stop'];
+    this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'TJB', 'Corridor', 'Stop'];
     if(isMobile()) {
       this.setMobileStyle();
     }
@@ -118,10 +119,11 @@ export class SidePanelComponent {
 
   setQuery(query) {
     this.query = query;
+    this.isShowFilterPane = false;
     if(this.query !== '') {
       this.isSearching = true;
     } else {
-      this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'Corridor', 'Stop'];
+      this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'TJB', 'Corridor', 'Stop'];
       this.isSearching = false;
     }
   }
@@ -133,8 +135,9 @@ export class SidePanelComponent {
   handleBackButtonClick() {
     this.currentPage = 'home';
     this.query = '';
-    this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'Corridor', 'Stop'];
+    this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'TJB', 'Corridor', 'Stop'];
     this.isSearching = false;
+    this.isShowFilterPane = false;
   }
 
   handleSearchButtonClick() {
@@ -148,5 +151,9 @@ export class SidePanelComponent {
   handleStopClick(stop: any) {
     this.currentPage = 'stopDetail';
     this.selectedStop = stop;
+  }
+
+  handleFilterButtonClick() {
+    this.isShowFilterPane = !this.isShowFilterPane;
   }
 }

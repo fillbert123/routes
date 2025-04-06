@@ -29,6 +29,7 @@ import { TrackOverviewComponent } from './component/track-overview/track-overvie
 import { ChipSelectionComponent } from './component/chip-selection/chip-selection.component';
 import { BannerComponent } from './component/banner/banner.component';
 import { CorridorSelectionComponent } from './page/corridor-selection/corridor-selection.component';
+import { PopUpComponent } from './component/pop-up/pop-up.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { CorridorSelectionComponent } from './page/corridor-selection/corridor-s
     TrackOverviewComponent,
     ChipSelectionComponent,
     BannerComponent,
-    CorridorSelectionComponent
+    CorridorSelectionComponent,
+    PopUpComponent
   ],
   imports: [
     BrowserModule,

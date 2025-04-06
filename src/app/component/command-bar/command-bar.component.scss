@@ -2,6 +2,7 @@
   margin: 0 0 12px 0;
   display: flex;
   flex-direction: column;
+  position: relative;
   &__control {
     padding: 4px 8px;
     height: calc(100% - 28px);
@@ -42,11 +43,27 @@
       background-color: transparent;
     }
   }
-  &__filter {
-    display: flex;
-    justify-content: center;
-  }
   &__result {
     margin: 16px 0 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    &__button {
+      height: 34px;
+      width: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 17px;
+      background-color: var(--bg80);
+      cursor: pointer;
+    }
+  }
+  &__filter {
+    position: absolute;
+    top: 96px;
+    right: 0;
   }
 }

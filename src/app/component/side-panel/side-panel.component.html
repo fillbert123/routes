@@ -2,7 +2,7 @@
   <div class="side-panel">
     <div id="side-panel__content" class="side-panel__content">
       <section class="side-panel__content__header">
-        <app-command-bar [selectedFilter]="selectedFilter" [isSearching]="isSearching" [currentPage]="currentPage" (backButtonClick)="handleBackButtonClick()" (searchButtonClick)="handleSearchButtonClick()" (filterClick)="handleFilterClick($event)" (queryChange)="setQuery($event)"/>
+        <app-command-bar [selectedFilter]="selectedFilter" [isSearching]="isSearching" [currentPage]="currentPage" (backButtonClick)="handleBackButtonClick()" (searchButtonClick)="handleSearchButtonClick()" (filterClick)="handleFilterClick($event)" (queryChange)="setQuery($event)" (filterButtonClick)="handleFilterButtonClick()"/>
       </section>
 
       <section *ngIf="isSearching" id="search-result" class="side-panel__content__page__search">
@@ -29,4 +29,5 @@
   <!-- <div class="side-panel__resize" (click)="toggleSidePanelCollapseExpand()">
     <img src="./assets/icons/chevron.compact.left.svg" alt="">
   </div> -->
+  <app-pop-up *ngIf="isShowFilterPane" class="side-panel__pop-up" type="filter"/>
 </div>

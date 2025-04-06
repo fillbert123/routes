@@ -8,7 +8,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ChipSelectionComponent {
   homeFilters = ['All', 'BRT', 'MRT', 'LRT', 'KRL'];
   searchFilters = ['Corridor', 'Stop'];
-  // selectedFilter: any = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'Corridor', 'Stop'];
   @Output() filterClick = new EventEmitter<any>();
   @Input() selectedFilter: any;
 

@@ -4,6 +4,6 @@
 <div *ngIf="isIncludeFilter('Stop') && stopSearchResult.length !== 0">
   <app-list (itemClick)="handleItemClick($event)" class="side-panel__content__lists__list" [item]="stopSearchResult" listTitle="stop" type="stop"/>
 </div>
-<div *ngIf="(!isIncludeFilter('Stop') && corridorSearchResult.length === 0) || (!isIncludeFilter('Corridor') && stopSearchResult.length === 0) || (corridorSearchResult.length === 0 && stopSearchResult.length === 0)">
+<div *ngIf="(!isIncludeFilter('Stop') && corridorSearchResult.length === 0) || (!isIncludeFilter('Corridor') && stopSearchResult.length === 0) || (corridorSearchResult.length === 0 && stopSearchResult.length === 0)" class="search__no-result">
   No result.
 </div>

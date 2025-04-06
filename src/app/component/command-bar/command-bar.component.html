@@ -8,11 +8,10 @@
       <img src="./assets/icons/magnifyingglass.svg" alt="">
     </button>
   </div>
-  <div *ngIf="isSearching" class="command-bar__filter">
-    <app-chip-selection [selectedFilter]="selectedFilter" (filterClick)="handleFilterClick($event)"/>
+  <div *ngIf="isSearching" class="command-bar__result">
+    <h2 class="section-title">Results for '{{inputValue}}'</h2>
+    <button (click)="handleFilterButtonClick()" class="command-bar__result__button">
+      <img src="./assets/icons/line.3.horizontal.decrease.svg" alt="">
+    </button>
   </div>
-</div>
-
-<div *ngIf="isSearching" class="command-bar__result">
-  <h2 class="section-title">Results for '{{inputValue}}'</h2>
 </div>

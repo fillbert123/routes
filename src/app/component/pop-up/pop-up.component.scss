@@ -1,0 +1,38 @@
+.pop-up {
+  height: fit-content;
+  width: fit-content;
+  padding: 12px;
+  border: 1px solid var(--st30);
+  border-radius: 12px;
+  background-color: var(--bg80);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  &__title {
+    margin: 0 0 12px 0;
+  }
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  &__selection {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin: 0 0 8px 0;
+    }
+    &-selected {
+      width: 12px;
+      height: 12px;
+    }
+    &-not-selected {
+      width: 12px;
+      height: 12px;
+      visibility: hidden;
+    }
+  }
+}

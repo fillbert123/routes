@@ -7,7 +7,29 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HomeComponent {
   @Output() itemClick = new EventEmitter<any>();
-  corridorCategoryList = ['brt', 'mrt', 'lrt', 'krl', 'tjb']
+  // corridorCategoryList = ['brt', 'mrt', 'lrt', 'krl', 'tjb'];
+  corridorCategoryList = [
+    {
+      'item': 'brt',
+      'title': 'Transjakarta BRT'
+    },
+    {
+      'item': 'mrt',
+      'title': 'MRT Jakarta'
+    },
+    {
+      'item': 'lrt',
+      'title': 'LRT Jakarta & Jabodebek'
+    },
+    {
+      'item': 'krl',
+      'title': 'KRL Commuter'
+    },
+    {
+      'item': 'tjb',
+      'title': 'Transjabodetabek'
+    },
+  ];
 
   handleItemClick(id) {
     this.itemClick.emit(id);

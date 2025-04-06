@@ -15,6 +15,7 @@ export class CommandBarComponent {
   @Input() isSearching: boolean;
   @Output() filterClick = new EventEmitter<any>();
   @Input() selectedFilter: any;
+  @Output() filterButtonClick = new EventEmitter<any>();
 
   ngOnInit() {
     this.stylizeBackButton();
@@ -45,6 +46,10 @@ export class CommandBarComponent {
 
   handleSearchButtonClick() {
     // this.searchButtonClick.emit();
+  }
+
+  handleFilterButtonClick() {
+    this.filterButtonClick.emit();
   }
 
   handleClearButtonClick() {

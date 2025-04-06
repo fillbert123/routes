@@ -1,0 +1,10 @@
+<section *ngIf="type === 'filter'" class="pop-up">
+  <h3 class="pop-up__title pop-up-title">FILTER</h3>
+  <ul class="pop-up__list">
+    <li *ngFor="let filter of filterSelectionList" class="pop-up__selection filter-selection" (click)="handleFilterClick(filter.id)">
+      <img *ngIf="selectedFilter === filter.id" class="pop-up__selection-selected" src="./assets/icons/checkmark.svg" alt="">
+      <img *ngIf="selectedFilter !== filter.id" class="pop-up__selection-not-selected" src="./assets/icons/checkmark.svg" alt="">
+      {{filter.name}}
+    </li>
+  </ul>
+</section>
