@@ -59,6 +59,17 @@
       border-radius: 17px;
       background-color: var(--bg80);
       cursor: pointer;
+      &-active {
+        height: 34px;
+        width: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 17px;
+        background-color: var(--white);
+        cursor: pointer;
+      }
     }
   }
   &__filter {

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pop-up',
@@ -7,35 +7,43 @@ import { Component, Input } from '@angular/core';
 })
 export class PopUpComponent {
   @Input() type: string;
-  selectedFilter: number = 0;
+  @Output() filterSelect = new EventEmitter<any>();
+  selectedFilter: string = 'All';
   filterSelectionList: any = [
     {
       'id': 0,
-      'name': 'Any'
+      'name': 'Any',
+      'code': 'All'
     },
     {
       'id': 1,
-      'name': 'Transjakarta BRT'
+      'name': 'Transjakarta BRT',
+      'code': 'BRT'
     },
     {
       'id': 2,
-      'name': 'MRT Jakarta'
+      'name': 'MRT Jakarta',
+      'code': 'MRT'
     },
     {
       'id': 3,
-      'name': 'LRT Jakarta & Jabodebek'
+      'name': 'LRT Jakarta & Jabodebek',
+      'code': 'LRT'
     },
     {
       'id': 4,
-      'name': 'KRL Commuter'
+      'name': 'KRL Commuter',
+      'code': 'KRL'
     },
     {
       'id': 5,
-      'name': 'Transjabodetabek'
+      'name': 'Transjabodetabek',
+      'code': 'TJB'
     },
   ];
 
-  handleFilterClick(id) {
-    this.selectedFilter = id;
+  handleFilterClick(code) {
+    this.selectedFilter = code;
+    this.filterSelect.emit(code);
   }
 }

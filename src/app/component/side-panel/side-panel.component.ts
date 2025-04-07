@@ -19,11 +19,11 @@ export class SidePanelComponent {
   selectedCorridor: string = null;
   selectedStop: string = null;
   isSearching: boolean = false;
-  selectedFilter: any;
+  selectedFilter: string = 'All';;
   isShowFilterPane: boolean = false;
 
   ngOnInit() {
-    this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'TJB', 'Corridor', 'Stop'];
+    this.selectedFilter = 'All';
     if(isMobile()) {
       this.setMobileStyle();
     }
@@ -123,7 +123,7 @@ export class SidePanelComponent {
     if(this.query !== '') {
       this.isSearching = true;
     } else {
-      this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'TJB', 'Corridor', 'Stop'];
+      this.selectedFilter = 'All';
       this.isSearching = false;
     }
   }
@@ -135,7 +135,7 @@ export class SidePanelComponent {
   handleBackButtonClick() {
     this.currentPage = 'home';
     this.query = '';
-    this.selectedFilter = ['All', 'BRT', 'MRT', 'LRT', 'KRL', 'TJB', 'Corridor', 'Stop'];
+    this.selectedFilter = 'All';
     this.isSearching = false;
     this.isShowFilterPane = false;
   }
@@ -155,5 +155,9 @@ export class SidePanelComponent {
 
   handleFilterButtonClick() {
     this.isShowFilterPane = !this.isShowFilterPane;
+  }
+
+  handleFilterSelect(filter) {
+    this.selectedFilter = filter;
   }
 }

@@ -24,9 +24,14 @@ export class SearchResultComponent {
       corridor.corridorType.toLowerCase().includes(query.toLowerCase()) ||
       corridor.corridorName.toLowerCase().includes(query.toLowerCase())
     ));
-    let filterResult = searchResult.filter((corridor) => {
-      return this.selectedFilter.includes(corridor.corridorType);
-    })
+    let filterResult;
+    if(this.selectedFilter !== 'All') {
+      filterResult = searchResult.filter((corridor) => {
+        return corridor.corridorType === this.selectedFilter;
+      })
+    } else {
+      filterResult = searchResult;
+    }
     return filterResult;
   }
 
@@ -34,9 +39,14 @@ export class SearchResultComponent {
     let searchResult = stopData.filter((stop) => (
       stop.stopName.toLowerCase().includes(query.toLowerCase())
     ));
-    let filterResult = searchResult.filter((stop) => {
-      return this.selectedFilter.includes(stop.stopType.toUpperCase());
-    })
+    let filterResult;
+    if(this.selectedFilter !== 'All') {
+      filterResult = searchResult.filter((stop) => {
+        return this.selectedFilter.includes(stop.stopType.toUpperCase());
+      })
+    } else {
+      filterResult = searchResult;
+    }
     return filterResult;
   }
 
