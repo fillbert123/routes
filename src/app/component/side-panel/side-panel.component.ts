@@ -33,9 +33,11 @@ export class SidePanelComponent {
     if(this.selectedId && changes['selectedId']) {
       this.selectedStop = this.selectedId;
       this.currentPage = 'stopDetail';
+      this.isSearching = false;
     }
     if(this.selectedLine && changes['selectedLine']) {
       this.currentPage = 'corridorSelection';
+      this.isSearching = false;
     }
   }
 
@@ -125,6 +127,7 @@ export class SidePanelComponent {
     } else {
       this.selectedFilter = 'All';
       this.isSearching = false;
+      this.currentPage = 'home';
     }
   }
 

@@ -365,6 +365,5 @@
   {"stopId": "STP363", "stopType": "tjb", "stopName": "Kampung Rambutan", "stopInterchange": ["COR051"]},
   {"stopId": "STP364", "stopType": "tjb", "stopName": "Petamburan", "stopInterchange": ["COR052"]},
   {"stopId": "STP365", "stopType": "tjb", "stopName": "Poris Plawad", "stopInterchange": ["COR052", "COR053"]},
-  {"stopId": "STP366", "stopType": "tjb", "stopName": "Juanda", "stopInterchange": ["COR053"]},
-  {"stopId": "", "stopType": "", "stopName": "", "stopInterchange": [""]}
+  {"stopId": "STP366", "stopType": "tjb", "stopName": "Juanda", "stopInterchange": ["COR053"]}
 ]
