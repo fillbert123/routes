@@ -48,7 +48,6 @@ export class LineOverviewComponent {
       "trackStyleColorData": this.getTrackStyleColorData(),
       'trackInformationData': this.getTrackInformationData()
     }
-    console.log('line overview data', this.lineOverviewData);
   }
 
   getTrackInformationData() {
@@ -70,7 +69,6 @@ export class LineOverviewComponent {
 
   getStopData() {
     let stopStatus = this.getStopStatus();
-    console.log('stop status', stopStatus);
     let tempStopData = [];
     tempStopData = this.setStopData(tempStopData, this.data.terminusLowerStop, this.data.corridorColor, stopStatus, 'lower-terminus');
     if(stopStatus === 'l-cur-ut' || stopStatus === 'l-aft-ut' || stopStatus === 'l-strd' || stopStatus === 'l-two-bef-lt') {
@@ -83,7 +81,6 @@ export class LineOverviewComponent {
       tempStopData = this.setStopData(tempStopData, this.data.nextUpperStop, this.data.corridorColor, stopStatus);
     }
     tempStopData = this.setStopData(tempStopData, this.data.terminusUpperStop, this.data.corridorColor, stopStatus, 'upper-terminus');
-    console.log('temp stop data', tempStopData);
     return tempStopData;
   }
 
@@ -167,7 +164,6 @@ export class LineOverviewComponent {
   }
 
   getStopStatus() {
-    console.log('data', this.data);
     if(this.data.isUpperTerminus && this.data.isNextAfterLowerTerminus) {
       return 'l-cur-ut-aft-lt';
     } else if(this.data.isUpperTerminus) {

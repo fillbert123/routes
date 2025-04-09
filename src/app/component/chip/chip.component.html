@@ -4,6 +4,9 @@
 <div *ngIf="type === 'filter'" class="chip-filter-active filter-label" [id]="'chip-filter' + field" (click)="handleFilterClick(field)">
   <span>{{field}}</span>
 </div>
+<div *ngIf="type === 'type'" class="chip-type">
+  <p class="chip-type-text">{{field.toUpperCase()}}</p>
+</div>
 <span *ngIf="type === 'connection'" class="chip-connection">
   <span *ngFor="let corridor of corridorDetail">
     <app-icon type="corridor-extra-small" [color]="corridor.corridorColor" [icon]="corridor.corridorIcon"/>

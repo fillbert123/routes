@@ -15,11 +15,6 @@
   --orange: #EB702A;
   --slate: #546C91;
 
-  // deprecated brt
-  // --grey: #B49F56;
-  // --cobalt: #27758E;
-  // --midnight: #546C91;
-
   // mrt
   --coral: #CE5466;
 
@@ -39,7 +34,7 @@
   // hsr
   --lime: #8AD846;
 
-  //tjb
+  // tjb
   --brick: #7F1618;
   --mauve: #967EA4;
   --plum: #703467;
@@ -140,7 +135,7 @@ body {
   color: var(--white);
 }
 
-.list-corridor-transit-icon, .connection-label {
+.list-corridor-transit-icon, .connection-label, .chip-type-text {
   font-size: 10px;
   font-weight: bold;
   color: var(--white);
