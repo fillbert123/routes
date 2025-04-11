@@ -25,6 +25,7 @@ export class AppComponent {
   //redesigned
   selectedStopId: string = null;
   selectedLine: string = null;
+  zoomLevel: number = 1;
 
   handleClickObject(id) {
     this.selectedStopId = '';
@@ -38,6 +39,10 @@ export class AppComponent {
     setTimeout(() => {
       this.selectedLine = line;
     })
+  }
+
+  handleZoomChange(event) {
+    this.zoomLevel = event;
   }
 
   constructor(private firebaseService: FirebaseService) {}

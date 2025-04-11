@@ -1,9 +1,12 @@
 <main class="app">
-  <div *ngIf="!isMobile" class="app__map" id="map">
+  <div *ngIf="!isMobile" class="app__map" id="map" [ngStyle]="{ 'zoom': zoomLevel }">
     <app-system-map (clickObject)="handleClickObject($event)" (clickLine)="handleClickLine($event)"/>
   </div>
   <div class="app__panel" id="app__panel">
     <app-side-panel [selectedId]="selectedStopId" [selectedLine]="selectedLine"/>
+  </div>
+  <div *ngIf="!isMobile" class="app__zoom">
+    <app-zoom-control (zoomChange)="handleZoomChange($event)"/>
   </div>
 </main>
 

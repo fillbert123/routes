@@ -35,4 +35,9 @@ html {
       left: 0 !important;
     }
   }
+  &__zoom {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+  }
 }

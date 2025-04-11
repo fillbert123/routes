@@ -30,6 +30,7 @@ import { ChipSelectionComponent } from './component/chip-selection/chip-selectio
 import { BannerComponent } from './component/banner/banner.component';
 import { CorridorSelectionComponent } from './page/corridor-selection/corridor-selection.component';
 import { PopUpComponent } from './component/pop-up/pop-up.component';
+import { ZoomControlComponent } from './component/zoom-control/zoom-control.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { PopUpComponent } from './component/pop-up/pop-up.component';
     ChipSelectionComponent,
     BannerComponent,
     CorridorSelectionComponent,
-    PopUpComponent
+    PopUpComponent,
+    ZoomControlComponent
   ],
   imports: [
     BrowserModule,
