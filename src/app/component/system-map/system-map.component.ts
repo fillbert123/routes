@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import stopData from '../../../assets/data/stop.json'
 
 @Component({
@@ -12,6 +12,7 @@ export class SystemMapComponent {
   selectedStopCode: string;
   selectedLineType: string;
   selectedLineCode: string;
+  @Input() zoomLevel: number = 1;
   @Output() clickObject = new EventEmitter<any>();
   @Output() clickLine = new EventEmitter<any>();
 

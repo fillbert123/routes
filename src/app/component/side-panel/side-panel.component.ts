@@ -39,6 +39,7 @@ export class SidePanelComponent {
       this.currentPage = 'corridorSelection';
       this.isSearching = false;
     }
+    this.isShowFilterPane = false;
   }
 
   setMobileStyle() {
@@ -58,6 +59,7 @@ export class SidePanelComponent {
         this.selectedCorridor = item;
         break;
     }
+    this.isShowFilterPane = false;
   }
 
   handleItemClick(id) {
@@ -72,6 +74,7 @@ export class SidePanelComponent {
         this.currentPage = 'stopDetail';
         break;
     }
+    this.isShowFilterPane = false;
   } 
 
   toggleSidePanelCollapseExpand() {
@@ -154,6 +157,7 @@ export class SidePanelComponent {
   handleStopClick(stop: any) {
     this.currentPage = 'stopDetail';
     this.selectedStop = stop;
+    this.isShowFilterPane = false;
   }
 
   handleFilterButtonClick() {

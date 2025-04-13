@@ -1,5 +1,5 @@
 <div *ngIf="corridorSearchResult.length !== 0">
-  <app-list (itemClick)="handleItemClick($event)" class="side-panel__content__lists__list" [item]="corridorSearchResult" listTitle="corridor" type="corridor"/>
+  <app-list (itemClick)="handleItemClick($event)" class="side-panel__content__lists__list" [item]="corridorSearchResult" listTitle="line" type="corridor"/>
 </div>
 <div *ngIf="stopSearchResult.length !== 0">
   <app-list (itemClick)="handleItemClick($event)" class="side-panel__content__lists__list" [item]="stopSearchResult" listTitle="stop" type="stop"/>

@@ -1,6 +1,6 @@
 <main class="app">
-  <div *ngIf="!isMobile" class="app__map" id="map" [ngStyle]="{ 'zoom': zoomLevel }">
-    <app-system-map (clickObject)="handleClickObject($event)" (clickLine)="handleClickLine($event)"/>
+  <div *ngIf="!isMobile" class="app__map" id="map">
+    <app-system-map (clickObject)="handleClickObject($event)" (clickLine)="handleClickLine($event)" [zoomLevel]="zoomLevel"/>
   </div>
   <div class="app__panel" id="app__panel">
     <app-side-panel [selectedId]="selectedStopId" [selectedLine]="selectedLine"/>

@@ -25,6 +25,7 @@
     writing-mode: sideways-lr;
     background-color: transparent;
     -webkit-appearance: none;
+    cursor: pointer;
     &::-webkit-slider-runnable-track {
       height: 144px;
       width: 16px;
@@ -32,7 +33,13 @@
       border-radius: 12px;
     }
     &::-webkit-slider-thumb {
-
+      -webkit-appearance: none;
+      border: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 8px;
+      background: var(--white);
+      margin-top: -4px;
     }
   }
 }
