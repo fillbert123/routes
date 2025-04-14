@@ -18,6 +18,8 @@ export class LineOverviewComponent {
     this.lineOverviewData = null;
     this.setTerminus();
     this.setLineOverviewData();
+
+    console.log('current', this.data.currentStop);
   }
 
   getStopName(code) {
@@ -142,7 +144,11 @@ export class LineOverviewComponent {
     if(stopStatus === 'l-aft-ut' || stopStatus === 'u-two-bef-ut') {
       tempTrackStyle.push('solid');
     } else if(stopStatus === 'u-strd' || stopStatus === 'l-strd' || stopStatus === 'u-aft-lt' || stopStatus === 'l-two-bef-lt') {
-      tempTrackStyle.push('dashed');
+      if(this.data.currentStop === 'STP019' && this.bound === 'low') {
+        tempTrackStyle.push('solid');
+      } else {
+        tempTrackStyle.push('dashed');
+      }
     }
     return tempTrackStyle;
   }

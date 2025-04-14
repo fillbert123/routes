@@ -12,10 +12,15 @@ export class RoutePreviewComponent {
   @Input() stop: any;
   routeNextData: any;
   routePreviewData: any;
+  extraRouteNextData: any;
+  extraRoutePreviewData: any;
   @Output() stopClick = new EventEmitter<any>();
 
   ngOnChanges(changes: SimpleChanges) {
     this.routeNextData = this.getRouteNextData(this.stop);
+    if(this.stop === 'STP300') {
+      this.extraRouteNextData = this.getRouteNextData('STP300A');
+    }
     this.routePreviewData = null;
     this.setRoutePreviewData();
   }
@@ -46,6 +51,23 @@ export class RoutePreviewComponent {
       "isNextAfterLowerTerminus": this.checkIsNextAfterTerminus(this.interchange.corridorLowerBound, this.routeNextData.stopNextLow),
       "isNextTwoAfterUpperTerminus": this.checkIsNextTwoAfterTerminus(this.interchange.corridorUpperBound, this.routeNextData.stopNextUp, 'up'),
       "isNextTwoAfterLowerTerminus": this.checkIsNextTwoAfterTerminus(this.interchange.corridorLowerBound, this.routeNextData.stopNextLow, 'low'),
+    }
+
+    if(this.stop === 'STP300') {
+      this.extraRoutePreviewData = {
+        "currentStop": 'STP300A',
+        "corridorColor": this.interchange.corridorColor,
+        "nextUpperStop": this.extraRouteNextData.stopNextUp,
+        "nextLowerStop": this.extraRouteNextData.stopNextLow,
+        "terminusUpperStop": this.interchange.corridorUpperBound,
+        "terminusLowerStop": this.interchange.corridorLowerBound,
+        "isUpperTerminus": this.checkIsTerminus(this.interchange.corridorUpperBound, 'STP300A'),
+        "isLowerTerminus": this.checkIsTerminus(this.interchange.corridorLowerBound, 'STP300A'),
+        "isNextAfterUpperTerminus": this.checkIsNextAfterTerminus(this.interchange.corridorUpperBound, this.extraRouteNextData.stopNextUp),
+        "isNextAfterLowerTerminus": this.checkIsNextAfterTerminus(this.interchange.corridorLowerBound, this.extraRouteNextData.stopNextLow),
+        "isNextTwoAfterUpperTerminus": this.checkIsNextTwoAfterTerminus(this.interchange.corridorUpperBound, this.extraRouteNextData.stopNextUp, 'up'),
+        "isNextTwoAfterLowerTerminus": this.checkIsNextTwoAfterTerminus(this.interchange.corridorLowerBound, this.extraRouteNextData.stopNextLow, 'low'),
+      }
     }
   }
 

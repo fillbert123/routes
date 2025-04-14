@@ -6,4 +6,7 @@
   & > svg {
     margin: 32px 32px 32px 432px;
   }
+  &__clickable:hover {
+    cursor: pointer;
+  }
 }

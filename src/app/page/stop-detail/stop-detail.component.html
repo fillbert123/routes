@@ -15,7 +15,7 @@
   </div>
   <div class="stop-detail__content">
     <div *ngFor="let interchange of stopInterchangeDetail">
-      <app-route-preview [interchange]="interchange" [stop]="stop" (stopClick)="handleStopClick($event)"/>
+      <app-route-preview [interchange]="interchange" [stop]="(stop === 'STP300A') ? 'STP300' : stop" (stopClick)="handleStopClick($event)"/>
     </div>
   </div>
 </div>
