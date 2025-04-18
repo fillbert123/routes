@@ -9,7 +9,7 @@
     <div *ngIf="routeNextData.stopNextLow" class="route-preview__content__lower">
       <app-line-overview [data]="routePreviewData" bound="low" (stopClick)="handleStopClick($event)"/>
     </div>
-    <div *ngIf="(stop === 'STP300') && extraRouteNextData.stopNextUp" class="route-preview__content__lower">
+    <div *ngIf="(stop === 'STP300') && extraRouteNextData.stopNextUp" class="route-preview__content__mid">
       <app-line-overview [data]="extraRoutePreviewData" bound="up" (stopClick)="handleStopClick($event)"/>
     </div>
     <div *ngIf="(stop === 'STP300') && extraRouteNextData.stopNextLow" class="route-preview__content__lower">
