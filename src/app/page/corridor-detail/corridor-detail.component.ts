@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import corridorData from '../../../assets/data/corridor.json'
-import stopDirectionData from '../../../assets/data/stopDirection.json';
 
 @Component({
   selector: 'app-corridor-detail',

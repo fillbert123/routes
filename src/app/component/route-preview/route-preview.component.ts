@@ -32,8 +32,8 @@ export class RoutePreviewComponent {
   }
 
   getRouteNextData(stopId) {
-    return stopDirectionData[this.interchange.corridorId].find((stop) => {
-      return stop.stopName === stopId;
+    return stopDirectionData.find((stopDirection) => {
+      return stopDirection.stopCorridor === this.interchange.corridorId && stopDirection.stopName === stopId;
     })
   }
 

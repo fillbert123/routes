@@ -67,7 +67,9 @@ export class ListComponent {
         this.itemList = corridorData.filter((corridor) => corridor.corridorType === 'TJB');
         break;
       case 'track':
-        let track = stopDirectionData[this.corridor];
+        let track = stopDirectionData.filter((stopDirection) => {
+          return stopDirection.stopCorridor === this.corridor;
+        });
         let lowerBound = this.getCorridorLowerBound(this.corridor);
         let upperBound = this.getCorridorUpperBound(this.corridor);
         switch(this.direction) {
