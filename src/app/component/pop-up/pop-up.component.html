@@ -1,4 +1,4 @@
-<section *ngIf="type === 'filter'" class="pop-up">
+<section *ngIf="type === 'filter'" class="pop-up" appClickOutside (clickOutside)="handleOutsideClick()">
   <h3 class="pop-up__title pop-up-title">FILTER</h3>
   <ul class="pop-up__list">
     <li *ngFor="let filter of filterSelectionList" class="pop-up__selection filter-selection" (click)="handleFilterClick(filter.code)">

@@ -29,5 +29,5 @@
   <!-- <div class="side-panel__resize" (click)="toggleSidePanelCollapseExpand()">
     <img src="./assets/icons/chevron.compact.left.svg" alt="">
   </div> -->
-  <app-pop-up *ngIf="isShowFilterPane" class="side-panel__pop-up" type="filter" (filterSelect)="handleFilterSelect($event)"/>
+  <app-pop-up *ngIf="isShowFilterPane" class="side-panel__pop-up" type="filter" [selectedFilter]="selectedFilter" (filterSelect)="handleFilterSelect($event)" (outsideClick)="handleOutsideClick()"/>
 </div>
