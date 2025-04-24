@@ -77,6 +77,12 @@ export class SidePanelComponent {
     this.isShowFilterPane = false;
   } 
 
+  handleOutsideClick() {
+    if(this.isShowFilterPane) {
+      this.isShowFilterPane = false;
+    }
+  }
+
   toggleSidePanelCollapseExpand() {
     this.isCollapsed = !this.isCollapsed;
     (this.isCollapsed) ? this.collapseSidePanel() : this.expandSidePanel();

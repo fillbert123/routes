@@ -7,8 +7,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PopUpComponent {
   @Input() type: string;
+  @Input() selectedFilter: string;
   @Output() filterSelect = new EventEmitter<any>();
-  selectedFilter: string = 'All';
+  @Output() outsideClick = new EventEmitter<any>();
+  isFirstAttempt: boolean = true;
   filterSelectionList: any = [
     {
       'id': 0,
@@ -45,5 +47,13 @@ export class PopUpComponent {
   handleFilterClick(code) {
     this.selectedFilter = code;
     this.filterSelect.emit(code);
+  }
+
+  handleOutsideClick() {
+    if(this.isFirstAttempt) {
+      this.isFirstAttempt = false;
+    } else {
+      this.outsideClick.emit();
+    }
   }
 }

@@ -31,6 +31,7 @@ import { BannerComponent } from './component/banner/banner.component';
 import { CorridorSelectionComponent } from './page/corridor-selection/corridor-selection.component';
 import { PopUpComponent } from './component/pop-up/pop-up.component';
 import { ZoomControlComponent } from './component/zoom-control/zoom-control.component';
+import { ClickOutsideDirective } from './shared/directives/click-outside.directive';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ZoomControlComponent } from './component/zoom-control/zoom-control.comp
     BannerComponent,
     CorridorSelectionComponent,
     PopUpComponent,
-    ZoomControlComponent
+    ZoomControlComponent,
+    ClickOutsideDirective
   ],
   imports: [
     BrowserModule,
