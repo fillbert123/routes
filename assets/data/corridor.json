@@ -583,5 +583,16 @@
     "corridorLowerBound": "STP366",
     "corridorUpperBound": "STP365",
     "isCorridorActive": true
+  },
+  {
+    "corridorId": "COR054",
+    "corridorType": "TJB",
+    "corridorName": "Transjabodetabek S61",
+    "corridorIcon": "1",
+    "corridorGroup": "S6",
+    "corridorColor": "pine",
+    "corridorLowerBound": "STP001",
+    "corridorUpperBound": "STP367",
+    "isCorridorActive": true
   }
 ]

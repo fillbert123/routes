@@ -1,9 +1,9 @@
 [
-  {"stopId": "STP001", "stopType": "brt", "stopName": "Blok M", "stopInterchange": ["COR001"]},
-  {"stopId": "STP002", "stopType": "brt", "stopName": "Kejaksaan Agung", "stopInterchange": ["COR001", "COR015"], "stopConnected": ["STP225", "STP237"]},
-  {"stopId": "STP003", "stopType": "brt", "stopName": "Masjid Agung", "stopInterchange": ["COR001", "COR015"]},
-  {"stopId": "STP004", "stopType": "brt", "stopName": "Bundaran Senayan", "stopInterchange": ["COR001", "COR015", "COR021", "COR025"]},
-  {"stopId": "STP005", "stopType": "brt", "stopName": "Senayan", "stopInterchange": ["COR001", "COR005", "COR015", "COR021", "COR025"]},
+  {"stopId": "STP001", "stopType": "brt", "stopName": "Blok M", "stopInterchange": ["COR001", "COR054"]},
+  {"stopId": "STP002", "stopType": "brt", "stopName": "Kejaksaan Agung", "stopInterchange": ["COR001", "COR015", "COR054"], "stopConnected": ["STP225", "STP237"]},
+  {"stopId": "STP003", "stopType": "brt", "stopName": "Masjid Agung", "stopInterchange": ["COR001", "COR015", "COR054"]},
+  {"stopId": "STP004", "stopType": "brt", "stopName": "Bundaran Senayan", "stopInterchange": ["COR001", "COR015", "COR021", "COR025", "COR054"]},
+  {"stopId": "STP005", "stopType": "brt", "stopName": "Senayan", "stopInterchange": ["COR001", "COR005", "COR015", "COR021", "COR025", "COR054"]},
   {"stopId": "STP006", "stopType": "brt", "stopName": "Polda Metro Jaya", "stopInterchange": ["COR001"]},
   {"stopId": "STP007", "stopType": "brt", "stopName": "Bendungan Hilir", "stopInterchange": ["COR001"], "stopConnected": ["STP126"]},
   {"stopId": "STP008", "stopType": "brt", "stopName": "Karet Sudirman", "stopInterchange": ["COR001", "COR014", "COR030"]},
@@ -58,10 +58,10 @@
   {"stopId": "STP057", "stopType": "brt", "stopName": "Sumur Bor", "stopInterchange": ["COR004", "COR005"]},
   {"stopId": "STP058", "stopType": "brt", "stopName": "Grogol Reformasi", "stopInterchange": ["COR005", "COR018", "COR019", "COR020"], "stopConnected": ["STP047"]},
   {"stopId": "STP059", "stopType": "brt", "stopName": "Tanjung Duren", "stopInterchange": ["COR005", "COR018", "COR019", "COR020"]},
-  {"stopId": "STP060", "stopType": "brt", "stopName": "Kota Bambu", "stopInterchange": ["COR005", "COR019", "COR020", "COR025"]},
-  {"stopId": "STP061", "stopType": "brt", "stopName": "Kemanggisan", "stopInterchange": ["COR005", "COR019", "COR020", "COR025"]},
-  {"stopId": "STP062", "stopType": "brt", "stopName": "Petamburan", "stopInterchange": ["COR005", "COR019", "COR020", "COR025"]},
-  {"stopId": "STP063", "stopType": "brt", "stopName": "Gerbang Pemuda", "stopInterchange": ["COR005", "COR019", "COR020", "COR025"]},
+  {"stopId": "STP060", "stopType": "brt", "stopName": "Kota Bambu", "stopInterchange": ["COR005", "COR019", "COR020", "COR025", "COR054"]},
+  {"stopId": "STP061", "stopType": "brt", "stopName": "Kemanggisan", "stopInterchange": ["COR005", "COR019", "COR020", "COR025", "COR054"]},
+  {"stopId": "STP062", "stopType": "brt", "stopName": "Petamburan", "stopInterchange": ["COR005", "COR019", "COR020", "COR025", "COR054"]},
+  {"stopId": "STP063", "stopType": "brt", "stopName": "Gerbang Pemuda", "stopInterchange": ["COR005", "COR019", "COR020", "COR025", "COR054"]},
   {"stopId": "STP064", "stopType": "brt", "stopName": "Pasar Pulo Gadung", "stopInterchange": ["COR007", "COR008"]},
   {"stopId": "STP065", "stopType": "brt", "stopName": "Pemuda Merdeka", "stopInterchange": ["COR007", "COR008"]},
   {"stopId": "STP066", "stopType": "brt", "stopName": "Layur", "stopInterchange": ["COR007", "COR008"]},
@@ -365,5 +365,6 @@
   {"stopId": "STP363", "stopType": "tjb", "stopName": "Kampung Rambutan", "stopInterchange": ["COR051"]},
   {"stopId": "STP364", "stopType": "tjb", "stopName": "Petamburan", "stopInterchange": ["COR052"]},
   {"stopId": "STP365", "stopType": "tjb", "stopName": "Poris Plawad", "stopInterchange": ["COR052", "COR053"]},
-  {"stopId": "STP366", "stopType": "tjb", "stopName": "Juanda", "stopInterchange": ["COR053"]}
+  {"stopId": "STP366", "stopType": "tjb", "stopName": "Juanda", "stopInterchange": ["COR053"]},
+  {"stopId": "STP367", "stopType": "tjb", "stopName": "Alam Sutera", "stopInterchange": ["COR054"]}
 ]
