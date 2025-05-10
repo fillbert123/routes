@@ -7,12 +7,14 @@ import corridorData from '../../../assets/data/corridor.json';
   styleUrl: './chip.component.scss'
 })
 export class ChipComponent {
-  @Input() type: string;
-  @Input() color: string;
-  @Input() field: string;
-  @Input() connection: any;
-  @Output() clickedFilter = new EventEmitter<any>();
   corridorDetail: any = [];
+
+  @Input() color: string;
+  @Input() connection: any;
+  @Input() field: string;
+  @Input() type: string;
+
+  @Output() clickedFilter = new EventEmitter<any>();
 
   ngOnChanges(changes: SimpleChanges) {
     this.corridorDetail = [];

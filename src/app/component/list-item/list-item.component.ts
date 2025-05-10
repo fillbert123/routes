@@ -8,27 +8,36 @@ import stopData from '../../../assets/data/stop.json'
   styleUrls: ['./list-item.component.scss', '../animation.component.scss']
 })
 export class ListItemComponent {
-  @Input() corridor: any;
-  @Input() color: string
-  @Input() stop: any;
-  @Input() listItemType: string;
-  // @Input() isFirst: boolean;
-  // @Input() isLast: boolean;
-  @Output() selectedCorridor = new EventEmitter<any>();
-  @Output() selectedStop = new EventEmitter<any>();
-  transitCorridor: any = [];
-
-  //redesigned
-  @Input() type: string;
-  @Input() item: any;
-  @Output() itemClick = new EventEmitter<any>();
   corridorDetail: any;
+  transitDetailList: any = [];
+
   @Input() isStopFirst: boolean;
   @Input() isStopLast: boolean;
-  transitDetailList: any = [];
+  @Input() item: any;
+  @Input() type: string;
+
+  @Output() itemClick = new EventEmitter<any>();
 
   ngOnInit() {
     this.getCorridorDetail();
+  }
+
+  getCorridorColor(color: string) {
+    return `var(--${color})`
+  }
+
+  getCorridorDetail() {
+    this.corridorDetail = corridorData.find((item) => {
+      return item.corridorId === this.item.stopCorridor;
+    })
+    this.getTransitDetailList();
+  }
+
+  getSearchStopName(name) {
+    if(name.endsWith('MRT') || name.endsWith('LRT') || name.endsWith('KRL')) {
+      return name.substring(0, name.length - 4);
+    }
+    return name;
   }
 
   getStopName(code, shorten = false) {
@@ -42,56 +51,6 @@ export class ListItemComponent {
     }
   }
 
-  getCorridorColor(color: string) {
-    return `var(--${color})`
-  }
-
-  handleListCorridorClick(corridor: any) {
-    this.selectedCorridor.emit(corridor);
-  }
-
-  handleListStopClick(stop: any) {
-    this.selectedStop.emit(stop);
-  }
-
-  getTransitCorridorData() {
-    if(this.stop?.stopTransit) {
-      this.stop.stopTransit.forEach((transit) => {
-        this.transitCorridor.push(...corridorData.filter((corridor) => corridor.corridorId === transit));
-      });
-    }
-  }
-
-  getSearchStopName(name) {
-    if(name.endsWith('MRT') || name.endsWith('LRT') || name.endsWith('KRL')) {
-      return name.substring(0, name.length - 4);
-    }
-    return name;
-  }
-
-  getInterchangeCorridorData(interchange, value) {
-    let data = corridorData.find((corridor) => corridor.corridorId === interchange);
-    if(value === 'color') {
-      return data.corridorColor;
-    }
-    if(value === 'icon') {
-      return data.corridorIcon;
-    }
-    return null;
-  }
-
-  //redesign
-  handleItemClick(id) {
-    this.itemClick.emit(id);
-  }
-
-  getCorridorDetail() {
-    this.corridorDetail = corridorData.find((item) => {
-      return item.corridorId === this.item.stopCorridor;
-    })
-    this.getTransitDetailList();
-  }
-
   getTransitDetailList() {
     if(this.item?.stopTransit) {
       this.item.stopTransit.forEach((transit) => {
@@ -103,5 +62,9 @@ export class ListItemComponent {
         this.transitDetailList.push(...corridorData.filter((corridor) => corridor.corridorId === transit));
       });
     }
+  }
+
+  handleItemClick(id) {
+    this.itemClick.emit(id);
   }
 }

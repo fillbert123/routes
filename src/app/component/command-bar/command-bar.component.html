@@ -3,13 +3,13 @@
     <button (click)="handleBackButtonClick()" id="command-bar__button-back" class="command-bar__control__button-disabled">
       <img src="./assets/icons/chevron.backward.svg" alt="">
     </button>
-    <input class="command-bar__control__search command-search" [(ngModel)]="inputValue" (ngModelChange)="handleQueryChange($event)" placeholder="Search" type="text" name="" id="command-bar__search">
-    <button (click)="handleSearchButtonClick()" class="command-bar__control__button">
+    <input class="command-bar__control__search command-search" [(ngModel)]="inputValue" (ngModelChange)="stylizeSearchButton()" placeholder="Search" type="text" name="" id="command-bar__search">
+    <button (click)="handleSearchButtonClick()" id="command-bar__button-search" class="command-bar__control__button">
       <img src="./assets/icons/magnifyingglass.svg" alt="">
     </button>
   </div>
   <div *ngIf="isSearching" class="command-bar__result">
-    <h2 class="section-title">Results for '{{inputValue}}'</h2>
+    <h2 class="section-title">Results for '{{query}}'</h2>
     <button *ngIf="selectedFilter === 'All'" (click)="handleFilterButtonClick()" class="command-bar__result__button">
       <img src="./assets/icons/line.3.horizontal.decrease.svg" alt="">
     </button>

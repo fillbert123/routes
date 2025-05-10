@@ -8,16 +8,13 @@ import stopData from '../../../assets/data/stop.json';
   styleUrl: './stop-detail.component.scss'
 })
 export class StopDetailComponent {
-  @Input() selectedStop: any;
-  selectedStopInterchange: any = [];
-  selectedStopInterchangeData: any = [];
-  selectedStopConnection: any = [];
-  selectedStopConnectionData: any = [];
-
-  //redesigned
-  @Input() stop: string;
   stopDetail: any = null;
-  stopInterchangeDetail: any = [];
+  selectedStopConnectionData: any = [];
+  selectedStopInterchangeData: any = [];
+  stopInterchangeDetail: any = []
+
+  @Input() stop: string;
+;
   @Output() stopClick = new EventEmitter<any>();
 
   ngOnChanges(changes: SimpleChanges) {
@@ -45,30 +42,6 @@ export class StopDetailComponent {
         this.stopInterchangeDetail.push(...corridorData.filter((corridor) => corridor.corridorId === interchange));
       });
     }
-  }
-
-  getStopInterchange(stopName: string) {
-    return stopData.find((stop) => {
-      return stop.stopName === stopName;
-    })
-  }
-
-  setStopInterchangeData(stopInterchange: any) {
-    stopInterchange.forEach((interchange) => {
-      let interchangeCorridorData = corridorData.find((corridor) => {
-        return corridor.corridorId === interchange;
-      })
-      this.selectedStopInterchangeData.push(interchangeCorridorData);
-    })
-  }
-
-  setStopConnectionData(stopConnection: any) {
-    stopConnection.forEach((connection) => {
-      let stopConnectionData = stopData.find((stop) => {
-        return stop.stopName === connection;
-      })
-      this.selectedStopConnectionData.push(stopConnectionData);
-    })
   }
 
   handleStopClick(stop: any) {

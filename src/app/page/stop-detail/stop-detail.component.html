@@ -2,20 +2,35 @@
   <div class="stop-detail__header">
     <div class="stop-detail__header__icon">
       <div *ngFor="let interchange of stopInterchangeDetail">
-        <app-icon type="corridor-large" [color]="interchange.corridorColor" [icon]="interchange.corridorIcon"/>
+        <app-icon 
+          type="corridor-large" 
+          [color]="interchange.corridorColor" 
+          [icon]="interchange.corridorIcon"
+        />
       </div>
     </div>
     <div class="stop-detail__header__title">
-      <app-chip type="type" [field]="stopDetail.stopType"/>
+      <app-chip 
+        type="type" 
+        [field]="stopDetail.stopType"
+      />
       <p class="section-title">{{getStopName(stop)}}</p>
     </div>
   </div>
   <div *ngIf="stopDetail.stopConnected">
-    <app-banner type="connectivity" [connection]="stopDetail.stopConnected" (stopClick)="handleStopClick($event)"/>
+    <app-banner 
+      type="connectivity" 
+      [connection]="stopDetail.stopConnected" 
+      (stopClick)="handleStopClick($event)"
+    />
   </div>
   <div class="stop-detail__content">
     <div *ngFor="let interchange of stopInterchangeDetail">
-      <app-route-preview [interchange]="interchange" [stop]="(stop === 'STP300A') ? 'STP300' : stop" (stopClick)="handleStopClick($event)"/>
+      <app-route-preview 
+        [interchange]="interchange" 
+        [stop]="(stop === 'STP300A') ? 'STP300' : stop" 
+        (stopClick)="handleStopClick($event)"
+      />
     </div>
   </div>
 </div>

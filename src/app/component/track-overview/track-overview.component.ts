@@ -9,6 +9,7 @@ import { isMobile } from '../../shared/methods';
 })
 export class TrackOverviewComponent {
   @Input() data: any;
+  
   @Output() stopClick = new EventEmitter<any>();
 
   getStopName(code) {
@@ -45,10 +46,6 @@ export class TrackOverviewComponent {
         return null;
       }
     }
-  }
-
-  getNumberOfTrackShown() {
-    return this.data.trackStyleColorData.length;
   }
 
   handleStopClick(stop: any) {

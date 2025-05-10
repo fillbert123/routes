@@ -1,7 +1,14 @@
 <div class="line-overview">
   <div class="line-overview__header">
-    <h3 class="line-overview__header__title line-overview-title">Bound for </h3>
-    <h3 class="line-overview__header__bound line-overview-bound">{{getStopName(terminus)}}</h3>
+    <h3 class="line-overview__header__title line-overview-title">
+      Bound for
+    </h3>
+    <h3 class="line-overview__header__bound line-overview-bound">
+      {{getStopName(terminus)}}
+    </h3>
   </div>
-  <app-track-overview [data]="lineOverviewData" (stopClick)="handleStopClick($event)"/>
+  <app-track-overview
+    [data]="lineOverviewData"
+    (stopClick)="handleStopClick($event)"
+  />
 </div>
