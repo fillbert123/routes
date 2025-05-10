@@ -8,11 +8,13 @@ import { isMobile } from '../../shared/methods';
   styleUrl: './terminus-selection.component.scss'
 })
 export class TerminusSelectionComponent {
+  buttonWidth: number;
+  direction: any;
+
   @Input() terminusLower: any;
   @Input() terminusUpper: any;
+
   @Output() directionClick = new EventEmitter<any>();
-  direction: any;
-  buttonWidth: number;
 
   ngOnInit() {
     this.direction = 'upper';

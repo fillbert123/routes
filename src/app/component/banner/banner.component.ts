@@ -8,9 +8,11 @@ import corridorData from '../../../assets/data/corridor.json';
   styleUrl: './banner.component.scss'
 })
 export class BannerComponent {
-  @Input() type: string;
-  @Input() connection: any;
   stopConnectionDetail: any = [];
+
+  @Input() connection: any;
+  @Input() type: string;
+
   @Output() stopClick = new EventEmitter<any>();
 
   ngOnChanges(changes: SimpleChanges) {

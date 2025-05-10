@@ -1,9 +1,16 @@
 <div class="zoom">
   <button class="zoom__button">
-    <img src="./assets/icons/plus.magnifyingglass.svg" alt="" (click)="zoomIn()">
+    <img src="./assets/icons/plus.magnifyingglass.svg" (click)="zoomIn()">
   </button>
-  <input type="range" name="" id="" class="zoom__slider" min="1" max="5" [(ngModel)]="zoomLevel" step="0.001" (ngModelChange)="handleZoomChange($event)">
+  <input 
+    type="range" 
+    class="zoom__slider" 
+    min="1" 
+    max="5" 
+    step="0.001" 
+    [(ngModel)]="zoomLevel" 
+    (ngModelChange)="handleZoomChange($event)">
   <button class="zoom__button">
-    <img src="./assets/icons/minus.magnifyingglass.svg" alt="" (click)="zoomOut()">
+    <img src="./assets/icons/minus.magnifyingglass.svg" (click)="zoomOut()">
   </button>
 </div>

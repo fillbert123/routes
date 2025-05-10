@@ -7,15 +7,15 @@ import { Component, EventEmitter, NgModule, Input, Output, SimpleChanges } from 
 })
 export class CommandBarComponent {
   inputValue: string = '';
-  @Output() queryChange = new EventEmitter<any>();
-  @Output() backButtonClick = new EventEmitter<any>();
-  @Output() searchButtonClick = new EventEmitter<any>();
-  @Output() clearButtonClick = new EventEmitter<any>();
+  query: string = '';
+
   @Input() currentPage: any;
   @Input() isSearching: boolean;
-  @Output() filterClick = new EventEmitter<any>();
   @Input() selectedFilter: any;
+
+  @Output() backButtonClick = new EventEmitter<any>();
   @Output() filterButtonClick = new EventEmitter<any>();
+  @Output() searchButtonClick = new EventEmitter<any>();nt
 
   ngOnInit() {
     this.stylizeBackButton();
@@ -23,6 +23,7 @@ export class CommandBarComponent {
 
   ngOnChanges(changes: SimpleChanges) {
     this.stylizeBackButton();
+    this.stylizeSearchButton();
   }
 
   stylizeBackButton() {
@@ -35,8 +36,14 @@ export class CommandBarComponent {
     }
   }
 
-  handleQueryChange(event) {
-    this.queryChange.emit(event);
+  stylizeSearchButton() {
+    if(this.inputValue !== '') {
+      document.getElementById('command-bar__button-search')?.classList.add('command-bar__control__button');
+      document.getElementById('command-bar__button-search')?.classList.remove('command-bar__control__button-disabled');
+    } else {
+      document.getElementById('command-bar__button-search')?.classList.add('command-bar__control__button-disabled');
+      document.getElementById('command-bar__button-search')?.classList.remove('command-bar__control__button');
+    }
   }
 
   handleBackButtonClick() {
@@ -44,19 +51,14 @@ export class CommandBarComponent {
     this.backButtonClick.emit();
   }
 
-  handleSearchButtonClick() {
-    // this.searchButtonClick.emit();
-  }
-
   handleFilterButtonClick() {
     this.filterButtonClick.emit();
   }
 
-  handleClearButtonClick() {
-    this.clearButtonClick.emit();
-  }
-
-  handleFilterClick(event) {
-    this.filterClick.emit(event);
+  handleSearchButtonClick() {
+    if(this.inputValue !== '') {
+      this.query = this.inputValue;
+      this.searchButtonClick.emit(this.inputValue);
+    }
   }
 }

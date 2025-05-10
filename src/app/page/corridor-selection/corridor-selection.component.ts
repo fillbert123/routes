@@ -7,10 +7,12 @@ import corridorData from '../../../assets/data/corridor.json';
   styleUrl: './corridor-selection.component.scss'
 })
 export class CorridorSelectionComponent {
-  @Input() selectedLine: string;
-  selectedLineType: string;
-  selectedLineGroup: string;
   groupedLine: any;
+  selectedLineGroup: string;
+  selectedLineType: string;
+
+  @Input() selectedLine: string;
+
   @Output() itemClick = new EventEmitter<any>();
 
   ngOnChanges(changes: SimpleChanges) {

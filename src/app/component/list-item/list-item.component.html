@@ -1,42 +1,89 @@
-<div *ngIf="type === 'corridor'" (click)="handleItemClick(item.corridorId)" class="list-item">
-  <app-icon type="corridor-large" [color]="item.corridorColor" [icon]="item.corridorIcon"/>
+<div 
+  *ngIf="type === 'corridor'" 
+  class="list-item"
+  (click)="handleItemClick(item.corridorId)" 
+>
+  <app-icon 
+    type="corridor-large" 
+    [color]="item.corridorColor" 
+    [icon]="item.corridorIcon"
+  />
   <div class="list-item__info">
     <p class="list-item__info__name list-corridor-name">{{item.corridorName}}</p>
     <div class="list-item__info__track">
-      <p class="list-item__info__track__terminus list-corridor-direction">{{getStopName(item.corridorLowerBound, true)}} - {{getStopName(item.corridorUpperBound, true)}}</p>
-      <p *ngIf="item?.corridorVia" class="list-item__info__track__via list-corridor-via">Via {{item.corridorVia}}</p>
+      <p class="list-item__info__track__terminus list-corridor-direction">
+        {{getStopName(item.corridorLowerBound, true)}} - {{getStopName(item.corridorUpperBound, true)}}
+      </p>
+      <p *ngIf="item?.corridorVia" class="list-item__info__track__via list-corridor-via">
+        Via {{item.corridorVia}}
+      </p>
     </div>
   </div>
 </div>
 
-<div *ngIf="type === 'stop'" (click)="handleItemClick(item.stopId)" class="list-item-search-stop">
+<div 
+  *ngIf="type === 'stop'" 
+  class="list-item-search-stop"
+  (click)="handleItemClick(item.stopId)" 
+>
   <div class="list-item-search-stop__list">
     <app-chip type="type" [field]="item.stopType"/>
-    <p class="list-item__name list-stop-name">{{getSearchStopName(item.stopName)}}</p>
+    <p class="list-item__name list-stop-name">
+      {{getSearchStopName(item.stopName)}}
+    </p>
   </div>
   <div class="list-item__icons">
     <div *ngFor="let transit of transitDetailList">
-      <app-icon type="corridor-small" [color]="transit.corridorColor" [icon]="transit.corridorIcon"/>
+      <app-icon 
+        type="corridor-small" 
+        [color]="transit.corridorColor" 
+        [icon]="transit.corridorIcon"
+      />
     </div>
   </div>
 </div>
 
-<div *ngIf="type === 'track'" (click)="handleItemClick(item.stopName)" class="list-item">
+<div 
+  *ngIf="type === 'track'" 
+  class="list-item"
+  (click)="handleItemClick(item.stopName)" 
+>
   <div class="list-item__stop">
-    <div class="list-item__stop__point" [ngStyle]="{ 'background-color': getCorridorColor(corridorDetail.corridorColor) }"></div>
-    <div *ngIf="isStopFirst === false" class="list-item__stop__line-top" [ngStyle]="{ 'background-color': getCorridorColor(corridorDetail.corridorColor) }"></div>
-    <div *ngIf="isStopLast === false" class="list-item__stop__line-bottom" [ngStyle]="{ 'background-color': getCorridorColor(corridorDetail.corridorColor) }"></div>
+    <div 
+      class="list-item__stop__point" 
+      [ngStyle]="{ 'background-color': getCorridorColor(corridorDetail.corridorColor) }"
+    ></div>
+    <div 
+      *ngIf="isStopFirst === false" 
+      class="list-item__stop__line-top" 
+      [ngStyle]="{ 'background-color': getCorridorColor(corridorDetail.corridorColor) }"
+    ></div>
+    <div 
+      *ngIf="isStopLast === false" 
+      class="list-item__stop__line-bottom" 
+      [ngStyle]="{ 'background-color': getCorridorColor(corridorDetail.corridorColor) }"
+    ></div>
   </div>
   <div class="list-item__detail">
     <div class="list-item__detail__info">
       <div *ngIf="item.stopCode">
-        <app-chip type="code" [color]="corridorDetail.corridorColor" [field]="item.stopCode"/>
+        <app-chip 
+          type="code"
+          [color]="corridorDetail.corridorColor"
+          [field]="item.stopCode"
+        />
       </div>
-      <p class="list-item__detail__info__name list-stop-name">{{getStopName(item.stopName)}}</p>
+      <p class="list-item__detail__info__name list-stop-name">
+        {{getStopName(item.stopName)}}
+      </p>
     </div>
     <div class="list-item__detail__transit">
       <div *ngFor="let transit of transitDetailList">
-        <app-icon type="corridor-small" [color]="transit.corridorColor" [icon]="transit.corridorIcon"/>
+        <app-icon
+          type="corridor-small"
+          [color]="transit.corridorColor"
+          [icon]="transit.corridorIcon"
+        />
       </div>
     </div>
   </div>

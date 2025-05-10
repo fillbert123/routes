@@ -8,11 +8,13 @@ import stopData from '../../../assets/data/stop.json'
   styleUrl: './search-result.component.scss'
 })
 export class SearchResultComponent {
-  @Input() query: string = '';
-  @Output() itemClick = new EventEmitter<any>();
   corridorSearchResult: any = [];
   stopSearchResult: any = [];
+
+  @Input() query: string = '';
   @Input() selectedFilter: any;
+
+  @Output() itemClick = new EventEmitter<any>();
 
   ngOnChanges(changes: SimpleChanges) {
     this.corridorSearchResult = this.searchCorridorByQuery(this.query);
@@ -52,9 +54,5 @@ export class SearchResultComponent {
 
   handleItemClick(item: any) {
     this.itemClick.emit(item);
-  }
-
-  isIncludeFilter(filter) {
-    return this.selectedFilter.includes(filter);
   }
 }

@@ -7,20 +7,17 @@ import { isMobile } from '../../shared/methods';
   styleUrls: ['./side-panel.component.scss', '../animation.component.scss']
 })
 export class SidePanelComponent {
+  currentPage: any = 'home';
   isCollapsed: boolean = false;
+  isSearching: boolean = false;
+  isShowFilterPane: boolean = false;
   query: string = '';
-  // selectedCorridor: any = null;
-  // selectedStop: any = null;
+  selectedCorridor: string = null;
+  selectedFilter: string = 'All';
+  selectedStop: string = null;
 
-  //redesigned
   @Input() selectedId: string;
   @Input() selectedLine: string;
-  currentPage: any = 'home';
-  selectedCorridor: string = null;
-  selectedStop: string = null;
-  isSearching: boolean = false;
-  selectedFilter: string = 'All';;
-  isShowFilterPane: boolean = false;
 
   ngOnInit() {
     this.selectedFilter = 'All';
@@ -131,17 +128,6 @@ export class SidePanelComponent {
   setQuery(query) {
     this.query = query;
     this.isShowFilterPane = false;
-    if(this.query !== '') {
-      this.isSearching = true;
-    } else {
-      this.selectedFilter = 'All';
-      this.isSearching = false;
-      this.currentPage = 'home';
-    }
-  }
-
-  handleListStopClick(stop: any) {
-    this.selectedStop = stop;
   }
 
   handleBackButtonClick() {
@@ -152,8 +138,15 @@ export class SidePanelComponent {
     this.isShowFilterPane = false;
   }
 
-  handleSearchButtonClick() {
+  handleSearchButtonClick(query) {
     this.currentPage = 'home';
+    this.query = query;
+    this.isShowFilterPane = false;
+    if(this.query !== '') {
+      this.isSearching = true;
+    } else {
+      this.isSearching = false
+    }
   }
 
   handleFilterClick(event) {

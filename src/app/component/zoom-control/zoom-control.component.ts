@@ -6,11 +6,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './zoom-control.component.scss'
 })
 export class ZoomControlComponent {
-  @Output() zoomChange = new EventEmitter<any>();
   maxZoomLevel: number = 5;
   minZoomLevel: number = 1;
-  zoomLevel: number = 1;
   zoomIncremental: number = 0.5;
+  zoomLevel: number = 1;
+
+  @Output() zoomChange = new EventEmitter<any>();
 
   zoomIn() {
     if(this.zoomLevel <= this.maxZoomLevel - this.zoomIncremental) {

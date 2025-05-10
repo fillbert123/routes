@@ -1,23 +1,51 @@
 <div class="track-overview">
   <div class="track-overview__info-set">
-    <div class="track-overview__info-set__info" *ngFor="let info of data.trackInformationData">
-      <div class="track-overview__info-set__info__empty" *ngIf="info === 'empty'"></div>
-      <div class="track-overview__info-set__info__nonempty" *ngIf="info === 'backward'">
-        <img src="./assets/icons/arrow.backward.svg" alt="">
+    <div
+      *ngFor="let info of data.trackInformationData"
+      class="track-overview__info-set__info" 
+    >
+      <div 
+        *ngIf="info === 'empty'"
+        class="track-overview__info-set__info__empty" 
+      ></div>
+      <div 
+        *ngIf="info === 'backward'"
+        class="track-overview__info-set__info__nonempty" 
+      >
+        <img src="./assets/icons/arrow.backward.svg">
       </div>
-      <div class="track-overview__info-set__info__nonempty" *ngIf="info === 'forward'">
-        <img src="./assets/icons/arrow.forward.svg" alt="">
+      <div 
+        *ngIf="info === 'forward'"
+        class="track-overview__info-set__info__nonempty"
+      >
+        <img src="./assets/icons/arrow.forward.svg">
       </div>
     </div>
   </div>
   <div class="track-overview__stop-set">
-    <div *ngFor="let stop of data.stopData" class="track-overview__stop-set__stop" (click)="handleStopClick(stop.name)">
-      <div class="track-overview__stop-set__stop__icon" [ngStyle]="{ 'background-color': getTrackColor(stop.color) }"></div>
-      <div *ngIf="stop.name === data.currentStop" class="track-overview__stop-set__stop__icon-ripple"></div>
-      <p class="track-overview__stop-set__stop__name route-preview-terminus">{{getStopName(stop.name)}}</p>
+    <div 
+      *ngFor="let stop of data.stopData" 
+      class="track-overview__stop-set__stop"
+      (click)="handleStopClick(stop.name)"
+    >
+      <div
+        class="track-overview__stop-set__stop__icon"
+        [ngStyle]="{ 'background-color': getTrackColor(stop.color) }"
+      ></div>
+      <div
+        *ngIf="stop.name === data.currentStop"
+        class="track-overview__stop-set__stop__icon-ripple"
+      ></div>
+      <p class="track-overview__stop-set__stop__name route-preview-terminus">
+        {{getStopName(stop.name)}}
+      </p>
     </div>
   </div>
   <div class="track-overview__track-set">
-    <div *ngFor="let stop of data.trackStyleColorData" class="track-overview__track-set__track" [ngStyle]="{ 'width': getTrackLength(), 'border-color': getTrackColor(stop.color), 'border-style': getTrackStyle(stop.style) }"></div>
+    <div 
+      *ngFor="let stop of data.trackStyleColorData"
+      class="track-overview__track-set__track"
+      [ngStyle]="{ 'width': getTrackLength(), 'border-color': getTrackColor(stop.color), 'border-style': getTrackStyle(stop.style) }"
+    ></div>
   </div>
 </div>

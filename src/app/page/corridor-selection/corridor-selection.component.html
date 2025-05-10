@@ -1,1 +1,7 @@
-<app-list (itemClick)="handleItemClick($event)" class="side-panel__content__lists__list" [item]="groupedLine" listTitle="corridor" type="corridor"/>
+<app-list 
+  class="side-panel__content__lists__list"
+  listTitle="corridor" 
+  type="corridor" 
+  [item]="groupedLine" 
+  (itemClick)="handleItemClick($event)" 
+/>

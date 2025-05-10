@@ -8,12 +8,14 @@ import stopDirectionData from '../../../assets/data/stopDirection.json';
   styleUrl: './route-preview.component.scss'
 })
 export class RoutePreviewComponent {
-  @Input() interchange: any;
-  @Input() stop: any;
-  routeNextData: any;
-  routePreviewData: any;
   extraRouteNextData: any;
   extraRoutePreviewData: any;
+  routeNextData: any;
+  routePreviewData: any;
+  
+  @Input() interchange: any;
+  @Input() stop: any;
+
   @Output() stopClick = new EventEmitter<any>();
 
   ngOnChanges(changes: SimpleChanges) {

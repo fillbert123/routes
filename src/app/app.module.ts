@@ -26,7 +26,6 @@ import { StopDetailComponent } from './page/stop-detail/stop-detail.component';
 import { RoutePreviewComponent } from './component/route-preview/route-preview.component';
 import { LineOverviewComponent } from './component/line-overview/line-overview.component';
 import { TrackOverviewComponent } from './component/track-overview/track-overview.component';
-import { ChipSelectionComponent } from './component/chip-selection/chip-selection.component';
 import { BannerComponent } from './component/banner/banner.component';
 import { CorridorSelectionComponent } from './page/corridor-selection/corridor-selection.component';
 import { PopUpComponent } from './component/pop-up/pop-up.component';
@@ -53,7 +52,6 @@ import { ClickOutsideDirective } from './shared/directives/click-outside.directi
     RoutePreviewComponent,
     LineOverviewComponent,
     TrackOverviewComponent,
-    ChipSelectionComponent,
     BannerComponent,
     CorridorSelectionComponent,
     PopUpComponent,

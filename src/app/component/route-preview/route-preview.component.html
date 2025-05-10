@@ -1,19 +1,49 @@
 <div class="route-preview">
   <div class="route-preview__header">
-    <h3 class="route-preview__title route-preview-title">{{interchange.corridorName}}: {{getStopName(interchange.corridorLowerBound)}} - {{getStopName(interchange.corridorUpperBound)}}</h3>
+    <h3 class="route-preview__title route-preview-title">
+      {{interchange.corridorName}}: {{getStopName(interchange.corridorLowerBound)}} - {{getStopName(interchange.corridorUpperBound)}}
+    </h3>
   </div>
   <div class="route-preview__content">
-    <div *ngIf="routeNextData.stopNextUp" class="route-preview__content__upper">
-      <app-line-overview [data]="routePreviewData" bound="up" (stopClick)="handleStopClick($event)"/>
+    <div
+      *ngIf="routeNextData.stopNextUp"
+      class="route-preview__content__upper"
+    >
+      <app-line-overview
+        bound="up"
+        [data]="routePreviewData"
+        (stopClick)="handleStopClick($event)"
+      />
     </div>
-    <div *ngIf="routeNextData.stopNextLow" class="route-preview__content__lower">
-      <app-line-overview [data]="routePreviewData" bound="low" (stopClick)="handleStopClick($event)"/>
+    <div
+      *ngIf="routeNextData.stopNextLow"
+      class="route-preview__content__lower"
+    >
+      <app-line-overview
+        bound="low"
+        [data]="routePreviewData"
+        (stopClick)="handleStopClick($event)"
+      />
     </div>
-    <div *ngIf="(stop === 'STP300') && extraRouteNextData.stopNextUp" class="route-preview__content__mid">
-      <app-line-overview [data]="extraRoutePreviewData" bound="up" (stopClick)="handleStopClick($event)"/>
+    <div
+      *ngIf="(stop === 'STP300') && extraRouteNextData.stopNextUp"
+      class="route-preview__content__mid"
+    >
+      <app-line-overview
+        bound="up"
+        [data]="extraRoutePreviewData"
+        (stopClick)="handleStopClick($event)"
+      />
     </div>
-    <div *ngIf="(stop === 'STP300') && extraRouteNextData.stopNextLow" class="route-preview__content__lower">
-      <app-line-overview [data]="extraRoutePreviewData" bound="low" (stopClick)="handleStopClick($event)"/>
+    <div
+      *ngIf="(stop === 'STP300') && extraRouteNextData.stopNextLow"
+      class="route-preview__content__lower"
+    >
+      <app-line-overview
+        bound="low"
+        [data]="extraRoutePreviewData"
+        (stopClick)="handleStopClick($event)"
+      />
     </div>
   </div>
 </div>

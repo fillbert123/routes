@@ -7,14 +7,11 @@ import corridorData from '../../../assets/data/corridor.json'
   styleUrl: './corridor-detail.component.scss'
 })
 export class CorridorDetailComponent {
-  @Output() selectedStop = new EventEmitter<any>();
-  // direction: string;
-  track: any;
-
-  //redesigned
-  @Input() corridor: string;
   corridorDetail: any;
   direction: string;
+
+  @Input() corridor: string;
+
   @Output() itemClick = new EventEmitter<any>();
 
   ngOnInit() {
@@ -29,14 +26,6 @@ export class CorridorDetailComponent {
 
   handleDirectionClick(direction) {
     this.direction = direction;
-  }
-
-  getCorridorColor(color: string) {
-    return `var(--${color})`
-  }
-
-  handleListStopClick(stop: string) {
-    this.selectedStop.emit(stop);
   }
 
   handleItemClick(id) {

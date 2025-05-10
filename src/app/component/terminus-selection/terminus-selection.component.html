@@ -1,20 +1,21 @@
 <div class="selection">
   <button 
-    (click)="handleDirectionClick('lower')"
     class="selection__lower"
+    (click)="handleDirectionClick('lower')"
   >
     <p class="selection__lower__descriptive terminus-descriptive">Bound for</p>
     <p class="selection__lower__destination terminus-bound">{{getStopName(terminusLower, true)}}</p>
   </button>
   <button 
-    (click)="handleDirectionClick('upper')"
     class="selection__upper"
+    (click)="handleDirectionClick('upper')"
   >
     <p class="selection__upper__descriptive terminus-descriptive">Bound for</p>
     <p class="selection__upper__destination terminus-bound">{{getStopName(terminusUpper, true)}}</p>
   </button>
   <div 
+    class="selection__background"
     [ngStyle]="{ 'width': buttonWidth + 'px', 'transform': 'translateX(' + ((direction == 'upper') ? (buttonWidth + 4) : 0) + 'px)' }"
-    class="selection__background">
+  >
   </div>
 </div>

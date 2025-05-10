@@ -6,11 +6,33 @@
     <div class="banner__connectivity__text">
       <div class="banner__connectivity__text__first banner-label">This stop is connected to:</div>
       <div *ngIf="stopConnectionDetail.length === 1">
-        <span class="banner__connectivity__text__next banner-label">{{getConnectionTypeName(stopConnectionDetail[0].stopType)}} <app-chip type="connection" [field]="stopConnectionDetail[0].stopName" [connection]="stopConnectionDetail[0].stopInterchange" (click)="handleStopClick(connection[0])"/></span>
+        <span class="banner__connectivity__text__next banner-label">
+          {{getConnectionTypeName(stopConnectionDetail[0].stopType)}}
+          <app-chip 
+            type="connection"
+            [field]="stopConnectionDetail[0].stopName" 
+            [connection]="stopConnectionDetail[0].stopInterchange" 
+            (click)="handleStopClick(connection[0])"
+          />
+        </span>
       </div>
       <div *ngIf="stopConnectionDetail.length === 2">
-        <span class="banner__connectivity__text__next banner-label">{{getConnectionTypeName(stopConnectionDetail[0].stopType)}} <app-chip type="connection" [field]="stopConnectionDetail[0].stopName" [connection]="stopConnectionDetail[0].stopInterchange" (click)="handleStopClick(connection[0])"/></span>
-        <span class="banner__connectivity__text__next banner-label">and {{getConnectionTypeName(stopConnectionDetail[1].stopType)}} <app-chip type="connection" [field]="stopConnectionDetail[1].stopName" [connection]="stopConnectionDetail[1].stopInterchange" (click)="handleStopClick(connection[1])"/></span>
+        <span class="banner__connectivity__text__next banner-label">
+          {{getConnectionTypeName(stopConnectionDetail[0].stopType)}} 
+          <app-chip type="connection" 
+            [connection]="stopConnectionDetail[0].stopInterchange"
+            [field]="stopConnectionDetail[0].stopName" 
+            (click)="handleStopClick(connection[0])"
+          />
+        </span>
+        <span class="banner__connectivity__text__next banner-label">
+          and {{getConnectionTypeName(stopConnectionDetail[1].stopType)}} 
+          <app-chip type="connection" 
+            [connection]="stopConnectionDetail[1].stopInterchange"
+            [field]="stopConnectionDetail[1].stopName" 
+            (click)="handleStopClick(connection[1])"
+          />
+        </span>
       </div>
     </div>
   </div>

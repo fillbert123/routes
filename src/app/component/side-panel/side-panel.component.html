@@ -2,32 +2,56 @@
   <div class="side-panel">
     <div id="side-panel__content" class="side-panel__content">
       <section class="side-panel__content__header">
-        <app-command-bar [selectedFilter]="selectedFilter" [isSearching]="isSearching" [currentPage]="currentPage" (backButtonClick)="handleBackButtonClick()" (searchButtonClick)="handleSearchButtonClick()" (filterClick)="handleFilterClick($event)" (queryChange)="setQuery($event)" (filterButtonClick)="handleFilterButtonClick()"/>
+        <app-command-bar 
+          [selectedFilter]="selectedFilter" 
+          [isSearching]="isSearching" 
+          [currentPage]="currentPage" 
+          (backButtonClick)="handleBackButtonClick()" 
+          (searchButtonClick)="handleSearchButtonClick($event)" 
+          (filterButtonClick)="handleFilterButtonClick()"
+        />
       </section>
 
       <section *ngIf="isSearching" id="search-result" class="side-panel__content__page__search">
-        <app-search-result [selectedFilter]="selectedFilter" [query]="query" (itemClick)="handleSearchItemClick($event)"/>
+        <app-search-result 
+          [query]="query" 
+          [selectedFilter]="selectedFilter" 
+          (itemClick)="handleSearchItemClick($event)"
+        />
       </section>
 
       <section *ngIf="!isSearching && currentPage === 'home'" id="home-section" class="side-panel__content__page">
-        <app-home (itemClick)="handleItemClick($event)"/>
+        <app-home 
+          (itemClick)="handleItemClick($event)"
+        />
       </section>
 
       <section *ngIf="!isSearching && currentPage === 'corridorDetail'" class="side-panel__content__page">
-        <app-corridor-detail [corridor]="selectedCorridor" (itemClick)="handleItemClick($event)"/>
+        <app-corridor-detail
+          [corridor]="selectedCorridor" 
+          (itemClick)="handleItemClick($event)"
+        />
       </section>
 
       <section *ngIf="!isSearching && currentPage === 'stopDetail'" class="side-panel__content__page">
-        <app-stop-detail [stop]="selectedStop" (stopClick)="handleStopClick($event)"/>
+        <app-stop-detail 
+          [stop]="selectedStop" 
+          (stopClick)="handleStopClick($event)"
+        />
       </section>
 
       <section *ngIf="!isSearching && currentPage === 'corridorSelection'" class="side-panel__content__page">
-        <app-corridor-selection [selectedLine]="selectedLine" (itemClick)="handleItemClick($event)"/>
+        <app-corridor-selection 
+          [selectedLine]="selectedLine" 
+          (itemClick)="handleItemClick($event)"
+        />
       </section>
     </div>
   </div>
+
   <!-- <div class="side-panel__resize" (click)="toggleSidePanelCollapseExpand()">
     <img src="./assets/icons/chevron.compact.left.svg" alt="">
   </div> -->
+  
   <app-pop-up *ngIf="isShowFilterPane" class="side-panel__pop-up" type="filter" [selectedFilter]="selectedFilter" (filterSelect)="handleFilterSelect($event)" (outsideClick)="handleOutsideClick()"/>
 </div>

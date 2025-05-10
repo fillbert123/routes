@@ -7,10 +7,12 @@ import stopData from '../../../assets/data/stop.json'
   styleUrl: './line-overview.component.scss'
 })
 export class LineOverviewComponent {
+  lineOverviewData: any;
+  terminus: string;
+
   @Input() bound: string;
   @Input() data: any;
-  terminus: string;
-  lineOverviewData: any;
+
   @Output() stopClick = new EventEmitter<any>();
 
   ngOnChanges(changes: SimpleChanges) {
@@ -18,14 +20,6 @@ export class LineOverviewComponent {
     this.lineOverviewData = null;
     this.setTerminus();
     this.setLineOverviewData();
-
-    console.log('current', this.data.currentStop);
-  }
-
-  getStopName(code) {
-    return stopData.find((item) => {
-      return item.stopId === code;
-    }).stopName;
   }
 
   setTerminus() {
@@ -34,10 +28,6 @@ export class LineOverviewComponent {
     } else if(this.bound === 'low') {
       this.terminus = this.data.terminusLowerStop;
     }
-  }
-
-  getCorridorColor(color: string) {
-    return `var(--${color})`;
   }
 
   setLineOverviewData() {
@@ -50,23 +40,6 @@ export class LineOverviewComponent {
       "trackStyleColorData": this.getTrackStyleColorData(),
       'trackInformationData': this.getTrackInformationData()
     }
-  }
-
-  getTrackInformationData() {
-    let stopStatus = this.getStopStatus();
-    let tempInformationData = [];
-    if(stopStatus !== 'u-cur-lt' && stopStatus !== 'l-bef-lt') {
-      tempInformationData.push('empty');
-    }
-    if(this.bound === 'low') {
-      tempInformationData.push('backward');
-    } else {
-      tempInformationData.push('forward');
-    }
-    if(stopStatus !== 'l-cur-ut' && stopStatus !== 'u-bef-ut') {
-      tempInformationData.push('empty');
-    }
-    return tempInformationData;
   }
 
   getStopData() {
@@ -84,42 +57,6 @@ export class LineOverviewComponent {
     }
     tempStopData = this.setStopData(tempStopData, this.data.terminusUpperStop, this.data.corridorColor, stopStatus, 'upper-terminus');
     return tempStopData;
-  }
-
-  setStopData(currentData, name, color, stopStatus, stopPosition?) {
-    let data;
-    if(stopPosition && stopPosition === 'lower-terminus' && (stopStatus === 'u-strd' || stopStatus === 'u-aft-lt' || stopStatus === 'u-bef-ut' || stopStatus === 'u-two-bef-ut')) {
-      data = {
-        'name': name,
-        'color': 'grey'
-      }
-    } else if(stopPosition && stopPosition === 'upper-terminus' && (stopStatus === 'l-strd' || stopStatus === 'l-bef-lt' || stopStatus === 'l-aft-ut' || stopStatus === 'l-two-bef-lt')) {
-      data = {
-        'name': name,
-        'color': 'grey'
-      }
-    } else {
-      data = {
-        'name': name,
-        'color': color
-      }
-    }
-    currentData.push(data);
-    return currentData;
-  }
-
-  getTrackStyleColorData() {
-    let trackStyleData = this.getTrackStyleData();
-    let trackColorData = this.getTrackColorData();
-    let trackStyleColorData = [];
-    for(let i = 0; i < trackStyleData.length; i++) {
-      let data = {
-        'style': trackStyleData[i],
-        'color': trackColorData[i]
-      }
-      trackStyleColorData.push(data);
-    }
-    return trackStyleColorData;
   }
 
   getTrackStyleData() {
@@ -169,6 +106,59 @@ export class LineOverviewComponent {
     return tempTrackColor;
   }
 
+  getTrackStyleColorData() {
+    let trackStyleData = this.getTrackStyleData();
+    let trackColorData = this.getTrackColorData();
+    let trackStyleColorData = [];
+    for(let i = 0; i < trackStyleData.length; i++) {
+      let data = {
+        'style': trackStyleData[i],
+        'color': trackColorData[i]
+      }
+      trackStyleColorData.push(data);
+    }
+    return trackStyleColorData;
+  }
+
+  getTrackInformationData() {
+    let stopStatus = this.getStopStatus();
+    let tempInformationData = [];
+    if(stopStatus !== 'u-cur-lt' && stopStatus !== 'l-bef-lt') {
+      tempInformationData.push('empty');
+    }
+    if(this.bound === 'low') {
+      tempInformationData.push('backward');
+    } else {
+      tempInformationData.push('forward');
+    }
+    if(stopStatus !== 'l-cur-ut' && stopStatus !== 'u-bef-ut') {
+      tempInformationData.push('empty');
+    }
+    return tempInformationData;
+  }
+
+  setStopData(currentData, name, color, stopStatus, stopPosition?) {
+    let data;
+    if(stopPosition && stopPosition === 'lower-terminus' && (stopStatus === 'u-strd' || stopStatus === 'u-aft-lt' || stopStatus === 'u-bef-ut' || stopStatus === 'u-two-bef-ut')) {
+      data = {
+        'name': name,
+        'color': 'grey'
+      }
+    } else if(stopPosition && stopPosition === 'upper-terminus' && (stopStatus === 'l-strd' || stopStatus === 'l-bef-lt' || stopStatus === 'l-aft-ut' || stopStatus === 'l-two-bef-lt')) {
+      data = {
+        'name': name,
+        'color': 'grey'
+      }
+    } else {
+      data = {
+        'name': name,
+        'color': color
+      }
+    }
+    currentData.push(data);
+    return currentData;
+  }
+
   getStopStatus() {
     if(this.data.isUpperTerminus && this.data.isNextAfterLowerTerminus) {
       return 'l-cur-ut-aft-lt';
@@ -196,6 +186,12 @@ export class LineOverviewComponent {
       return 'l-strd';
     }
     return null;
+  }
+
+  getStopName(code) {
+    return stopData.find((item) => {
+      return item.stopId === code;
+    }).stopName;
   }
 
   handleStopClick(stop: any) {
