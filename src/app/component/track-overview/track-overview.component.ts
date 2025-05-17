@@ -1,6 +1,7 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, Inject, PLATFORM_ID } from '@angular/core';
 import stopData from '../../../assets/data/stop.json'
 import { isMobile } from '../../shared/methods';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-track-overview',
@@ -11,6 +12,8 @@ export class TrackOverviewComponent {
   @Input() data: any;
   
   @Output() stopClick = new EventEmitter<any>();
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   getStopName(code) {
     return stopData.find((item) => {
@@ -33,7 +36,8 @@ export class TrackOverviewComponent {
   }
 
   getTrackLength() {
-    if(isMobile()) {
+    if(!isPlatformBrowser(this.platformId)) {return 0;}
+    if(isMobile(this.platformId)) {
       return (window.innerWidth - 144) / this.data.trackStyleColorData.length + 'px';
     } else {
       if(this.data.trackStyleColorData.length === 3) {

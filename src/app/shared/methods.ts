@@ -1,6 +1,8 @@
 import { FirebaseService } from '../service/firebase.service';
+import { isPlatformBrowser } from '@angular/common';
 
-export function isMobile() {
+export function isMobile(platformId: Object) {
+  if(!isPlatformBrowser(platformId)) {return false;}
   return window.innerWidth < 480;
 }
 
@@ -20,7 +22,7 @@ export function getDataFromFirebase(collection: string, firebaseService: Firebas
   })
 }
 
-export function getDataFromDatabaseByKey(key: string, value: string, collection: string, firebaseService: FirebaseService) {
+export function getDataFromFirebaseByKey(key: string, value: string, collection: string, firebaseService: FirebaseService) {
   firebaseService.getDataByKey(collection, key, value).then((response) => {
     console.log('response', response);
   })

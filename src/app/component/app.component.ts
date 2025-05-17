@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { isMobile } from '../shared/methods';
 
 @Component({
@@ -10,18 +10,12 @@ import { isMobile } from '../shared/methods';
   ]
 })
 export class AppComponent {
-  title = 'reykjavik';
-  items: any[] = [];
-  busStop: any;
-  corridorList: any[] = [];
-  busStopDetailList: any[] = [];
-  busStopList: any[] = [];
   isMobile: boolean = false;
-
-  //redesigned
-  selectedStopId: string = null;
   selectedLine: string = null;
+  selectedStopId: string = null;
   zoomLevel: number = 1;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   handleClickObject(id) {
     this.selectedStopId = '';
@@ -42,7 +36,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    if(isMobile()) {
+    if(isMobile(this.platformId)) {
       this.setMobileStyle();
       this.isMobile = true;
     }

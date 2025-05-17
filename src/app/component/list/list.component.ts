@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/
 import corridorData from '../../../assets/data/corridor.json';
 import stopDirectionData from '../../../assets/data/stopDirection.json';
 import { FirebaseService } from '../../service/firebase.service';
-import { getDataFromDatabaseByKey } from '../../shared/methods';
+import { getDataFromFirebaseByKey } from '../../shared/methods';
 
 @Component({
   selector: 'app-list',
@@ -47,7 +47,7 @@ export class ListComponent {
         break;
       case 'mrt':
         this.itemList = corridorData.filter((corridor) => corridor.corridorType === 'MRT');
-        // getDataFromDatabaseByKey('corridorType', 'MRT', 'corridor',  this.firebaseService);
+        // getDataFromFirebaseByKey('corridorType', 'MRT', 'corridor',  this.firebaseService);
         break;
       case 'lrt':
         this.itemList = corridorData.filter((corridor) => corridor.corridorType === 'LRT');
