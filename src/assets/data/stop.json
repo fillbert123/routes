@@ -107,7 +107,7 @@
   {"stopId": "STP106", "stopType": "brt", "stopName": "Gelanggang Remaja", "stopInterchange": ["COR010", "COR011", "COR016"]},
   {"stopId": "STP107", "stopType": "brt", "stopName": "Cawang Baru", "stopInterchange": ["COR010", "COR011", "COR016"]},
   {"stopId": "STP108", "stopType": "brt", "stopName": "Cawang", "stopInterchange": ["COR010", "COR011", "COR016", "COR019", "COR020", "COR021", "COR022"], "stopConnected": ["STP251"]},
-  {"stopId": "STP109", "stopType": "brt", "stopName": "Cawang Sentral", "stopInterchange": ["COR010", "COR011", "COR016", "COR019", "COR020", "COR021", "COR022", "COR023"]},
+  {"stopId": "STP109", "stopType": "brt", "stopName": "Cawang Sentral", "stopInterchange": ["COR010", "COR011", "COR016", "COR019", "COR020", "COR021", "COR022", "COR023", "COR055"]},
   {"stopId": "STP110", "stopType": "brt", "stopName": "Cawang Cililitan", "stopInterchange": ["COR010", "COR011", "COR016", "COR020", "COR023"]},
   {"stopId": "STP111", "stopType": "brt", "stopName": "PGC", "stopInterchange": ["COR010", "COR011", "COR020", "COR023"]},
   {"stopId": "STP112", "stopType": "brt", "stopName": "Cililitan", "stopInterchange": ["COR010", "COR011", "COR016", "COR020"]},
@@ -296,6 +296,7 @@
   {"stopId": "STP295", "stopType": "krl", "stopName": "Bojong Gede", "stopInterchange": ["COR039"]},
   {"stopId": "STP296", "stopType": "krl", "stopName": "Cilebut", "stopInterchange": ["COR039"]},
   {"stopId": "STP297", "stopType": "krl", "stopName": "Bogor", "stopInterchange": ["COR039"]},
+  {"stopId": "STP298a", "stopType": "krl", "stopName": "Pondok Rajeg", "stopInterchange": ["COR040"]},
   {"stopId": "STP298", "stopType": "krl", "stopName": "Cibinong", "stopInterchange": ["COR040"]},
   {"stopId": "STP299", "stopType": "krl", "stopName": "Nambo", "stopInterchange": ["COR040"]},
   {"stopId": "STP300", "stopType": "krl", "stopName": "Jatinegara", "stopInterchange": ["COR041"], "stopConnected": ["STP190", "STP102"]},
@@ -366,5 +367,6 @@
   {"stopId": "STP364", "stopType": "tjb", "stopName": "Petamburan", "stopInterchange": ["COR052"]},
   {"stopId": "STP365", "stopType": "tjb", "stopName": "Poris Plawad", "stopInterchange": ["COR052", "COR053"]},
   {"stopId": "STP366", "stopType": "tjb", "stopName": "Juanda", "stopInterchange": ["COR053"]},
-  {"stopId": "STP367", "stopType": "tjb", "stopName": "Alam Sutera", "stopInterchange": ["COR054"]}
+  {"stopId": "STP367", "stopType": "tjb", "stopName": "Alam Sutera", "stopInterchange": ["COR054"]},
+  {"stopId": "STP368", "stopType": "tjb", "stopName": "Vida Bekasi", "stopInterchange": ["COR055"]}
 ]
