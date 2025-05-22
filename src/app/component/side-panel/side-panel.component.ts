@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges, Inject, PLATFORM_ID } from '@angular/core';
 import { isMobile } from '../../shared/methods';
 
 @Component({
@@ -19,9 +19,11 @@ export class SidePanelComponent {
   @Input() selectedId: string;
   @Input() selectedLine: string;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngOnInit() {
     this.selectedFilter = 'All';
-    if(isMobile()) {
+    if(isMobile(this.platformId)) {
       this.setMobileStyle();
     }
   }

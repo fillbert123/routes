@@ -5,6 +5,7 @@
 >
   <span>{{field}}</span>
 </div>
+
 <div 
   *ngIf="type === 'filter'" 
   class="chip-filter-active filter-label" 
@@ -13,12 +14,11 @@
 >
   <span>{{field}}</span>
 </div>
-<div 
-  *ngIf="type === 'type'"
-  class="chip-type"
->
+
+<div *ngIf="type === 'type'" class="chip-type">
   <p class="chip-type-text">{{field.toUpperCase()}}</p>
 </div>
+
 <span *ngIf="type === 'connection'" class="chip-connection">
   <span *ngFor="let corridor of corridorDetail">
     <app-icon 
@@ -32,4 +32,9 @@
     class="chip-connection__icon-right"
     src="./assets/icons/chevron.forward.svg"
   >
+</span>
+
+<span *ngIf="type === 'inactive'" class="chip-inactive">
+  <img src="./assets/icons/xmark.circle.fill.svg" class="chip-inactive__icon">
+  <span class="inactive-label">Not in service</span>
 </span>

@@ -1,9 +1,13 @@
-import { Component, EventEmitter, NgModule, Input, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges, Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-command-bar',
   templateUrl: './command-bar.component.html',
   styleUrls: ['./command-bar.component.scss', '../animation.component.scss']
+})
+@Injectable({
+  providedIn: 'root'
 })
 export class CommandBarComponent {
   inputValue: string = '';
@@ -15,7 +19,9 @@ export class CommandBarComponent {
 
   @Output() backButtonClick = new EventEmitter<any>();
   @Output() filterButtonClick = new EventEmitter<any>();
-  @Output() searchButtonClick = new EventEmitter<any>();nt
+  @Output() searchButtonClick = new EventEmitter<any>();
+  
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit() {
     this.stylizeBackButton();
@@ -27,6 +33,7 @@ export class CommandBarComponent {
   }
 
   stylizeBackButton() {
+    if(!isPlatformBrowser(this.platformId)) {return;}
     if(this.currentPage === 'home' && !this.isSearching) {
       document.getElementById('command-bar__button-back')?.classList.add('command-bar__control__button-disabled');
       document.getElementById('command-bar__button-back')?.classList.remove('command-bar__control__button');
@@ -37,6 +44,7 @@ export class CommandBarComponent {
   }
 
   stylizeSearchButton() {
+    if(!isPlatformBrowser(this.platformId)) {return;}
     if(this.inputValue !== '') {
       document.getElementById('command-bar__button-search')?.classList.add('command-bar__control__button');
       document.getElementById('command-bar__button-search')?.classList.remove('command-bar__control__button-disabled');

@@ -7,10 +7,11 @@
     type="corridor-large" 
     [color]="item.corridorColor" 
     [icon]="item.corridorIcon"
+    [isActive]="item.isCorridorActive"
   />
   <div class="list-item__info">
     <p class="list-item__info__name list-corridor-name">{{item.corridorName}}</p>
-    <div class="list-item__info__track">
+    <div class="list-item__info__track" [ngStyle] = "{ 'color': (item.isCorridorActive) ? 'var(--white)' : 'var(--grey)' }">
       <p class="list-item__info__track__terminus list-corridor-direction">
         {{getStopName(item.corridorLowerBound, true)}} - {{getStopName(item.corridorUpperBound, true)}}
       </p>
@@ -38,6 +39,7 @@
         type="corridor-small" 
         [color]="transit.corridorColor" 
         [icon]="transit.corridorIcon"
+        [isActive]="transit.isCorridorActive"
       />
     </div>
   </div>
@@ -83,6 +85,7 @@
           type="corridor-small"
           [color]="transit.corridorColor"
           [icon]="transit.corridorIcon"
+          [isActive]="transit.isCorridorActive"
         />
       </div>
     </div>

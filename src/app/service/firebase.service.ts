@@ -9,6 +9,34 @@ import { database } from '../firebase-config';
 export class FirebaseService {
   constructor(private firestore: AngularFirestore) { }
 
+  //start of new firebase service block
+
+  async addData(collectionName: string, data: any, id: string) {
+    return this.firestore.collection(collectionName).doc(id).set(data);
+  }
+
+  async getAllData(collectionName: string) {
+    const getAllDataQuery = query(collection(database, collectionName));
+    const querySnapshot = await getDocs(getAllDataQuery);
+    const returnData: any = []
+    querySnapshot.forEach((doc) => {
+      returnData.push(doc.data());
+    })
+    return returnData;
+  }
+
+  async getDataByKey(collectionName: string, key: string, value: string) {
+    const getDataByIdQuery = query(collection(database, collectionName), where(key, '==', value));
+    const querySnapshot = await getDocs(getDataByIdQuery);
+    const returnData: any = []
+    querySnapshot.forEach((doc) => {
+      returnData.push(doc.data());
+    })
+    return returnData;
+  }
+
+  //end of new firebase service block
+
   async getCorridorBusStopList(corridorId: string): Promise<any[]> {
     const getCorridorBusStopListQuery = query(collection(database, 'busStopDetail'), where('corridorId', '==', corridorId));
     const querySnapshot = await getDocs(getCorridorBusStopListQuery);
@@ -29,7 +57,7 @@ export class FirebaseService {
     return returnData;
   }
   
-  async getCorridorList(): Promise<any[]> {
+  async getCorridorList() {
     const getCorridorListQuery = query(collection(database, 'corridor'));
     const querySnapshot = await getDocs(getCorridorListQuery);
     const returnData: any = []

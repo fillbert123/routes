@@ -12,6 +12,7 @@ export class LineOverviewComponent {
 
   @Input() bound: string;
   @Input() data: any;
+  @Input() isCorridorActive: boolean;
 
   @Output() stopClick = new EventEmitter<any>();
 

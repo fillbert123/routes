@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, Inject, PLATFORM_ID } from '@angular/core';
 import stopData from '../../../assets/data/stop.json'
 import { isMobile } from '../../shared/methods';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-terminus-selection',
@@ -16,6 +17,8 @@ export class TerminusSelectionComponent {
 
   @Output() directionClick = new EventEmitter<any>();
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngOnInit() {
     this.direction = 'upper';
     this.buttonWidth = this.getButtonWidth();
@@ -27,7 +30,8 @@ export class TerminusSelectionComponent {
   }
 
   getButtonWidth() {
-    if(isMobile()) {
+    if(!isPlatformBrowser(this.platformId)) {return 0;}
+    if(isMobile(this.platformId)) {
       let windowWidth = window.innerWidth;
       return (windowWidth - 36)/2;
     }
