@@ -12,6 +12,7 @@
       <app-line-overview
         bound="up"
         [data]="routePreviewData"
+        [isCorridorActive]="interchange.isCorridorActive"
         (stopClick)="handleStopClick($event)"
       />
     </div>
@@ -22,6 +23,7 @@
       <app-line-overview
         bound="low"
         [data]="routePreviewData"
+        [isCorridorActive]="interchange.isCorridorActive"
         (stopClick)="handleStopClick($event)"
       />
     </div>
@@ -32,6 +34,7 @@
       <app-line-overview
         bound="up"
         [data]="extraRoutePreviewData"
+        [isCorridorActive]="interchange.isCorridorActive"
         (stopClick)="handleStopClick($event)"
       />
     </div>
@@ -42,6 +45,7 @@
       <app-line-overview
         bound="low"
         [data]="extraRoutePreviewData"
+        [isCorridorActive]="interchange.isCorridorActive"
         (stopClick)="handleStopClick($event)"
       />
     </div>

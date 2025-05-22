@@ -1,7 +1,17 @@
 <div class="corridor-detail">
   <div class="corridor-detail__header">
-    <app-icon type="corridor-large" [color]="corridorDetail.corridorColor" [icon]="corridorDetail.corridorIcon"/>
-    <div class="corridor-detail__header__title section-title">{{corridorDetail.corridorName}}</div>
+    <div class="corridor-detail__header__leading">
+      <app-icon
+        type="corridor-large"
+        [color]="corridorDetail.corridorColor"
+        [icon]="corridorDetail.corridorIcon"
+        [isActive]="corridorDetail.isCorridorActive"
+      />
+      <div class="corridor-detail__header__leading__title section-title">{{corridorDetail.corridorName}}</div>
+    </div>
+    <div class="corridor-detail__header__trailing">
+      <app-chip *ngIf="!corridorDetail.isCorridorActive" type="inactive"/>
+    </div>
   </div>
   <app-terminus-selection
     [terminusLower]="corridorDetail.corridorLowerBound"
