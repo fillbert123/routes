@@ -7,7 +7,7 @@ import heapq
 
 app = FastAPI(
   title="Route API",
-  version="1.1.0",
+  version="1.1.1",
   description="Route API (Reykjavik)"
 )
 
@@ -998,17 +998,17 @@ def dijkstra(
   start_nodes: list[int],
   end_nodes: list[int],
 ):
-  distance = {}
+  duration = {}
   previous = {}
   previous_edge = {}
   pq = []
   end_set = set(end_nodes)
   for start in start_nodes:
-    distance[start] = 0
+    duration[start] = 0
     heapq.heappush(pq, (0, start))
   while pq:
-    current_distance, current = heapq.heappop(pq)
-    if current_distance > distance[current]:
+    current_duration, current = heapq.heappop(pq)
+    if current_duration > duration[current]:
       continue
     if current in end_set:
       route = []
@@ -1017,25 +1017,25 @@ def dijkstra(
         route.append({
           "lineStationId": node,
           "edgeId": previous_edge.get(node),
-          "cumulativeDistance": distance[node],
+          "cumulativeDuration": duration[node],
         })
         if node not in previous:
           break
         node = previous[node]
       route.reverse()
       return {
-        "distance": current_distance,
+        "duration": current_duration,
         "totalStation": len(route),
         "path": route
       }
     for neighbor, edge_id, weight in graph.get(current, []):
-      new_distance = current_distance + weight
-      if new_distance < distance.get(neighbor, INF):
-        distance[neighbor] = new_distance
+      new_duration = current_duration + weight
+      if new_duration < duration.get(neighbor, INF):
+        duration[neighbor] = new_duration
         previous[neighbor] = current
         previous_edge[neighbor] = edge_id
         heapq.heappush(
           pq,
-          (new_distance, neighbor),
+          (new_duration, neighbor),
         )
   return None
