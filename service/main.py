@@ -7,7 +7,7 @@ import heapq
 
 app = FastAPI(
   title="Route API",
-  version="1.1.2",
+  version="1.1.3",
   description="Route API (Reykjavik)"
 )
 
@@ -977,6 +977,7 @@ def get_direction(stationStartId: int, stationEndId: int, db=Depends(get_db)):
     SELECT 
       ls.id AS line_station_id, 
       ls.code AS line_station_code,
+      ls.is_active AS line_station_is_active,
       s.id AS station_id,
       s.name_en AS station_name,
       l.name AS line_name,
@@ -1011,9 +1012,10 @@ def get_direction(stationStartId: int, stationEndId: int, db=Depends(get_db)):
       else:
         row['nextLineColor'] = row['line_color']
     row['lineStationId'] = row.pop('line_station_id')
-    row['lineStationCode'] = row.pop('line_station_code')
+    row['code'] = row.pop('line_station_code')
+    row['isActive'] = row.pop('line_station_is_active')
     row['stationId'] = row.pop('station_id')
-    row['stationName'] = row.pop('station_name')
+    row['name'] = row.pop('station_name')
     row['lineName'] = row.pop('line_name')
     row['routeGroupCode'] = row.pop('route_group_code')
     row['routeGroupName'] = row.pop('route_group_name')
