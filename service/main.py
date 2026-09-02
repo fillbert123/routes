@@ -7,7 +7,7 @@ import heapq
 
 app = FastAPI(
   title="Route API",
-  version="1.1.3",
+  version="1.1.5",
   description="Route API (Reykjavik)"
 )
 
@@ -542,6 +542,9 @@ def get_station(stationId: int, db=Depends(get_db)):
       SELECT DISTINCT ON (s2.id)
         s.id AS station_id,
         s.name_en AS station_name,
+        s.name_zh station_name_zh,
+        s.name_ta station_name_ta,
+        s.abbreviation AS station_abbr,
         s.is_active AS station_is_active,
         l.id AS line_id,
         l.name AS line_name,
@@ -581,6 +584,9 @@ def get_station(stationId: int, db=Depends(get_db)):
       SELECT DISTINCT ON (rs.route_id)
         s.id AS station_id,
         s.name_en AS station_name,
+        s.name_zh station_name_zh,
+        s.name_ta station_name_ta,
+        s.abbreviation AS station_abbr,
         s.is_active AS station_is_active,
         l.id AS line_id,
         l.name AS line_name,
@@ -624,6 +630,11 @@ def get_station(stationId: int, db=Depends(get_db)):
       grouped[station_key] = {
         "id": row["station_id"],
         "name": row["station_name"],
+        "nameAlt": {
+          "zh": row["station_name_zh"],
+          "ta": row["station_name_ta"]
+        },
+        "abbr": row["station_abbr"],
         "isActive": row["station_is_active"],
         "line": {}
       }
@@ -953,8 +964,8 @@ def get_direction(stationStartId: int, stationEndId: int, db=Depends(get_db)):
 
   sqlGetDirection = text("""
     SELECT
-      e.*
-    FROM edge e
+      c.*
+    FROM connection c
   """)
   resultGetDirection = [row._asdict() for row in db.execute(sqlGetDirection)]
 
@@ -999,6 +1010,8 @@ def get_direction(stationStartId: int, stationEndId: int, db=Depends(get_db)):
 
   totalStation = routingResult["totalStation"]
   for i, row in enumerate(routingResult["path"]):
+    print(row)
+  for i, row in enumerate(routingResult["path"]):
     if i != 0:
       prevRow = routingResult["path"][i-1]
       if row['station_id'] == prevRow['stationId']:
@@ -1022,7 +1035,7 @@ def get_direction(stationStartId: int, stationEndId: int, db=Depends(get_db)):
     row.pop('line_color')
 
   return routingResult
-
+  
 INF = float("inf")
 def dijkstra(
   graph: dict[int, list[tuple[int, int]]],
@@ -1054,6 +1067,7 @@ def dijkstra(
           break
         node = previous[node]
       route.reverse()
+      route = duplicate_station_on_pattern(route)
       return {
         "duration": current_duration,
         "totalStation": len(route),
@@ -1070,3 +1084,32 @@ def dijkstra(
           (new_duration, neighbor),
         )
   return None
+
+def duplicate_station_on_pattern(path):
+  result = []
+  duplicated = False
+  for i, item in enumerate(path):
+    new_item = item.copy()
+    if duplicated:
+      new_item["cumulativeDuration"] += 5
+    result.append(new_item)
+    is_forward_pattern = (
+      i > 0
+      and i < len(path) - 1
+      and path[i - 1]["lineStationId"] == 116
+      and item["lineStationId"] == 86
+      and path[i + 1]["lineStationId"] == 85
+    )
+    is_reverse_pattern = (
+      i > 0
+      and i < len(path) - 1
+      and path[i - 1]["lineStationId"] == 85
+      and item["lineStationId"] == 86
+      and path[i + 1]["lineStationId"] == 116
+    )
+    if is_forward_pattern or is_reverse_pattern:
+      duplicated_item = item.copy()
+      duplicated_item["cumulativeDuration"] += 5
+      result.append(duplicated_item)
+      duplicated = True
+  return result
